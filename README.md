@@ -29,3 +29,7 @@ Shares the product’s parchment background (`#F6F1E7`), cream surfaces (`#FFFDF
 ## Product visuals
 
 The citation-panel screenshot is embedded as a PNG data URI, unmodified, from the owner-provided `Health SaaS/screens/citation-panel.png`. Its accompanying screen-tour README identifies it as a scripted demo, captured 2026-10-05, with real library passages; that provenance is disclosed on the page. The four-tier graphic uses accessible HTML/CSS and reproduces the prototype’s current classification from `web/tiers.js`; it is labeled as prototype methodology awaiting clinical review. No private question history or logs are published.
+
+## Illustrative comparison
+
+The hero compares a claim without context with a sourced explanation format. Neither panel is represented as a real competitor response, live output, or accuracy benchmark. The example references the 2025 magnesium bisglycinate trial (PMID 40918053), with short follow-up and self-reported outcomes made explicit. The lower scenario panels illustrate library gaps and clinician routing without giving personal medical advice.

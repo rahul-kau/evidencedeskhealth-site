@@ -119,13 +119,13 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     a:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
     .skip { position: absolute; left: 20px; top: -100px; padding: 8px 14px; background: var(--surface); z-index: 10; }
     .skip:focus { top: 12px; }
-    .wrap { max-width: 1120px; padding: 0 36px; margin: auto; }
+    .wrap { max-width: 1240px; padding: 0 36px; margin: auto; }
     header { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 28px 0; border-bottom: 1px solid var(--line); }
     .brand { display: flex; align-items: center; gap: 10px; font-family: var(--serif); font-size: 25px; letter-spacing: -.01em; }
     .brand-mark { display: grid; place-items: center; width: 30px; height: 30px; flex: none; background: var(--accent); color: var(--on-accent); border-radius: 7px; font-size: 18px; letter-spacing: 0; }
     .status { font-size: 13px; font-weight: 600; color: var(--accent); display: flex; align-items: center; gap: 8px; }
     .dot { width: 7px; height: 7px; background: currentColor; border-radius: 50%; flex-shrink: 0; }
-    .hero { padding: 68px 0 60px; display: grid; grid-template-columns: 1.35fr 1fr; align-items: center; gap: 56px; }
+    .hero { padding: 52px 0 48px; display: grid; grid-template-columns: .8fr 1.2fr; align-items: center; gap: 36px; }
     .hero > div, .hero aside { min-width: 0; }
     .hero h1 { font-size: clamp(42px, 5vw, 62px); }
     .hero .intro { font-size: 18px; }
@@ -217,6 +217,36 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
       .tier-band span { font-size: 11px; }
       .tier-band:nth-child(1) { padding-top: 18px; }
     }
+
+    .comparison { min-width: 0; }
+    .comparison > .eyebrow { margin-bottom: 10px; }
+    .comparison h2 { font-size: 25px; line-height: 1.25; margin-bottom: 20px; }
+    .comparison-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 12px; align-items: stretch; }
+    .compare-panel { border: 1px solid var(--line); border-radius: 12px; padding: 18px; min-width: 0; }
+    .claim-panel { background: var(--surface-2); }
+    .evidence-panel { background: var(--surface); border-top: 3px solid var(--accent); padding-top: 16px; }
+    .compare-label { font-size: 12px; font-weight: 600; min-height: 30px; display: flex; align-items: center; gap: 7px; margin-bottom: 16px; }
+    .small-mark { width: 21px; height: 21px; display: inline-grid; place-items: center; background: var(--accent); color: var(--on-accent); font: 400 14px/1 var(--serif); border-radius: 5px; flex: none; }
+    .claim-text { font: 400 24px/1.4 var(--serif); margin-bottom: 24px; }
+    .missing-context { display: grid; gap: 9px; font-size: 12px; color: var(--muted); }
+    .missing-context span { border-top: 1px dashed #C9BEAA; padding-top: 9px; }
+    .compare-foot { color: var(--muted); font-size: 12px; margin: 20px 0 0; }
+    .evidence-text { font-size: 14px; line-height: 1.7; }
+    .visible-limit { border-left: 2px solid #9A6B12; padding-left: 12px; margin: 18px 0; }
+    .visible-limit strong { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+    .visible-limit p { font-size: 12px; line-height: 1.6; margin: 5px 0 0; }
+    .study-link { display: flex; gap: 8px; align-items: flex-start; font-size: 11px; line-height: 1.5; border-top: 1px solid var(--line); padding-top: 12px; text-decoration: none; }
+    .study-link svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.5; flex: none; }
+    .study-link small { display: block; font-size: 10px; color: var(--muted); margin-top: 4px; }
+    .comparison-caption { color: var(--muted); font-size: 11px; line-height: 1.6; margin: 12px 0 0; }
+    .scenario-list { display: grid; gap: 16px; }
+    .scenario { border: 1px solid var(--line); border-radius: 12px; padding: 20px; background: var(--surface); }
+    .scenario small { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; }
+    .scenario-question { background: var(--surface-2); padding: 10px 14px; border-radius: 12px 12px 2px 12px; margin: 12px 0 18px 22px; font-size: 14px; }
+    .scenario h3 { font: 400 22px/1.3 var(--serif); margin: 0 0 8px; }
+    .scenario > p:last-child { font-size: 13px; color: var(--muted); margin: 0; }
+    @media (min-width: 701px) and (max-width: 1000px) { .hero { grid-template-columns: 1fr; gap: 32px; } .hero > div { max-width: 650px; } .comparison { max-width: 720px; } }
+    @media (max-width: 700px) { .hero h1 { font-size: 36px; } .hero { padding-top: 28px; } .hero .intro { font-size: 16px; } .comparison-grid { grid-template-columns: 1fr; } .claim-panel { padding: 16px; } .claim-text { font-size: 22px; margin-bottom: 14px; } .missing-context { gap: 5px; } .compare-label { min-height: 0; margin-bottom: 12px; } .comparison h2 { font-size: 25px; } .compare-foot { margin-top: 12px; } }
     @media (max-width: 380px) { header { flex-direction: column; align-items: flex-start; } .brand, .status { white-space: nowrap; } }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   </style>
@@ -233,21 +263,31 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <div>
         <p class="eyebrow">India-first health Q&amp;A</p>
         <h1 id="title">Health questions.<br>Evidence first.</h1>
-        <p class="intro">Evidence Desk is a health Q&amp;A product for people in India. It explains everyday health questions using a curated scientific-evidence library, with citations you can check and uncertainty you can see.</p>
+        <p class="intro">India-first health Q&amp;A from a curated scientific-evidence library. See what supports an answer, where the evidence stops, and when a question belongs with a clinician.</p>
         <div class="actions">
           <a class="button" href="mailto:rahul@evidencedeskhealth.com">Contact the founder</a>
           <a href="#product-preview">See the product preview</a>
         </div>
         <p class="note">Private MVP · Invited testing · Clinical review planned</p>
         </div>
-        <aside class="reading-note" aria-labelledby="reading-title">
-          <p class="eyebrow">The product approach</p>
-          <h2 id="reading-title">An answer you can examine.</h2>
-          <ol>
-            <li><div><strong>Start with the question</strong><p>Understand what the person wants to know and whether it needs clinical judgment.</p></div></li>
-            <li><div><strong>Explain from the library</strong><p>Use curated scientific evidence and link points to the supporting passages.</p></div></li>
-            <li><div><strong>Make the limits clear</strong><p>Show uncertainty, acknowledge gaps, and direct clinical questions to a qualified clinician.</p></div></li>
-          </ol>
+        <aside class="comparison" aria-labelledby="comparison-title">
+          <p class="eyebrow">The same question. More to inspect.</p>
+          <h2 id="comparison-title">Does magnesium glycinate help sleep?</h2>
+          <div class="comparison-grid">
+            <div class="compare-panel claim-panel">
+              <div class="compare-label">A claim on its own</div>
+              <p class="claim-text">“Magnesium glycinate improves sleep.”</p>
+              <div class="missing-context"><span>Which study?</span><span>How large a benefit?</span><span>What are the limits?</span></div>
+              <p class="compare-foot">The claim leaves these questions unanswered.</p>
+            </div>
+            <div class="compare-panel evidence-panel">
+              <div class="compare-label"><span class="small-mark" aria-hidden="true">E</span>Evidence Desk approach</div>
+              <p class="evidence-text">One four-week trial found a small improvement in self-reported insomnia symptoms with magnesium bisglycinate versus placebo. <a class="source-link" href="https://pubmed.ncbi.nlm.nih.gov/40918053/" target="_blank" rel="noopener" aria-label="Read the magnesium bisglycinate trial on PubMed">1</a></p>
+              <div class="visible-limit"><strong>The limit</strong><p>Short follow-up and self-reported symptoms. This does not establish a benefit for everyone.</p></div>
+              <a class="study-link" href="https://pubmed.ncbi.nlm.nih.gov/40918053/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 12h7M9 16h7"/></svg><span>Randomised, placebo-controlled trial<small>Read the original study · 2025</small></span></a>
+            </div>
+          </div>
+          <p class="comparison-caption">Illustrative comparison of answer formats. Not a live product response or a test of Google or another AI service. Research preview; not personal medical advice.</p>
         </aside>
       </section>
       <section id="product-preview" class="product-tour" aria-labelledby="tour-title">
@@ -275,20 +315,11 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <h2 id="approach-title">See the evidence.<br>Understand the limits.</h2>
           <p>The aim is a clear explanation you can follow, with sources you can check for yourself.</p>
         </div>
-        <dl class="principles">
-          <div>
-            <dt>A curated scientific-evidence library</dt>
-            <dd>The library focuses on high-quality human research. Answers draw from that library, so the supporting evidence can be inspected.</dd>
-          </div>
-          <div>
-            <dt>Sources attached to the answer</dt>
-            <dd>Passage-level citations let you see which part of the library supports a point.</dd>
-          </div>
-          <div>
-            <dt>Uncertainty stays visible</dt>
-            <dd>The product is designed to make thin or mixed evidence visible and to acknowledge when the library cannot support an answer.</dd>
-          </div>
-        </dl>
+        <div class="scenario-list">
+          <article class="scenario"><small>When the library has a gap</small><p class="scenario-question">What if there’s no evidence in the library for my question?</p><h3>“Not in our library yet.”</h3><p>The product is designed to acknowledge the gap. Missing evidence is not proof that a claim is true or false.</p></article>
+          <article class="scenario"><small>When the question needs clinical judgment</small><p class="scenario-question">Can you interpret my personal test results?</p><h3>“This one’s for your doctor.”</h3><p>Personal clinical decisions are directed to a qualified clinician. General education does not replace individual care.</p></article>
+          <p class="note">Illustrative examples of the prototype’s boundaries.</p>
+        </div>
       </section>
       <section class="tiers-section" aria-labelledby="tiers-title">
         <div>
