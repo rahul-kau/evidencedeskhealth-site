@@ -197,14 +197,14 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     .tiers-section { border-top: 1px solid var(--line); padding: 44px 0 52px; display: grid; grid-template-columns: .85fr 1.15fr; gap: 64px; align-items: center; }
     .tiers-section p { color: var(--muted); }
     .tier-figure { margin: 0; min-width: 0; }
-    .tier-stack { display: grid; gap: 8px; }
-    .tier-band { border: 1px solid var(--line); border-left: 4px solid var(--tier-color); background: var(--surface); border-radius: 6px; padding: 13px 16px; margin-left: var(--indent); }
+    .tier-stack { display: grid; gap: 5px; }
+    .tier-band { text-align: center; background: var(--tier-color); color: var(--tier-ink); padding: 16px 12px 13px; clip-path: polygon(var(--top-left) 0, var(--top-right) 0, var(--bottom-right) 100%, var(--bottom-left) 100%); }
     .tier-band strong { display: block; font-size: 14px; }
-    .tier-band span { display: block; font-size: 13px; color: var(--muted); margin-top: 3px; }
-    .tier-band:nth-child(1) { --indent: 60px; --tier-color: #2F6B4F; }
-    .tier-band:nth-child(2) { --indent: 40px; --tier-color: #4E7A5A; }
-    .tier-band:nth-child(3) { --indent: 20px; --tier-color: #9A6B12; }
-    .tier-band:nth-child(4) { --indent: 0px; --tier-color: #6F6754; }
+    .tier-band span { display: block; font-size: 12px; line-height: 1.5; max-width: var(--text-width); margin: 4px auto 0; }
+    .tier-band:nth-child(1) { --tier-color: #2F6B4F; --tier-ink: #FFFDF8; --top-left: 30%; --top-right: 70%; --bottom-right: 77%; --bottom-left: 23%; --text-width: 44%; padding-top: 18px; }
+    .tier-band:nth-child(2) { --tier-color: #719C85; --tier-ink: #172D21; --top-left: 23%; --top-right: 77%; --bottom-right: 85%; --bottom-left: 15%; --text-width: 57%; }
+    .tier-band:nth-child(3) { --tier-color: #D8D3C7; --tier-ink: #26211A; --top-left: 15%; --top-right: 85%; --bottom-right: 92.5%; --bottom-left: 7.5%; --text-width: 70%; }
+    .tier-band:nth-child(4) { --tier-color: #E2D2AF; --tier-ink: #26211A; --top-left: 7.5%; --top-right: 92.5%; --bottom-right: 100%; --bottom-left: 0%; --text-width: 80%; }
     @media (max-width: 700px) {
       .product-tour { padding: 32px 0; }
       .tour-layout, .tiers-section { grid-template-columns: 1fr; gap: 28px; }
@@ -212,7 +212,10 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
       .screen { max-width: 310px; width: 100%; margin: 0 auto; }
       .tour-example { padding: 20px; }
       .tiers-section { padding: 32px 0; }
-      .tier-band { margin-left: calc(var(--indent) / 2); padding: 12px; }
+      .tier-band { padding: 14px 8px 12px; }
+      .tier-band strong { font-size: 13px; }
+      .tier-band span { font-size: 11px; }
+      .tier-band:nth-child(1) { padding-top: 18px; }
     }
     @media (max-width: 380px) { header { flex-direction: column; align-items: flex-start; } .brand, .status { white-space: nowrap; } }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
