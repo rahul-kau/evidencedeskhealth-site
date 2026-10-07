@@ -2,7 +2,7 @@
 
 Public information page for Evidence Desk, an India-first health Q&A product in private preview.
 
-`index.html` is self-contained: inline CSS, system fonts, no external assets, scripts, build tools, tracking, or forms. Contact links open an email client.
+`index.html` is self-contained: inline CSS, embedded Source Serif 4 headings and system body fonts, no external assets, scripts, build tools, tracking, or forms. Contact links open an email client.
 
 GitHub Pages serves the root of `main`. `CNAME` sets `evidencedeskhealth.com`; `.nojekyll` disables Jekyll processing.
 
@@ -21,3 +21,7 @@ In Namecheap Advanced DNS, set these host records with Automatic TTL:
 Replace conflicting parking or URL redirect records at `@` and `www`. Preserve Zoho MX, SPF, DKIM, and other mail-related records. After DNS resolves and GitHub provisions the certificate, enable Enforce HTTPS in repository Settings > Pages.
 
 GitHub documentation: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site
+
+## Visual identity
+
+Shares the product’s parchment background (`#F6F1E7`), cream surfaces (`#FFFDF8`), rust accent (`#8A2D1C`), Source Serif 4 headings, system body font stack, and E brand mark. The unmodified Source Serif 4 regular WOFF2 from Adobe is embedded in the HTML; its SIL Open Font License and copyright are included in a CSS comment. No font network request is needed.
