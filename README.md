@@ -25,3 +25,7 @@ GitHub documentation: https://docs.github.com/en/pages/configuring-a-custom-doma
 ## Visual identity
 
 Shares the product’s parchment background (`#F6F1E7`), cream surfaces (`#FFFDF8`), rust accent (`#8A2D1C`), Source Serif 4 headings, system body font stack, and E brand mark. The unmodified Source Serif 4 regular WOFF2 from Adobe is embedded in the HTML; its SIL Open Font License and copyright are included in a CSS comment. No font network request is needed.
+
+## Product visuals
+
+The citation-panel screenshot is embedded as a PNG data URI, unmodified, from the owner-provided `Health SaaS/screens/citation-panel.png`. Its accompanying screen-tour README identifies it as a scripted demo, captured 2026-10-05, with real library passages; that provenance is disclosed on the page. The four-tier graphic uses accessible HTML/CSS and reproduces the prototype’s current classification from `web/tiers.js`; it is labeled as prototype methodology awaiting clinical review. No private question history or logs are published.
