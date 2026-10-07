@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Evidence Desk is an India-first health Q&A product built around a curated scientific-evidence library, citations, and visible uncertainty. Private MVP in invited testing.">
+  <meta name="theme-color" content="#fcfbf8">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23356b5d'/%3E%3Cpath d='M11 8h12M11 16h10M11 24h12M11 8v16' fill='none' stroke='%23fcfbf8' stroke-width='3'/%3E%3C/svg%3E">
+  <title>Evidence Desk | Health questions, evidence first</title>
+  <link rel="canonical" href="https://evidencedeskhealth.com/">
+  <meta property="og:title" content="Evidence Desk | Health questions, evidence first">
+  <meta property="og:description" content="India-first health Q&A with checkable sources and visible uncertainty. Private preview; clinical review planned before wider release.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://evidencedeskhealth.com/">
+  <style>
+    :root { color-scheme: light; --ink: #251f21; --muted: #585254; --line: #dedbd7; --teal: #356b5d; --sand: #f4efec; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #fcfbf8; color: var(--ink); font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 1.65; }
+    a { color: var(--teal); text-underline-offset: 4px; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible { outline: 3px solid var(--teal); outline-offset: 5px; }
+    .skip { position: absolute; left: 20px; top: -100px; padding: 8px 14px; background: white; z-index: 10; }
+    .skip:focus { top: 12px; }
+    .wrap { max-width: 1120px; padding: 0 36px; margin: auto; }
+    header { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 28px 0; border-bottom: 1px solid var(--line); }
+    .brand { font-family: Georgia, 'Times New Roman', serif; font-size: 27px; letter-spacing: -1px; }
+    .status { font-size: 13px; font-weight: 600; color: var(--teal); display: flex; align-items: center; gap: 8px; }
+    .dot { width: 7px; height: 7px; background: currentColor; border-radius: 50%; flex-shrink: 0; }
+    .hero { padding: 68px 0 60px; display: grid; grid-template-columns: 1.35fr 1fr; align-items: center; gap: 56px; }
+    .hero > div, .hero aside { min-width: 0; }
+    .hero h1 { font-size: clamp(42px, 5vw, 62px); }
+    .hero .intro { font-size: 18px; }
+    .note { color: var(--muted); font-size: 13px; margin: 16px 0 0; }
+    .reading-note { background: #f0eee7; padding: 28px; border: 1px solid var(--line); border-radius: 6px; }
+    .reading-note h2 { font-size: 26px; margin: 0 0 24px; }
+    .reading-note ol { padding: 0; margin: 0; list-style: none; counter-reset: steps; }
+    .reading-note li { counter-increment: steps; display: grid; grid-template-columns: 24px 1fr; gap: 12px; padding: 16px 0; border-top: 1px solid #d9d6cd; }
+    .reading-note li::before { content: "0" counter(steps); color: var(--teal); font: 12px/1.8 ui-monospace, monospace; }
+    .reading-note strong { font-size: 15px; }
+    .reading-note p { font-size: 14px; color: var(--muted); margin: 4px 0 0; line-height: 1.6; }
+    .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 22px; }
+    .actions > a:not(.button) { font-size: 14px; }
+    .button:active { transform: translateY(1px); }
+    section { scroll-margin-top: 24px; }
+    .eyebrow { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; color: var(--teal); margin: 0 0 17px; }
+    h1, h2 { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; line-height: 1.12; letter-spacing: -.035em; }
+    h1 { font-size: clamp(42px, 5.4vw, 68px); max-width: 780px; margin: 0 0 26px; }
+    .intro { font-size: 19px; line-height: 1.65; max-width: 690px; margin: 0 0 24px; color: var(--muted); }
+    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 10px 20px; background: var(--teal); color: #fff; font-size: 15px; font-weight: 600; text-decoration: none; border-radius: 4px; }
+    .button:hover { background: #285246; }
+    .approach { border-top: 1px solid var(--line); padding: 35px 0 39px; display: grid; grid-template-columns: .85fr 1.15fr; gap: 64px; }
+    h2 { font-size: 32px; margin: 0 0 16px; }
+    p { margin: 0 0 15px; }
+    .approach > div > p { color: var(--muted); max-width: 390px; }
+    .principles { margin: 0; }
+    .principles div + div { margin-top: 20px; }
+    dt { font-size: 16px; font-weight: 600; margin: 0 0 5px; }
+    dd { margin: 0; color: var(--muted); }
+    .preview { background: var(--sand); border-radius: 8px; padding: 28px 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+    .preview h2 { font-size: 27px; }
+    .preview p { font-size: 15px; color: var(--muted); margin-bottom: 0; }
+    .boundary { padding-top: 4px; }
+    .boundary strong { display: block; font-size: 15px; margin-bottom: 9px; }
+    footer { padding: 29px 0 32px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; color: var(--muted); font-size: 13px; }
+    footer a { overflow-wrap: anywhere; }
+    @media (max-width: 700px) {
+      .wrap { padding: 0 24px; }
+      header { padding: 21px 0; gap: 12px; }
+      .brand { font-size: 24px; }
+      .status { font-size: 11px; gap: 6px; }
+      .hero { padding: 43px 0 39px; grid-template-columns: 1fr; gap: 32px; }
+      .reading-note { padding: 24px; }
+      h1 { font-size: 44px; margin-bottom: 22px; }
+      .intro { font-size: 17px; }
+      .approach { grid-template-columns: 1fr; gap: 21px; padding: 29px 0 32px; }
+      h2 { font-size: 29px; }
+      .preview { grid-template-columns: 1fr; gap: 24px; padding: 24px; }
+      footer { padding: 24px 0; flex-direction: column; gap: 9px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="wrap">
+    <header aria-label="Site header">
+      <span class="brand">Evidence Desk</span>
+      <span class="status"><span class="dot" aria-hidden="true"></span>Private preview</span>
+    </header>
+    <main id="main">
+      <section class="hero" aria-labelledby="title">
+        <div>
+        <p class="eyebrow">India-first health Q&amp;A</p>
+        <h1 id="title">Health questions.<br>Evidence first.</h1>
+        <p class="intro">Evidence Desk is a health Q&amp;A product for people in India. It explains everyday health questions using a curated scientific-evidence library, with citations you can check and uncertainty you can see.</p>
+        <div class="actions">
+          <a class="button" href="mailto:rahul@evidencedeskhealth.com">Contact the founder</a>
+          <a href="#approach">Explore the approach</a>
+        </div>
+        <p class="note">Private MVP · Invited testing · Clinical review planned</p>
+        </div>
+        <aside class="reading-note" aria-labelledby="reading-title">
+          <p class="eyebrow">The product approach</p>
+          <h2 id="reading-title">An answer you can examine.</h2>
+          <ol>
+            <li><div><strong>Start with the question</strong><p>Understand what the person wants to know and whether it needs clinical judgment.</p></div></li>
+            <li><div><strong>Explain from the library</strong><p>Use curated scientific evidence and link points to the supporting passages.</p></div></li>
+            <li><div><strong>Make the limits clear</strong><p>Show uncertainty, acknowledge gaps, and direct clinical questions to a qualified clinician.</p></div></li>
+          </ol>
+        </aside>
+      </section>
+      <section id="approach" class="approach" aria-labelledby="approach-title">
+        <div>
+          <h2 id="approach-title">See the evidence.<br>Understand the limits.</h2>
+          <p>The aim is a clear explanation you can follow, with sources you can check for yourself.</p>
+        </div>
+        <dl class="principles">
+          <div>
+            <dt>A curated scientific-evidence library</dt>
+            <dd>The library focuses on high-quality human research. Answers draw from that library, so the supporting evidence can be inspected.</dd>
+          </div>
+          <div>
+            <dt>Sources attached to the answer</dt>
+            <dd>Passage-level citations let you see which part of the library supports a point.</dd>
+          </div>
+          <div>
+            <dt>Uncertainty stays visible</dt>
+            <dd>The product is designed to make thin or mixed evidence visible and to acknowledge when the library cannot support an answer.</dd>
+          </div>
+        </dl>
+      </section>
+      <section class="preview" aria-labelledby="preview-title">
+        <div>
+          <h2 id="preview-title">Still a private preview</h2>
+          <p>Evidence Desk is a private MVP in invited testing. Clinical review is planned before wider release; it has not yet been completed. For project enquiries, contact founder Rahul Kaushik.</p>
+        </div>
+        <div class="boundary">
+          <strong>Education, not personal medical advice</strong>
+          <p>Evidence Desk does not diagnose or prescribe. Decisions about your symptoms, tests, medicines or treatment belong with a qualified clinician. Questions that need clinical judgment are directed to a qualified clinician. It is not an emergency service.</p>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <span>Founded by Rahul Kaushik</span>
+      <a href="mailto:rahul@evidencedeskhealth.com">rahul@evidencedeskhealth.com</a>
+    </footer>
+  </div>
+</body>
+</html>
