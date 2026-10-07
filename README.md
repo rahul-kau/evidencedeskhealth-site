@@ -33,3 +33,5 @@ The citation-panel screenshot is embedded as a PNG data URI, unmodified, from th
 ## Illustrative comparison
 
 The hero compares a claim without context with a sourced explanation format. Neither panel is represented as a real competitor response, live output, or accuracy benchmark. The example references the 2025 magnesium bisglycinate trial (PMID 40918053), with short follow-up and self-reported outcomes made explicit. The lower scenario panels illustrate library gaps and clinician routing without giving personal medical advice.
+
+The explanation step has its own HTML visual with a study summary, visible limitation, and citation link. An additional scenario illustrates why a lab finding alone does not establish benefit in people; it makes no claim about a specific intervention. Scenario icons and the lab-to-human diagram are inline SVG.
