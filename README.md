@@ -41,3 +41,9 @@ python3 -m http.server 8765 --bind 127.0.0.1
 ```
 
 Open `http://127.0.0.1:8765/`. Check the hero CTA, answer disclosure, both citation disclosures, external research links and founder navigation. Native disclosures support keyboard interaction without JavaScript. The page retains visible focus outlines and respects reduced-motion preferences for anchor scrolling.
+
+## Interaction motion
+
+CSS-only motion follows the native controls: the answer reveals its verdict, findings and catch in a short sequence; opening a citation reveals its passage with a brief outline highlight. Source icons and evidence-pyramid bands respond to hover/focus. The pyramid items can receive keyboard focus, with an underlined tier label indicating focus. No autoplay loop, simulated API loading or animated factual content is introduced.
+
+Animations and transform transitions apply only under `prefers-reduced-motion: no-preference`. Reduced-motion visitors see all content immediately and retain the static open-source and keyboard-focus indicators. Motion uses only opacity and transform; the longest effect is the 850ms passage outline fade.

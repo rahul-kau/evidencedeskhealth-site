@@ -352,6 +352,27 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
       .demo-question h3 { font-size: 25px; } .answer-lede { font-size: 21px; } .source-content { padding: 14px; }
       .founder-section { padding: 32px 0 40px; } .founder-signature { margin-top: 14px; }
     }
+
+    /* Motion follows deliberate interaction; all content remains usable without it. */
+    .citation-disclosure[open] > summary { background: var(--surface-2); }
+    .citation-disclosure[open] .citation-number { background: var(--accent); color: var(--on-accent); }
+    .tier-band:focus-visible { outline: none; }
+    .tier-band:focus-visible strong { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 5px; }
+    @media (prefers-reduced-motion: no-preference) {
+      .button, .peek-source .source-icon, .disclosure-sign, .citation-number, .tier-band { transition: transform 180ms ease-out; }
+      .peek-source:hover .source-icon, .peek-source:focus-visible .source-icon { transform: translate(2px, -2px); }
+      .tier-band:hover, .tier-band:focus-visible { transform: scale(1.025); }
+      .answer-disclosure[open] > .demo-answer > .peek-verdict { animation: evidence-reveal 280ms ease-out both; }
+      .answer-disclosure[open] > .demo-answer > .answer-lede { animation: evidence-reveal 280ms 60ms ease-out both; }
+      .answer-disclosure[open] > .demo-answer > .finding { animation: evidence-reveal 280ms 120ms ease-out both; }
+      .answer-disclosure[open] > .demo-answer > .finding + .finding { animation-delay: 180ms; }
+      .answer-disclosure[open] > .demo-answer > .demo-limit { animation: evidence-reveal 280ms 240ms ease-out both; }
+      .citation-disclosure[open] > .source-content { animation: evidence-reveal 220ms ease-out both; }
+      .source-content blockquote { position: relative; }
+      .citation-disclosure[open] blockquote::after { content: ''; position: absolute; inset: 0; border: 2px solid #A17D3F; pointer-events: none; animation: passage-highlight 850ms ease-out both; }
+      @keyframes evidence-reveal { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+      @keyframes passage-highlight { from { opacity: .85; } to { opacity: 0; } }
+    }
   </style>
 </head>
 <body>
@@ -456,10 +477,10 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         </div>
         <figure class="tier-figure">
           <div class="tier-stack" role="list" aria-label="The prototype’s current four evidence tiers">
-            <div class="tier-band" role="listitem"><strong>Tier 1 · Highest</strong><span>Sham-controlled &amp; N-of-1 trials</span></div>
-            <div class="tier-band" role="listitem"><strong>Tier 2 · High</strong><span>Meta-analyses &amp; Mendelian randomisation</span></div>
-            <div class="tier-band" role="listitem"><strong>Tier 3 · Medium</strong><span>Randomised trials</span></div>
-            <div class="tier-band" role="listitem"><strong>Tier 4 · Low</strong><span>Observational, lab &amp; animal studies</span></div>
+            <div class="tier-band" role="listitem" tabindex="0"><strong>Tier 1 · Highest</strong><span>Sham-controlled &amp; N-of-1 trials</span></div>
+            <div class="tier-band" role="listitem" tabindex="0"><strong>Tier 2 · High</strong><span>Meta-analyses &amp; Mendelian randomisation</span></div>
+            <div class="tier-band" role="listitem" tabindex="0"><strong>Tier 3 · Medium</strong><span>Randomised trials</span></div>
+            <div class="tier-band" role="listitem" tabindex="0"><strong>Tier 4 · Low</strong><span>Observational, lab &amp; animal studies</span></div>
           </div>
           <figcaption>Evidence Desk’s current prototype classification, reproduced from its evidence-tier screen. Clinical review of the methodology is planned before wider release.</figcaption>
         </figure>
