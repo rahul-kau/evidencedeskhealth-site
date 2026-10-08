@@ -47,3 +47,7 @@ Open `http://127.0.0.1:8765/`. Check the hero CTA, answer disclosure, both citat
 CSS-only motion follows the native controls: the answer reveals its verdict, findings and catch in a short sequence; opening a citation reveals its passage with a brief outline highlight. Source icons and evidence-pyramid bands respond to hover/focus. The pyramid items can receive keyboard focus, with an underlined tier label indicating focus. No autoplay loop, simulated API loading or animated factual content is introduced.
 
 Animations and transform transitions apply only under `prefers-reduced-motion: no-preference`. Reduced-motion visitors see all content immediately and retain the static open-source and keyboard-focus indicators. Motion uses only opacity and transform; the longest effect is the 850ms passage outline fade.
+
+## Detail controls and finishing touches
+
+A native checkbox switch reveals study population/time context without hiding any claims, caveats or citation links. The context comes from the linked original papers. A native verdict-info disclosure explains the prepared prototype verdict. CSS adds active source borders, visible keyboard focus, a sliding switch thumb and restrained link/arrow feedback. No JavaScript, stored preferences or user-data collection is introduced; the switch resets with the page. All added animation remains behind the existing reduced-motion guard.

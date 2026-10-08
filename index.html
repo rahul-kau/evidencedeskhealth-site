@@ -373,6 +373,36 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
       @keyframes evidence-reveal { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
       @keyframes passage-highlight { from { opacity: .85; } to { opacity: 0; } }
     }
+
+    /* Small controls adapted from the product's verdict and source interactions. */
+    .context-input { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+    .context-toggle { display: flex; gap: 11px; align-items: center; width: fit-content; max-width: 100%; margin: -6px 0 24px; padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px; cursor: pointer; font-size: 12px; }
+    .context-toggle small { display: block; font-size: 10px; color: var(--muted); margin-top: 2px; }
+    .toggle-track { display: block; position: relative; width: 34px; height: 20px; flex: none; background: #D4CBB9; border-radius: 20px; }
+    .toggle-track::after { content: ''; position: absolute; top: 3px; left: 3px; width: 14px; height: 14px; background: var(--surface); border-radius: 50%; }
+    .context-input:checked + .context-toggle { background: #F4EADF; border-color: #B28A69; }
+    .context-input:checked + .context-toggle .toggle-track { background: var(--accent); }
+    .context-input:checked + .context-toggle .toggle-track::after { transform: translateX(14px); }
+    .context-input:focus-visible + .context-toggle { outline: 3px solid var(--accent); outline-offset: 3px; }
+    .study-context { display: none; padding: 10px 12px; background: var(--surface-2); border-left: 2px solid #A17D3F; font-size: 12px; line-height: 1.6; margin: 0 0 12px; }
+    .context-input:checked ~ .finding .study-context { display: block; }
+    .demo-answer > .peek-verdict { position: relative; z-index: 3; }
+    .verdict-info { position: relative; margin-right: auto; }
+    .verdict-info > summary { display: grid; place-items: center; width: 24px; height: 24px; border: 1px solid var(--line); border-radius: 50%; color: var(--muted); font: 400 14px/1 var(--serif); list-style: none; }
+    .verdict-info[open] > summary, .verdict-info > summary:hover { border-color: var(--accent); color: var(--accent); background: var(--surface-2); }
+    .verdict-info > p { position: absolute; z-index: 2; top: 32px; left: -40px; width: min(260px, 60vw); margin: 0; padding: 15px 17px; background: var(--surface); border: 1px solid #B28A69; border-radius: 9px; box-shadow: 0 8px 24px rgba(72,49,26,.08); font-size: 12px; line-height: 1.7; color: var(--ink); }
+    .demo-window:focus-within, .product-peek:focus-within, .citation-disclosure:focus-within, .citation-disclosure[open] { border-color: #B28A69; }
+    .paper-link:hover, .paper-link:focus-visible { text-decoration-thickness: 2px; color: var(--accent-hover); }
+    .paper-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+    .site-nav > a { position: relative; }
+    .site-nav > a::after { content: ''; position: absolute; bottom: -5px; left: 0; right: 0; height: 1px; background: var(--accent); transform: scaleX(0); transform-origin: left; }
+    .site-nav > a:hover, .site-nav > a:focus-visible { text-decoration: none; }
+    .site-nav > a:hover::after, .site-nav > a:focus-visible::after { transform: scaleX(1); }
+    @media (prefers-reduced-motion: no-preference) {
+      .toggle-track::after, .button > span, .paper-link > span, .site-nav > a::after { transition: transform 180ms ease-out; }
+      .button:hover > span, .button:focus-visible > span, .paper-link:hover > span, .paper-link:focus-visible > span { transform: translateX(3px); }
+      .context-input:checked ~ .finding .study-context, .verdict-info[open] > p { animation: evidence-reveal 180ms ease-out both; }
+    }
   </style>
 </head>
 <body>
@@ -416,9 +446,11 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
             <details class="answer-disclosure" open>
               <summary><span>Read the answer</span><span class="summary-hint">Open / close</span><span class="disclosure-sign" aria-hidden="true">+</span></summary>
               <div class="demo-answer">
-                <div class="peek-verdict"><span class="verdict-word">Mixed</span><span>Prototype verdict</span></div>
+                <div class="peek-verdict"><span class="verdict-word">Mixed</span><details class="verdict-info"><summary aria-label="About this prototype verdict">i</summary><p>This is the verdict returned by the prototype for this prepared question. It isn’t a personal recommendation. Open the sources to inspect the evidence and its limits.</p></details><span>Prototype verdict</span></div>
                 <p class="answer-lede">Some findings are promising. The strength and relevance of the research still matter.</p>
-                <div class="finding"><p class="finding-context">Earlier evidence · older adults with insomnia</p><p>The earlier review found that weaknesses in the trials made their results uncertain.</p><details class="citation-disclosure" id="citation-1">
+                <input class="context-input" type="checkbox" role="switch" id="study-context" aria-controls="context-review context-trial">
+                <label class="context-toggle" for="study-context"><span class="toggle-track" aria-hidden="true"></span><span>Show study context<small>Who was studied, and for how long</small></span></label>
+                <div class="finding"><p class="study-context" id="context-review">Older adults with insomnia · Evidence pooled across three trials.</p><p class="finding-context">Earlier evidence · older adults with insomnia</p><p>The earlier review found that weaknesses in the trials made their results uncertain.</p><details class="citation-disclosure" id="citation-1">
   <summary><span class="citation-number">1</span><span>Inspect the supporting passage<small>Systematic review &amp; meta-analysis · 2021</small></span><span class="disclosure-sign" aria-hidden="true">+</span></summary>
   <div class="source-content">
     <p class="source-label">Exact library passage · excerpt</p>
@@ -429,7 +461,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <p class="source-note">The library passage is a research summary. The linked paper is the original research behind this finding. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11660779/" target="_blank" rel="noopener">See the paper’s 2024 correction.</a></p>
   </div>
  </details></div>
-                <div class="finding"><p class="finding-context">Newer evidence · adults reporting poor sleep</p><p>A newer magnesium bisglycinate trial found only a small effect on insomnia severity (Cohen&#x27;s d = 0.2).</p><details class="citation-disclosure" id="citation-2">
+                <div class="finding"><p class="study-context" id="context-trial">Adults aged 18–65 reporting poor sleep · Four-week follow-up.</p><p class="finding-context">Newer evidence · adults reporting poor sleep</p><p>A newer magnesium bisglycinate trial found only a small effect on insomnia severity (Cohen&#x27;s d = 0.2).</p><details class="citation-disclosure" id="citation-2">
   <summary><span class="citation-number">2</span><span>Inspect the supporting passage<small>Randomised, placebo-controlled trial · 2025</small></span><span class="disclosure-sign" aria-hidden="true">+</span></summary>
   <div class="source-content">
     <p class="source-label">Exact library passage · excerpt</p>
