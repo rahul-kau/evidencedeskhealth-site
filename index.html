@@ -387,10 +387,18 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     .study-context { display: none; padding: 10px 12px; background: var(--surface-2); border-left: 2px solid #A17D3F; font-size: 12px; line-height: 1.6; margin: 0 0 12px; }
     .context-input:checked ~ .finding .study-context { display: block; }
     .demo-answer > .peek-verdict { position: relative; z-index: 3; }
-    .verdict-info { position: relative; margin-right: auto; }
-    .verdict-info > summary { display: grid; place-items: center; width: 24px; height: 24px; border: 1px solid var(--line); border-radius: 50%; color: var(--muted); font: 400 14px/1 var(--serif); list-style: none; }
-    .verdict-info[open] > summary, .verdict-info > summary:hover { border-color: var(--accent); color: var(--accent); background: var(--surface-2); }
-    .verdict-info > p { position: absolute; z-index: 2; top: 32px; left: -40px; width: min(260px, 60vw); margin: 0; padding: 15px 17px; background: var(--surface); border: 1px solid #B28A69; border-radius: 9px; box-shadow: 0 8px 24px rgba(72,49,26,.08); font-size: 12px; line-height: 1.7; color: var(--ink); }
+    .verdict-trigger { display: grid; place-items: center; width: 32px; height: 32px; margin-right: auto; padding: 0; border: 1px solid var(--line); border-radius: 50%; background: transparent; color: var(--muted); font: 400 15px/1 var(--serif); cursor: pointer; anchor-name: --verdict-trigger; }
+    .verdict-trigger:hover { border-color: var(--accent); color: var(--accent); background: var(--surface-2); }
+    .verdict-trigger:focus-visible, .popover-close:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+    .verdict-note { position: fixed; inset: 0; width: min(300px, calc(100vw - 32px)); height: fit-content; max-height: calc(100dvh - 32px); overflow: auto; margin: auto; padding: 18px; background: var(--surface); border: 1px solid #B28A69; border-radius: 9px; box-shadow: 0 8px 24px rgba(72,49,26,.08); color: var(--ink); font-size: 13px; line-height: 1.7; }
+    .verdict-note p { margin: 0 0 10px; }
+    .popover-close { display: block; min-height: 36px; margin-left: auto; padding: 6px 12px; border: 1px solid var(--line); border-radius: 5px; background: var(--surface-2); color: var(--accent); font: inherit; cursor: pointer; }
+    @supports (position-area: bottom) {
+      .verdict-note { position-anchor: --verdict-trigger; position-area: bottom; position-try-fallbacks: flip-block; inset: auto; margin: 8px; }
+    }
+    .answer-disclosure > summary .hint-open { display: none; }
+    .answer-disclosure[open] > summary .hint-open { display: inline; }
+    .answer-disclosure[open] > summary .hint-closed { display: none; }
     .demo-window:focus-within, .product-peek:focus-within, .citation-disclosure:focus-within, .citation-disclosure[open] { border-color: #B28A69; }
     .paper-link:hover, .paper-link:focus-visible { text-decoration-thickness: 2px; color: var(--accent-hover); }
     .paper-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
@@ -401,7 +409,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     @media (prefers-reduced-motion: no-preference) {
       .toggle-track::after, .button > span, .paper-link > span, .site-nav > a::after { transition: transform 180ms ease-out; }
       .button:hover > span, .button:focus-visible > span, .paper-link:hover > span, .paper-link:focus-visible > span { transform: translateX(3px); }
-      .context-input:checked ~ .finding .study-context, .verdict-info[open] > p { animation: evidence-reveal 180ms ease-out both; }
+      .context-input:checked ~ .finding .study-context, .verdict-note:popover-open { animation: evidence-reveal 180ms ease-out both; }
     }
   </style>
 </head>
@@ -439,18 +447,18 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
       <section id="product-preview" class="guided-demo" aria-labelledby="tour-title">
         <div class="demo-intro"><div><p class="eyebrow">Try the evidence trail</p><h2 id="tour-title">An answer you can<br>look into.</h2></div><p>Read the answer, open a supporting passage, then follow it to the original study. You can check the reasoning for yourself.</p></div>
         <div class="demo-layout">
-          <div class="demo-guide"><ol><li><strong>Start with a question</strong><span>An everyday doubt about a supplement.</span></li><li><strong>Read the answer and the catch</strong><span>A finding means more when you can see its limits.</span></li><li><strong>Open a numbered source</strong><span>Inspect the passage, study type and original paper.</span></li></ol><p class="demo-disclosure">Prepared demo · Captured 8 October 2026<br>Selected findings from a real Claude API prototype answer, arranged and edited for clarity. No question is sent to an AI service on this page.</p></div>
+          <div class="demo-guide"><ol><li><strong>Start with a question</strong><span>An everyday question about a supplement.</span></li><li><strong>Read the answer and the catch</strong><span>A finding means more when you can see its limits.</span></li><li><strong>Open a numbered source</strong><span>Inspect the passage, study type and original paper.</span></li></ol><p class="demo-disclosure">Prepared demo · Captured 8 October 2026<br>Selected findings from a real Claude API prototype answer, arranged and edited for clarity. No question is sent to an AI service on this page.</p></div>
           <div class="demo-window">
             <div class="demo-window-bar"><span class="small-mark" aria-hidden="true">E</span><span>Evidence Desk</span><span class="peek-label">Prepared example</span></div>
             <div class="demo-question"><span class="source-label">The question</span><h3>Does magnesium help sleep?</h3></div>
             <details class="answer-disclosure" open>
-              <summary><span>Read the answer</span><span class="summary-hint">Open / close</span><span class="disclosure-sign" aria-hidden="true">+</span></summary>
+              <summary><span>Read the answer</span><span class="summary-hint" aria-hidden="true"><span class="hint-open">Hide answer</span><span class="hint-closed">Show answer</span></span><span class="disclosure-sign" aria-hidden="true">+</span></summary>
               <div class="demo-answer">
-                <div class="peek-verdict"><span class="verdict-word">Mixed</span><details class="verdict-info"><summary aria-label="About this prototype verdict">i</summary><p>This is the verdict returned by the prototype for this prepared question. It isn’t a personal recommendation. Open the sources to inspect the evidence and its limits.</p></details><span>Prototype verdict</span></div>
+                <div class="peek-verdict"><span class="verdict-word">Mixed</span><button class="verdict-trigger" type="button" popovertarget="verdict-note" aria-label="About this prototype verdict">i</button><div class="verdict-note" id="verdict-note" popover="auto" role="note" aria-label="About this prototype verdict"><p>This is the verdict returned by the prototype for this prepared question. It isn’t a personal recommendation. Open the sources to inspect the evidence and its limits.</p><button class="popover-close" type="button" popovertarget="verdict-note" popovertargetaction="hide">Close</button></div><span>Prototype verdict</span></div>
                 <p class="answer-lede">Some findings are promising. The strength and relevance of the research still matter.</p>
                 <input class="context-input" type="checkbox" role="switch" id="study-context" aria-controls="context-review context-trial">
-                <label class="context-toggle" for="study-context"><span class="toggle-track" aria-hidden="true"></span><span>Show study context<small>Who was studied, and for how long</small></span></label>
-                <div class="finding"><p class="study-context" id="context-review">Older adults with insomnia · Evidence pooled across three trials.</p><p class="finding-context">Earlier evidence · older adults with insomnia</p><p>The earlier review found that weaknesses in the trials made their results uncertain.</p><details class="citation-disclosure" id="citation-1">
+                <label class="context-toggle" for="study-context"><span class="toggle-track" aria-hidden="true"></span><span>Show study context<small>Who was studied and for how long</small></span></label>
+                <div class="finding"><p class="study-context" id="context-review">Older adults with insomnia · evidence pooled across three trials.</p><p class="finding-context">Earlier evidence · older adults with insomnia</p><p>The earlier review found that weaknesses in the trials made their results uncertain.</p><details class="citation-disclosure" id="citation-1">
   <summary><span class="citation-number">1</span><span>Inspect the supporting passage<small>Systematic review &amp; meta-analysis · 2021</small></span><span class="disclosure-sign" aria-hidden="true">+</span></summary>
   <div class="source-content">
     <p class="source-label">Exact library passage · excerpt</p>
@@ -461,7 +469,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <p class="source-note">The library passage is a research summary. The linked paper is the original research behind this finding. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11660779/" target="_blank" rel="noopener">See the paper’s 2024 correction.</a></p>
   </div>
  </details></div>
-                <div class="finding"><p class="study-context" id="context-trial">Adults aged 18–65 reporting poor sleep · Four-week follow-up.</p><p class="finding-context">Newer evidence · adults reporting poor sleep</p><p>A newer magnesium bisglycinate trial found only a small effect on insomnia severity (Cohen&#x27;s d = 0.2).</p><details class="citation-disclosure" id="citation-2">
+                <div class="finding"><p class="study-context" id="context-trial">Adults aged 18–65 reporting poor sleep · four-week follow-up.</p><p class="finding-context">Newer evidence · adults reporting poor sleep</p><p>A newer magnesium bisglycinate trial found only a small effect on insomnia severity (Cohen&#x27;s d = 0.2).</p><details class="citation-disclosure" id="citation-2">
   <summary><span class="citation-number">2</span><span>Inspect the supporting passage<small>Randomised, placebo-controlled trial · 2025</small></span><span class="disclosure-sign" aria-hidden="true">+</span></summary>
   <div class="source-content">
     <p class="source-label">Exact library passage · excerpt</p>
@@ -505,7 +513,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <p class="eyebrow">Reading the evidence</p>
           <h2 id="tiers-title">Different studies.<br>Different limits.</h2>
           <p>The prototype groups study designs into four evidence tiers to help explain the basis of an answer.</p>
-          <p>A tier is a starting point. Study quality, consistency, and relevance to the question still matter.</p>
+          <p>A tier is a starting point. Study quality, consistency and relevance to the question still matter.</p>
         </div>
         <figure class="tier-figure">
           <div class="tier-stack" role="list" aria-label="The prototype’s current four evidence tiers">
@@ -528,7 +536,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         </div>
         <div class="boundary">
           <strong>Education, not personal medical advice</strong>
-          <p>Evidence Desk does not diagnose or prescribe. Decisions about your symptoms, tests, medicines or treatment belong with a qualified clinician. Questions that need clinical judgment are directed to a qualified clinician. It is not an emergency service.</p>
+          <p>Evidence Desk does not diagnose or prescribe. Decisions about your symptoms, tests, medicines or treatment belong with a qualified clinician. Evidence Desk directs questions that need clinical judgment to a clinician. It is not an emergency service.</p>
         </div>
       </section>
     </main>
