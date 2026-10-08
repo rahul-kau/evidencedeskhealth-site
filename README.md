@@ -26,12 +26,28 @@ GitHub documentation: https://docs.github.com/en/pages/configuring-a-custom-doma
 
 Shares the product’s parchment background (`#F6F1E7`), cream surfaces (`#FFFDF8`), rust accent (`#8A2D1C`), Source Serif 4 headings, system body font stack, and E brand mark. The unmodified Source Serif 4 regular WOFF2 from Adobe is embedded in the HTML; its SIL Open Font License and copyright are included in a CSS comment. No font network request is needed.
 
-## Product visuals
+## Guided product demo
 
-The citation-panel screenshot is embedded as a PNG data URI, unmodified, from the owner-provided `Health SaaS/screens/citation-panel.png`. Its accompanying screen-tour README identifies it as a scripted demo, captured 2026-10-05, with real library passages; that provenance is disclosed on the page. The four-tier graphic uses accessible HTML/CSS and reproduces the prototype’s current classification from `web/tiers.js`; it is labeled as prototype methodology awaiting clinical review. No private question history or logs are published.
+The primary action opens an interactive, prepared walkthrough. Native HTML `details`/`summary` disclosures let visitors collapse the answer and open each numbered source. No scripts, external assets, tracking, visitor input, backend connection or API key are used. Both source panels link to the original PubMed records; the older review also links its correction.
 
-## Illustrative comparison
+The example is based on a real local API answer captured on 8 October 2026. The page displays selected checked findings, with edited context and limitations, rather than an unedited model transcript. Its prepared status and lack of clinical review are visible in the hero and walkthrough. See [provenance](docs/guided-demo-provenance.md) for the library version, model use and source checks. The earlier scripted screenshot and illustrative comparison have been replaced with an HTML recreation of the answer/verdict/source pattern, so the interaction itself is usable at narrow widths.
 
-The hero compares a claim without context with a sourced explanation format. Neither panel is represented as a real competitor response, live output, or accuracy benchmark. The example references the 2025 magnesium bisglycinate trial (PMID 40918053), with short follow-up and self-reported outcomes made explicit. The lower scenario panels illustrate library gaps and clinician routing without giving personal medical advice.
+The four-tier pyramid retains the prototype classification and clinical-review caveat. The library-gap and clinician-routing scenarios remain labeled illustrations. The founder story uses Rahul's own account of investigating omega-3 claims; it makes no efficacy claim about omega-3 supplements. No personal questions, private logs or full-library files are published.
 
-The explanation step has its own HTML visual with a study summary, visible limitation, and citation link. An additional scenario illustrates why a lab finding alone does not establish benefit in people; it makes no claim about a specific intervention. Scenario icons and the lab-to-human diagram are inline SVG.
+## Preview and validation
+
+```sh
+python3 -m http.server 8765 --bind 127.0.0.1
+```
+
+Open `http://127.0.0.1:8765/`. Check the hero CTA, answer disclosure, both citation disclosures, external research links and founder navigation. Native disclosures support keyboard interaction without JavaScript. The page retains visible focus outlines and respects reduced-motion preferences for anchor scrolling.
+
+## Interaction motion
+
+CSS-only motion follows the native controls: the answer reveals its verdict, findings and catch in a short sequence; opening a citation reveals its passage with a brief outline highlight. Source icons and evidence-pyramid bands respond to hover/focus. The pyramid items can receive keyboard focus, with an underlined tier label indicating focus. No autoplay loop, simulated API loading or animated factual content is introduced.
+
+Animations and transform transitions apply only under `prefers-reduced-motion: no-preference`. Reduced-motion visitors see all content immediately and retain the static open-source and keyboard-focus indicators. Motion uses only opacity and transform; the longest effect is the 850ms passage outline fade.
+
+## Detail controls and finishing touches
+
+A native checkbox switch reveals study population/time context without hiding any claims, caveats or citation links. The context comes from the linked original papers. A native HTML auto popover explains the prepared prototype verdict and closes on an outside click, Escape or its Close button. CSS anchor positioning places it by the info button in supporting browsers; other popover-capable browsers centre it in the viewport. CSS adds active source borders, visible keyboard focus, a sliding switch thumb and restrained link/arrow feedback. No JavaScript, stored preferences or user-data collection is introduced; the switch resets with the page. All added animation remains behind the existing reduced-motion guard.
