@@ -134,7 +134,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     .reading-note h2 { font-size: 26px; margin: 0 0 24px; }
     .reading-note ol { padding: 0; margin: 0; list-style: none; counter-reset: steps; }
     .reading-note li { counter-increment: steps; display: grid; grid-template-columns: 24px 1fr; gap: 12px; padding: 16px 0; border-top: 1px solid var(--line); }
-    .reading-note li::before { content: "0" counter(steps); color: var(--accent); font: 12px/1.8 ui-monospace, monospace; }
+    .reading-note li::before { content: "0" counter(steps); color: var(--accent); font: 14px/1.8 ui-monospace, monospace; }
     .reading-note strong { font-size: 15px; }
     .reading-note p { font-size: 14px; color: var(--muted); margin: 4px 0 0; line-height: 1.6; }
     .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 22px; }
@@ -296,10 +296,10 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     .demo-layout { display: grid; grid-template-columns: .6fr 1.4fr; gap: 60px; align-items: start; }
     .demo-guide { padding-top: 24px; }
     .demo-guide ol { list-style: none; counter-reset: demo; padding: 0; margin: 0; }
-    .demo-guide li { counter-increment: demo; position: relative; padding: 0 0 28px 34px; }
-    .demo-guide li::before { content: '0' counter(demo); position: absolute; left: 0; top: 2px; font: 12px/1.8 ui-monospace, monospace; color: var(--accent); }
-    .demo-guide strong { display: block; font-size: 14px; font-weight: 600; }
-    .demo-guide li span { display: block; font-size: 13px; color: var(--muted); margin-top: 7px; }
+    .demo-guide li { counter-increment: demo; position: relative; padding: 0 0 32px 38px; }
+    .demo-guide li::before { content: '0' counter(demo); position: absolute; left: 0; top: 2px; font: 14px/1.8 ui-monospace, monospace; color: var(--accent); }
+    .demo-guide strong { display: block; font-size: 18px; line-height: 1.45; font-weight: 600; }
+    .demo-guide li span { display: block; font-size: 16px; line-height: 1.65; color: var(--muted); margin-top: 9px; }
     .demo-disclosure { border-top: 1px solid var(--line); padding-top: 18px; font-size: 11px; color: var(--muted); line-height: 1.7; }
     .demo-window { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; min-width: 0; }
     .demo-question { padding: 25px 28px; background: #F9F5ED; }
