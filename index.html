@@ -271,6 +271,9 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     .story { border-top: 1px solid var(--line); padding: 48px 0; display: grid; grid-template-columns: .7fr 1.3fr; gap: 40px; align-items: center; }
     .story-copy { min-width: 0; }
     .story-copy p:not(.eyebrow) { color: var(--muted); max-width: 42ch; }
+    .story-copy p.problem-description { color: var(--ink); font-weight: 500; line-height: 1.75; }
+    .problem-description strong { font-weight: 700; }
+    .story-copy p.problem-questions { color: var(--ink); font-weight: 500; background: var(--surface-2); border-left: 3px solid var(--accent); padding: 14px 18px; margin-top: 22px; }
     .story-figure { margin: 0; min-width: 0; }
     .story-image-link { display: block; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
     .story-figure img { display: block; width: 100%; height: auto; }
@@ -323,7 +326,8 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <div class="story-copy">
           <p class="eyebrow">The problem</p>
           <h2 id="problem-title">Conflicting claims. More questions.</h2>
-          <p>A search result says one thing. An influencer says another. A forwarded message sounds certain. It can be hard to tell what the research actually supports.</p><p>Does it apply to you? How much did it help? What are the limits?</p>
+          <p class="problem-description">A search result says one thing. An influencer says another. A forwarded message sounds certain. It can be hard to tell <strong>what’s true, what’s a myth, what could be harmful,</strong> and what scientific research actually supports.</p>
+          <p class="problem-questions">Does it apply to you? How much did it help? What are the limits?</p>
         </div>
         <figure class="story-figure">
           <a class="story-image-link" href="assets/illustrations/conflicting-health-advice.webp" target="_blank" rel="noopener" aria-label="View the problem illustration at full size (opens in a new tab)">
