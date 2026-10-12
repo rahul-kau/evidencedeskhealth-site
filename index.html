@@ -330,6 +330,23 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     @media (max-width: 860px) { .screens-grid { grid-template-columns: minmax(0, 1fr); } #approach-title { font-size: 32px; } .screen-step:last-child .capture-link { aspect-ratio: 4 / 5; } }
     .tiers-section .eyebrow { color: var(--accent); }
     .tiers-section p:not(.eyebrow) { color: var(--ink); }
+    .solution-story .story-image-link { display: flex; justify-content: center; align-items: flex-end; padding: 24px 24px 0; }
+    .solution-story .story-image-link img { width: auto; max-width: 100%; max-height: 360px; }
+    .solution-story { border-top: 1px solid var(--line); }
+    .solution-highlight { color: var(--accent) !important; font: 400 21px/1.4 var(--serif); margin-top: 6px; }
+    .solution-story .story-copy a { color: var(--accent); }
+    .walk { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 56px; align-items: start; margin-top: 28px; }
+    .walk-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 30px; }
+    .walk-steps h3 { font: 400 24px/1.3 var(--serif); margin: 0 0 8px; }
+    .walk-steps h3 span { color: var(--accent); margin-right: 6px; }
+    .walk-steps p { color: var(--ink); max-width: 56ch; margin: 0; line-height: 1.65; }
+    .walk-shot { margin-top: 16px; aspect-ratio: auto !important; overflow: hidden !important; }
+    .phone { margin: 0; position: sticky; top: 24px; }
+    .phone-frame { padding: 10px; background: #26211A; border-radius: 42px; box-shadow: 0 24px 50px rgba(38,33,26,.22); }
+    .phone-frame img { display: block; width: 100%; height: auto; border-radius: 32px; }
+    .phone figcaption { text-align: center; }
+    .walk-note { margin-top: 28px; }
+    @media (max-width: 860px) { .walk { grid-template-columns: 1fr; gap: 32px; } .phone { position: static; max-width: 290px; margin: 0 auto; } }
   </style>
 </head>
 <body>
@@ -346,7 +363,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <h1 id="title">Health questions.<br>Evidence first.</h1>
         <p class="intro">Have a health question or a claim you’re unsure about? Evidence Desk tells you what the research actually shows, links every source, and is honest about the limits and what to watch out for.</p>
         <div class="actions">
-          <a class="button" href="https://evidence-desk-demo.rahul-417.workers.dev">See sample answers →</a>
+          <a class="button" href="/demo/">See sample answers →</a>
           <a href="mailto:rahul@evidencedeskhealth.com">Contact the founder</a>
           <a href="#how-it-works">See how it works</a>
         </div>
@@ -368,27 +385,46 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <figcaption>AI-generated illustration of conflicting health claims. <a href="assets/illustrations/conflicting-health-advice.webp" target="_blank" rel="noopener" aria-label="View the problem illustration at full size (opens in a new tab)">View full size</a></figcaption>
         </figure>
       </section>
+      <section class="story solution-story" aria-labelledby="approach-intro-title">
+        <div class="story-copy">
+          <p class="eyebrow">The Evidence Desk approach</p>
+          <h2 id="approach-intro-title">An answer, its sources, and its limits.</h2>
+          <p class="problem-description">Understand <strong>what the research suggests,</strong> follow the supporting passages, and see the catch: <strong>what the evidence cannot tell you.</strong></p>
+          <p class="solution-highlight">Read the answer. Then check the passage behind it.</p>
+          <a href="#how-it-works">See how it works →</a>
+        </div>
+        <figure class="story-figure">
+          <a class="story-image-link" href="assets/illustrations/evidence-desk-reader.webp" target="_blank" rel="noopener" aria-label="View the approach illustration at full size (opens in a new tab)">
+            <img src="assets/illustrations/evidence-desk-reader.webp" width="1466" height="1073" loading="lazy" decoding="async" alt="AI-generated illustration of the same person, now calm and reading an answer at a laptop.">
+          </a>
+          <figcaption>AI-generated illustration.</figcaption>
+        </figure>
+      </section>
       <section id="how-it-works" class="how-it-works" aria-labelledby="solution-title">
         <p class="eyebrow">How it works</p>
-        <h2 id="solution-title">An answer, its sources, and its limits.</h2>
-        <figure class="demo-screens">
-          <div class="screens-grid">
-            <div class="screen-step">
-              <a class="capture-link" href="assets/screens/creatine-card-2026-10-12.webp" target="_blank" rel="noopener" aria-label="Open the saved creatine answer card at full size"><img src="assets/screens/creatine-card-2026-10-12.webp" width="2232" height="1440" loading="lazy" decoding="async" alt="The question “Should I take creatine or not?” selected in the demo, and its real answer card with its evidence label, modest muscle and strength benefit, safety limits and catch."></a>
-              <ol class="process-captions">
-                <li>The answer and the catch</li>
-                <li>Why we say it (evidence label)</li>
-              </ol>
-            </div>
-            <div class="screen-step">
-              <a class="capture-link" href="assets/screens/creatine-source-2026-10-12.webp" target="_blank" rel="noopener" aria-label="Scroll the source panel or open it at full size to read the passage and funding disclosure"><img src="assets/screens/creatine-source-2026-10-12.webp" width="1374" height="3255" loading="lazy" decoding="async" alt="Real source panel with a highlighted supporting library passage and disclosure of independent funding and declared industry ties."></a>
-              <ol class="process-captions" start="3">
-                <li>The passage behind it and who paid</li>
-              </ol>
-            </div>
-          </div>
-          <figcaption>Real saved demo screens, captured 12 October 2026. These prototype answers are not clinically reviewed. Scroll the source panel for the funding disclosure; open either screen to view it at full size.</figcaption>
-        </figure>
+        <h2 id="solution-title">Follow an answer back to its source.</h2>
+        <div class="walk">
+          <ol class="walk-steps">
+            <li>
+              <h3><span>01</span> Read the answer and the catch</h3>
+              <p>A plain verdict first, then the catch: the limits that matter before you act on it.</p>
+              <a class="capture-link walk-shot" href="assets/screens/creatine-card-2026-10-12.webp" target="_blank" rel="noopener" aria-label="Open the creatine answer card at full size"><img src="assets/screens/creatine-card-2026-10-12.webp" width="2232" height="1440" loading="lazy" decoding="async" alt="The question “Should I take creatine or not?” selected in the demo, and its answer card: Do it, several good trials agree, with the catch about kidney disease and water weight."></a>
+            </li>
+            <li>
+              <h3><span>02</span> See why we say it</h3>
+              <p>The evidence label (“Several good trials agree”) tells you how solid the research is. Tap <em>Why?</em> on any label to see the reasoning.</p>
+            </li>
+            <li>
+              <h3><span>03</span> Check the passage behind it</h3>
+              <p>Tap a numbered citation. The exact passage that supports the point is highlighted, along with who paid for the research.</p>
+            </li>
+          </ol>
+          <figure class="phone">
+            <div class="phone-frame"><img src="assets/screens/creatine-phone-source-2026-10-12.webp" width="1170" height="2532" loading="lazy" decoding="async" alt="Phone screen of the demo: citation 1 opened as a sheet over the creatine answer, with the supporting passage highlighted in green."></div>
+            <figcaption>Citation [1] opened on a phone.</figcaption>
+          </figure>
+        </div>
+        <p class="note walk-note">Real saved demo screens, captured 12 October 2026. These prototype answers are not clinically reviewed and are not personal medical advice.</p>
       </section>
 
 
@@ -450,7 +486,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         </div>
       </section>
       <div class="actions" style="margin-top:28px">
-        <a class="button" href="https://evidence-desk-demo.rahul-417.workers.dev">See sample answers →</a>
+        <a class="button" href="/demo/">See sample answers →</a>
         <a href="mailto:rahul@evidencedeskhealth.com">Contact the founder</a>
       </div>
     </main>
