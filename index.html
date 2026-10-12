@@ -351,10 +351,10 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     #how-it-works h3 span { color: var(--accent); margin-right: 6px; }
     #how-it-works .walk-step-one { margin-top: 28px; }
     #how-it-works .walk-step-one > p, #how-it-works .walk-copy p { color: var(--ink); max-width: 64ch; line-height: 1.65; }
-    #how-it-works .answer-examples { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 24px; align-items: stretch; }
+    #how-it-works .answer-examples { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 24px; align-items: start; }
     #how-it-works .answer-example { min-width: 0; margin: 0; display: flex; flex-direction: column; }
-    #how-it-works .answer-example figcaption { font-size: 16px; line-height: 1.45; color: var(--ink); min-height: 48px; margin: 0 0 12px; }
-    #how-it-works .answer-capture { display: block; flex: 1; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--surface); }
+    #how-it-works .answer-example figcaption { font: 400 17px/1.45 var(--serif); color: var(--ink); min-height: 74px; margin: 0 0 12px; border: 2px solid var(--accent); border-radius: 12px; padding: 10px 14px; background: var(--surface); display: flex; align-items: center; }
+    #how-it-works .answer-capture { display: block; }
     #how-it-works .answer-capture img { display: block; width: 100%; height: auto; }
     #how-it-works .walk-row { display: grid; grid-template-columns: minmax(0, 1fr) 300px; align-items: center; gap: 64px; margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--line); }
     #how-it-works .walk-copy { min-width: 0; }
@@ -363,6 +363,9 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     #how-it-works .walk-row-reverse { grid-template-columns: 300px minmax(0, 1fr); }
     #how-it-works .walk-row-reverse .phone { grid-column: 1; grid-row: 1; }
     #how-it-works .walk-row-reverse .walk-copy { grid-column: 2; grid-row: 1; }
+    @media (min-width: 860px) and (max-width: 1000px) {
+      #how-it-works .answer-example figcaption { min-height: 100px; }
+    }
     @media (max-width: 859px) {
       #how-it-works .answer-examples { grid-template-columns: minmax(0, 1fr); gap: 28px; }
       #how-it-works .answer-example { width: 100%; max-width: 420px; margin-inline: auto; }
@@ -432,15 +435,15 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <p>A plain verdict first, then the catch: the limits that matter before you act on it.</p>
           <div class="answer-examples">
             <figure class="answer-example">
-              <figcaption>Should I take creatine or not?</figcaption>
+              <figcaption>“Should I take creatine or not?”</figcaption>
               <a class="answer-capture" href="assets/screens/creatine-verdict-2026-10-12.webp" target="_blank" rel="noopener" aria-label="Open the real creatine verdict card at full size"><img src="assets/screens/creatine-verdict-2026-10-12.webp" width="1050" height="1839" loading="lazy" decoding="async" alt="Green creatine card: Do it, several good trials agree, modest muscle and strength gains with the catch and safety limits."></a>
             </figure>
             <figure class="answer-example">
-              <figcaption>Does magnesium help sleep?</figcaption>
+              <figcaption>“Does magnesium help sleep?”</figcaption>
               <a class="answer-capture" href="assets/screens/magnesium-verdict-2026-10-12.webp" target="_blank" rel="noopener" aria-label="Open the real magnesium verdict card at full size"><img src="assets/screens/magnesium-verdict-2026-10-12.webp" width="1050" height="1275" loading="lazy" decoding="async" alt="Yellow magnesium card: evidence with limits, possible modest help falling asleep, low-quality evidence and a catch about small and industry-funded trials."></a>
             </figure>
             <figure class="answer-example">
-              <figcaption>Ensure protein powder with kidney disease?</figcaption>
+              <figcaption>“Ensure protein powder with kidney disease?”</figcaption>
               <a class="answer-capture" href="assets/screens/ensure-kidney-verdict-2026-10-12.webp" target="_blank" rel="noopener" aria-label="Open the real Ensure and kidney disease verdict card at full size"><img src="assets/screens/ensure-kidney-verdict-2026-10-12.webp" width="1050" height="1359" loading="lazy" decoding="async" alt="Red kidney-disease card: your doctor’s call; do not start protein powder independently, with a catch explaining the library’s healthy-person evidence does not cover existing kidney disease."></a>
             </figure>
           </div>
@@ -461,8 +464,8 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
             <p>Tap a numbered citation. The exact passage that supports the point is highlighted, along with who paid for the research.</p>
           </div>
           <figure class="phone">
-            <a class="phone-link" href="assets/screens/creatine-phone-passage-2026-10-12.webp" target="_blank" rel="noopener" aria-label="Open the creatine citation and funding phone screen at full size"><div class="phone-frame"><img src="assets/screens/creatine-phone-passage-2026-10-12.webp" width="1170" height="2532" loading="lazy" decoding="async" alt="Real phone screen with creatine citation 1 open as a bottom sheet, scrolled to the green highlighted passage and Who paid for this research disclosure."></div></a>
-            <figcaption>Citation [1]: the supporting passage and funding disclosure.</figcaption>
+            <a class="phone-link" href="assets/screens/creatine-phone-passage-2026-10-12.webp" target="_blank" rel="noopener" aria-label="Open the creatine citation and funding phone screen at full size"><div class="phone-frame"><img src="assets/screens/creatine-phone-passage-2026-10-12.webp" width="1170" height="2796" loading="lazy" decoding="async" alt="Real phone screen with creatine citation 1 open as a bottom sheet, scrolled to the complete source title and green highlighted passage."></div></a>
+            <figcaption>Citation [1]: the source title and full supporting highlight.</figcaption>
           </figure>
         </div>
         <p class="note walk-note">Real saved demo screens, captured 12 October 2026 at 3× resolution. These prototype answers are not clinically reviewed and are not personal medical advice.</p>
