@@ -282,17 +282,21 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 
     .how-it-works { border-top: 1px solid var(--line); padding: 48px 0; }
     .example-question { color: var(--ink); font: 400 23px/1.35 var(--serif); }
-    .process-captions { display: flex; flex-wrap: wrap; gap: 12px 28px; padding-left: 22px; margin: 24px 0; color: var(--ink); font-size: 14px; }
-    .process-captions li { padding-left: 2px; }
-    .demo-screens { margin: 0; }
-    .screens-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 420px)); gap: 28px; }
+    .process-captions { padding-left: 22px; margin: 16px 0 0; color: var(--ink); font-size: 14px; }
+    .process-captions li { padding-left: 2px; margin-bottom: 8px; }
+    .demo-screens { max-width: 868px; margin: 24px auto 0; }
+    .screens-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 420px)); gap: 28px; justify-content: center; }
+    .screen-step { min-width: 0; }
     .capture-link { display: block; width: 100%; aspect-ratio: 420 / 476; border: 1px solid var(--line); border-radius: 12px; overflow: auto; background: var(--surface); }
     .capture-link img { display: block; width: 100%; height: auto; }
     .demo-screens figcaption { max-width: 868px; color: var(--muted); font-size: 12px; margin-top: 14px; }
     .approach { grid-template-columns: 1fr; gap: 24px; }
     .approach > div > p { max-width: 760px; }
+    .approach .eyebrow { color: var(--accent); }
     .scenario-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .scenario { min-width: 0; }
+    .scenario { min-width: 0; height: 100%; box-sizing: border-box; }
+    .scenario-list { align-items: stretch; }
+    .scenario-symbol { min-height: 44px; box-sizing: border-box; }
     .evidence-bridge { gap: 6px; padding: 18px 8px; }
     @media (max-width: 700px) {
       .how-it-works { padding: 32px 0; }
@@ -344,15 +348,21 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <p class="eyebrow">How it works</p>
         <h2 id="solution-title">An answer, its sources, and its limits.</h2>
         <p class="example-question">Should I take creatine or not?</p>
-        <ol class="process-captions">
-          <li>The answer and the catch</li>
-          <li>Why we say it (evidence label)</li>
-          <li>The passage behind it and who paid</li>
-        </ol>
         <figure class="demo-screens">
           <div class="screens-grid">
-            <a class="capture-link" href="assets/screens/creatine-card-2026-10-12.webp" target="_blank" rel="noopener" aria-label="Open the saved creatine answer card at full size"><img src="assets/screens/creatine-card-2026-10-12.webp" width="420" height="476" loading="lazy" decoding="async" alt="Real creatine answer card with its evidence label, modest muscle and strength benefit, safety limits and catch."></a>
-            <a class="capture-link" href="assets/screens/creatine-source-2026-10-12.webp" target="_blank" rel="noopener" aria-label="Scroll the source panel or open it at full size to read the passage and funding disclosure"><img src="assets/screens/creatine-source-2026-10-12.webp" width="460" height="1100" loading="lazy" decoding="async" alt="Real source panel with a highlighted supporting library passage and disclosure of independent funding and declared industry ties."></a>
+            <div class="screen-step">
+              <a class="capture-link" href="assets/screens/creatine-card-2026-10-12.webp" target="_blank" rel="noopener" aria-label="Open the saved creatine answer card at full size"><img src="assets/screens/creatine-card-2026-10-12.webp" width="420" height="476" loading="lazy" decoding="async" alt="Real creatine answer card with its evidence label, modest muscle and strength benefit, safety limits and catch."></a>
+              <ol class="process-captions">
+                <li>The answer and the catch</li>
+                <li>Why we say it (evidence label)</li>
+              </ol>
+            </div>
+            <div class="screen-step">
+              <a class="capture-link" href="assets/screens/creatine-source-2026-10-12.webp" target="_blank" rel="noopener" aria-label="Scroll the source panel or open it at full size to read the passage and funding disclosure"><img src="assets/screens/creatine-source-2026-10-12.webp" width="460" height="1100" loading="lazy" decoding="async" alt="Real source panel with a highlighted supporting library passage and disclosure of independent funding and declared industry ties."></a>
+              <ol class="process-captions" start="3">
+                <li>The passage behind it and who paid</li>
+              </ol>
+            </div>
           </div>
           <figcaption>Real saved demo screens, captured 12 October 2026. These prototype answers are not clinically reviewed. Scroll the source panel for the funding disclosure; open either screen to view it at full size.</figcaption>
         </figure>
@@ -361,6 +371,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 
       <section id="approach" class="approach" aria-labelledby="approach-title">
         <div>
+          <p class="eyebrow">Boundaries</p>
           <h2 id="approach-title">What it won’t do.</h2>
           <p>It tells you when the research is missing, when a question needs a doctor, and when a finding does not yet apply to people.</p>
         </div>
@@ -368,6 +379,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <article class="scenario"><div class="scenario-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0 0 4h14M4 5v16M9 8h6M9 12h3"/></svg><span>Library checked</span><span class="signal-tag">Coverage gap</span></div><small>When the library has a gap</small><p class="scenario-question">What if there’s no evidence in the library for my question?</p><h3>“Not in our library yet.”</h3><p>The product is designed to acknowledge the gap. Missing evidence is not proof that a claim is true or false.</p></article>
           <article class="scenario"><div class="scenario-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 3v5a4 4 0 0 0 8 0V3M9 12v3a5 5 0 0 0 10 0v-2"/><circle cx="19" cy="11" r="2"/></svg><span>Personal clinical question</span><span class="signal-tag">Clinician needed</span></div><small>When the question needs clinical judgment</small><p class="scenario-question">Can you interpret my personal test results?</p><h3>“This one’s for your doctor.”</h3><p>Personal clinical decisions are directed to a qualified clinician. General education does not replace individual care.</p></article>
           <article class="scenario">
+            <div class="scenario-symbol"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8M10 3v8L4 20a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1l-6-9V3M7 17h10"/></svg><span>Lab finding</span><span class="signal-tag">Not shown in people</span></div>
             <small>When a plausible claim outruns the evidence</small>
             <p class="scenario-question">It worked in a lab. Doesn’t that mean it works in people?</p>
             <div class="evidence-bridge" role="img" aria-label="A lab finding does not by itself establish a benefit in people. Human evidence is still needed.">
