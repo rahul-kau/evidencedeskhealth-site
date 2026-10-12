@@ -272,9 +272,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     .story { border-top: 1px solid var(--line); padding: 48px 0; display: grid; grid-template-columns: .7fr 1.3fr; gap: 40px; align-items: center; }
     .story-copy { min-width: 0; }
     .story-copy p:not(.eyebrow) { color: var(--muted); max-width: 42ch; }
-    .story-copy p.problem-description, .story-copy p.solution-description { color: var(--ink); font-weight: 500; line-height: 1.75; }
-    .problem-description strong, .solution-description strong { font-weight: 700; }
-    .story-copy p.problem-questions, .story-copy p.solution-highlight { color: var(--ink); font-weight: 500; background: var(--surface-2); border-left: 3px solid var(--accent); padding: 14px 18px; margin-top: 22px; }
+    .story-copy p.problem-description { color: var(--ink); line-height: 1.75; }
     .story-figure { margin: 0; min-width: 0; }
     .story-image-link { display: block; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
     .story-figure img { display: block; width: 100%; height: auto; }
@@ -282,25 +280,28 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     @media (max-width: 900px) { .story { grid-template-columns: 1fr; gap: 22px; } .story-copy p:not(.eyebrow) { max-width: 65ch; } }
     @media (max-width: 700px) { .story { padding: 32px 0; } }
 
-    .solution-story { grid-template-columns: 1fr; }
-    .solution-story .story-copy { max-width: 760px; }
-    .solution-story .story-copy p:not(.eyebrow) { max-width: 65ch; }
-    .solution-process { margin: 0; }
-    .process-screens { display: grid; grid-template-columns: 1.15fr 1fr; gap: 28px; align-items: start; }
-    .process-answer, .process-source { min-width: 0; }
-    .process-label { display: flex; align-items: center; gap: 10px; padding: 12px 0; font-size: 15px; }
-    .process-question { font-family: var(--serif); font-size: 23px; color: var(--ink); }
-    .capture-link { display: block; border: 2px solid var(--accent); border-radius: 12px; overflow: hidden; background: var(--surface); }
-    .process-source .capture-link { max-height: 660px; overflow-y: auto; }
-    .process-source .capture-link img { max-width: none; }
-    .process-scroll-note { font-size: 12px; color: var(--muted); margin: 8px 0; }
+    .how-it-works { border-top: 1px solid var(--line); padding: 48px 0; }
+    .example-question { color: var(--ink); font: 400 23px/1.35 var(--serif); }
+    .process-captions { display: flex; flex-wrap: wrap; gap: 12px 28px; padding-left: 22px; margin: 24px 0; color: var(--ink); font-size: 14px; }
+    .process-captions li { padding-left: 2px; }
+    .demo-screens { margin: 0; }
+    .screens-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 420px)); gap: 28px; }
+    .capture-link { display: block; width: 100%; aspect-ratio: 420 / 476; border: 1px solid var(--line); border-radius: 12px; overflow: auto; background: var(--surface); }
     .capture-link img { display: block; width: 100%; height: auto; }
-    .process-connection { padding: 18px; margin: 20px 0 0; background: var(--surface-2); border-left: 3px solid var(--accent); }
-    .process-connection p { margin: 8px 0 0; color: var(--ink); }
-    .process-person { display: block; width: min(100%, 360px); height: auto; margin: 12px auto 0; }
-    .solution-process figcaption { color: var(--muted); font-size: 12px; margin-top: 14px; }
-    .walkthrough-comparison { padding-bottom: 40px; margin-top: 0; }
-    @media (max-width: 700px) { .process-screens { grid-template-columns: 1fr; gap: 20px; } .process-person { width: 230px; } .process-source .capture-link { max-height: 520px; } }
+    .demo-screens figcaption { max-width: 868px; color: var(--muted); font-size: 12px; margin-top: 14px; }
+    .approach { grid-template-columns: 1fr; gap: 24px; }
+    .approach > div > p { max-width: 760px; }
+    .scenario-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .scenario { min-width: 0; }
+    .evidence-bridge { gap: 6px; padding: 18px 8px; }
+    @media (max-width: 700px) {
+      .how-it-works { padding: 32px 0; }
+      .screens-grid { grid-template-columns: minmax(0, 420px); gap: 20px; }
+      .scenario-list { grid-template-columns: 1fr; }
+      .process-captions { display: block; }
+      .process-captions li { margin-bottom: 8px; }
+    }
+
   </style>
 </head>
 <body>
@@ -315,11 +316,11 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <div>
         <p class="eyebrow">India-first health Q&amp;A</p>
         <h1 id="title">Health questions.<br>Evidence first.</h1>
-        <p class="intro">Have a health question or a claim you’re unsure about? Evidence Desk gives you a clear answer based on scientific research, shows its sources, and explains the limits and what to watch out for.</p>
+        <p class="intro">Have a health question or a claim you’re unsure about? Evidence Desk tells you what the research actually shows, links every source, and is honest about the limits and what to watch out for.</p>
         <div class="actions">
           <a class="button" href="https://evidence-desk-demo.rahul-417.workers.dev">See sample answers →</a>
           <a href="mailto:rahul@evidencedeskhealth.com">Contact the founder</a>
-          <a href="#product-preview">See the product preview</a>
+          <a href="#how-it-works">See how it works</a>
         </div>
         <p class="note">Explore saved prototype answers, their supporting passages and their limitations. The full app is still private.</p>
         </div>
@@ -329,8 +330,8 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <div class="story-copy">
           <p class="eyebrow">The problem</p>
           <h2 id="problem-title">Conflicting claims. More questions.</h2>
-          <p class="problem-description">A search result says one thing. An influencer says another. A forwarded message sounds certain. It can be hard to tell <strong>what’s true, what’s a myth, what could be harmful,</strong> and what scientific research actually supports.</p>
-          <p class="problem-questions">Does it apply to you? How much did it help? What are the limits?</p>
+          <p class="problem-description">A search result says one thing. An influencer says another. A forwarded message sounds certain. It can be hard to tell what’s true, what’s a myth, what could be harmful, and what scientific research actually supports.</p>
+          <p>Does it apply to you? How much did it help? What are the limits?</p>
         </div>
         <figure class="story-figure">
           <a class="story-image-link" href="assets/illustrations/conflicting-health-advice.webp" target="_blank" rel="noopener" aria-label="View the problem illustration at full size (opens in a new tab)">
@@ -339,83 +340,29 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <figcaption>AI-generated illustration of conflicting health claims. <a href="assets/illustrations/conflicting-health-advice.webp" target="_blank" rel="noopener" aria-label="View the problem illustration at full size (opens in a new tab)">View full size</a></figcaption>
         </figure>
       </section>
-      <section class="story solution-story" aria-labelledby="solution-title">
-        <div class="story-copy">
-          <p class="eyebrow">The Evidence Desk approach</p>
-          <h2 id="solution-title">An answer, its sources, and its limits.</h2>
-          <p class="solution-description">Understand <strong>what the research suggests,</strong> follow the supporting passages, and see the catch: <strong>what the evidence cannot tell you.</strong></p><p class="solution-highlight">Read the answer. Then check the passage behind it.</p><a href="#product-preview">See the prototype walkthrough →</a>
-        </div>
-        <figure class="solution-process">
-          <div class="process-screens">
-            <div class="process-answer">
-              <div class="process-label"><span class="small-mark" aria-hidden="true">E</span><strong>01. Read the answer and the catch</strong></div>
-              <p class="process-question">Should I take creatine or not?</p>
-              <a class="capture-link" href="assets/screens/creatine-card-2026-10-12.webp" target="_blank" rel="noopener" aria-label="View the real creatine answer card at full size"><img src="assets/screens/creatine-card-2026-10-12.webp" width="420" height="476" loading="lazy" alt="Current demo creatine answer: probably yes alongside weight training for modest muscle and strength gains, with clinical boundaries and the catch."></a>
-              <div class="process-connection"><strong>Follow a numbered citation →</strong><p>See the passage behind a point, its limits, and who paid for the research.</p></div>
-              <img class="process-person" src="assets/illustrations/evidence-desk-reader.webp" width="1466" height="1073" loading="lazy" alt="AI-generated illustration of a person reading at a laptop.">
-            </div>
-            <div class="process-source">
-              <div class="process-label"><strong>02. Check what supports it</strong></div>
-              <p class="process-scroll-note">Scroll this screen for the funding disclosure, or open it at full size.</p>
-              <a class="capture-link" href="assets/screens/creatine-source-2026-10-12.webp" target="_blank" rel="noopener" aria-label="View the real creatine supporting passage and funding disclosure at full size"><img src="assets/screens/creatine-source-2026-10-12.webp" width="460" height="1100" loading="lazy" alt="Current demo source panel with a highlighted library passage supporting the muscle benefit and a disclosure of independent funding and declared industry ties."></a>
-            </div>
+      <section id="how-it-works" class="how-it-works" aria-labelledby="solution-title">
+        <p class="eyebrow">How it works</p>
+        <h2 id="solution-title">An answer, its sources, and its limits.</h2>
+        <p class="example-question">Should I take creatine or not?</p>
+        <ol class="process-captions">
+          <li>The answer and the catch</li>
+          <li>Why we say it (evidence label)</li>
+          <li>The passage behind it and who paid</li>
+        </ol>
+        <figure class="demo-screens">
+          <div class="screens-grid">
+            <a class="capture-link" href="assets/screens/creatine-card-2026-10-12.webp" target="_blank" rel="noopener" aria-label="Open the saved creatine answer card at full size"><img src="assets/screens/creatine-card-2026-10-12.webp" width="420" height="476" loading="lazy" decoding="async" alt="Real creatine answer card with its evidence label, modest muscle and strength benefit, safety limits and catch."></a>
+            <a class="capture-link" href="assets/screens/creatine-source-2026-10-12.webp" target="_blank" rel="noopener" aria-label="Scroll the source panel or open it at full size to read the passage and funding disclosure"><img src="assets/screens/creatine-source-2026-10-12.webp" width="460" height="1100" loading="lazy" decoding="async" alt="Real source panel with a highlighted supporting library passage and disclosure of independent funding and declared industry ties."></a>
           </div>
-          <figcaption>Real saved demo screens, captured 12 October 2026, with an AI-generated person illustration. Click either screen to view it at full size. These prototype answers are not clinically reviewed.</figcaption>
+          <figcaption>Real saved demo screens, captured 12 October 2026. These prototype answers are not clinically reviewed. Scroll the source panel for the funding disclosure; open either screen to view it at full size.</figcaption>
         </figure>
       </section>
-        <section class="walkthrough-comparison" aria-labelledby="comparison-title">
-        <aside class="comparison" aria-labelledby="comparison-title">
-          <p class="eyebrow">The same question. More to inspect.</p>
-          <h2 id="comparison-title">Does magnesium glycinate help sleep?</h2>
-          <div class="comparison-grid">
-            <div class="compare-panel claim-panel">
-              <div class="compare-label">A claim on its own</div>
-              <p class="claim-text">“Magnesium glycinate improves sleep.”</p>
-              <div class="missing-context"><span>Which study?</span><span>How large a benefit?</span><span>What are the limits?</span></div>
-              <p class="compare-foot">The claim leaves these questions unanswered.</p>
-            </div>
-            <div class="compare-panel evidence-panel">
-              <div class="compare-label"><span class="small-mark" aria-hidden="true">E</span>Evidence Desk approach</div>
-              <p class="evidence-text">One four-week trial found a small improvement in self-reported insomnia symptoms with magnesium bisglycinate versus placebo. <a class="source-link" href="https://pubmed.ncbi.nlm.nih.gov/40918053/" target="_blank" rel="noopener" aria-label="Read the magnesium bisglycinate trial on PubMed">1</a></p>
-              <div class="visible-limit"><strong>The limit</strong><p>Short follow-up and self-reported symptoms. This does not establish a benefit for everyone.</p></div>
-              <a class="study-link" href="https://pubmed.ncbi.nlm.nih.gov/40918053/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 12h7M9 16h7"/></svg><span>Randomised, placebo-controlled trial<small>Read the original study · 2025</small></span></a>
-            </div>
-          </div>
-          <p class="comparison-caption">Illustrative comparison of answer formats. Not a live product response or a test of Google or another AI service. Research preview; not personal medical advice.</p>
-        </aside>
-      </section>
-      <section id="product-preview" class="product-tour" aria-labelledby="tour-title">
-        <div class="section-intro">
-          <p class="eyebrow">Inside the prototype</p>
-          <h2 id="tour-title">Follow an answer back to its source.</h2>
-          <p>Read the answer and its limits, understand the evidence, then follow a numbered citation to the research behind it. Here’s how that looks in the prototype.</p>
-        </div>
-        <div class="tour-layout">
-          <div class="tour-copy">
-            <div class="tour-step"><h3>01. Read the answer and the catch</h3><p>See what the research suggests and the catch: the limitations that matter when you read the answer.</p></div>
-            <div class="tour-example"><small>An example health question</small><p>Does magnesium help sleep?</p></div>
-            <div class="tour-step"><h3>02. Understand the evidence</h3><p>The evidence label explains how confident we can be in the finding. Numbered citations <a class="source-link" href="#source-preview" aria-label="See the citation-panel screenshot">1</a> let you check the supporting research and its limits.</p></div>
-            <figure class="explanation-visual" aria-labelledby="explanation-visual-title">
-              <div class="explanation-bar"><span class="small-mark" aria-hidden="true">E</span><span id="explanation-visual-title">An explanation with its limits</span><span class="demo-tag">Illustration</span></div>
-              <div class="explanation-body"><h4>What the study found</h4><p>One four-week trial found a small improvement in self-reported insomnia symptoms with magnesium bisglycinate versus placebo. <a class="source-link" href="https://pubmed.ncbi.nlm.nih.gov/40918053/" target="_blank" rel="noopener" aria-label="Read the trial on PubMed">1</a></p>
-              <div class="visible-limit"><strong>What this doesn’t tell us</strong><p>A short trial cannot establish a lasting benefit or tell us that everyone will benefit.</p></div>
-              <a class="explanation-source" href="#source-preview"><span class="source-link" aria-hidden="true">1</span> Follow the point to its supporting passage <span aria-hidden="true">→</span></a></div>
-              <figcaption>Illustrative explanation layout based on the linked study, not a live product response or personal medical advice.</figcaption>
-            </figure>
-            <div class="tour-step"><h3>03. Check the source</h3><p>Selecting a citation opens a source panel. Highlighted passages come from our library’s research write-ups. The current sample demo also shows funding disclosures where available and links to original studies when a link is available.</p></div>
-            <p class="note">The source screenshot shows the creatine example above. The magnesium explanation is an illustrative summary of the linked trial. Neither is personal medical advice.</p>
-          </div>
-          <figure class="screen" id="source-preview">
-            <div class="screen-frame"><img src="assets/screens/creatine-source-2026-10-12.webp" width="460" height="1100" loading="lazy" decoding="async" alt="Current demo source panel showing a highlighted creatine passage and who funded the research."></div>
-            <figcaption>Current saved demo · Creatine source panel captured 12 October 2026. Not clinically reviewed or personal medical advice.</figcaption>
-          </figure>
-        </div>
 
-      </section>
+
       <section id="approach" class="approach" aria-labelledby="approach-title">
         <div>
-          <h2 id="approach-title">See the evidence.<br>Understand the limits.</h2>
-          <p>The aim is a clear explanation you can follow, with sources you can check for yourself.</p>
+          <h2 id="approach-title">What it won’t do.</h2>
+          <p>It tells you when the research is missing, when a question needs a doctor, and when a finding does not yet apply to people.</p>
         </div>
         <div class="scenario-list">
           <article class="scenario"><div class="scenario-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0 0 4h14M4 5v16M9 8h6M9 12h3"/></svg><span>Library checked</span><span class="signal-tag">Coverage gap</span></div><small>When the library has a gap</small><p class="scenario-question">What if there’s no evidence in the library for my question?</p><h3>“Not in our library yet.”</h3><p>The product is designed to acknowledge the gap. Missing evidence is not proof that a claim is true or false.</p></article>
@@ -430,26 +377,10 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
             </div>
             <h3>“Not established in people.”</h3><p>A lab result can suggest a possibility. It does not, on its own, show that a treatment helps people. The useful answer explains what was tested and what evidence is still missing.</p>
           </article>
-          <p class="note">Illustrative examples of the prototype’s boundaries.</p>
         </div>
+        <p class="note">Illustrative examples of the prototype’s boundaries.</p>
       </section>
-      <section class="tiers-section" aria-labelledby="tiers-title">
-        <div>
-          <p class="eyebrow">Reading the evidence</p>
-          <h2 id="tiers-title">What kind of research supports this answer?</h2>
-          <p>Study type is a starting point. Our confidence also depends on how the research was conducted, whether its findings agree, and how closely it answers your question.</p>
-          <p>The study types below describe the research, not a certainty rating for the answer.</p>
-        </div>
-        <figure class="tier-figure">
-          <div class="tier-stack" role="list" aria-label="Four types of research used in the prototype">
-            <div class="tier-band" role="listitem"><strong>Tier 1</strong><span>Reviews &amp; meta-analyses of trials</span></div>
-            <div class="tier-band" role="listitem"><strong>Tier 2</strong><span>Randomised trials</span></div>
-            <div class="tier-band" role="listitem"><strong>Tier 3</strong><span>Observational studies</span></div>
-            <div class="tier-band" role="listitem"><strong>Tier 4</strong><span>Lab &amp; animal studies</span></div>
-          </div>
-          <figcaption>Study types shown in the current sample demo. Study type alone does not determine certainty. Clinical review of the methodology is planned before wider release.</figcaption>
-        </figure>
-      </section>
+
       <section class="preview" aria-labelledby="preview-title">
         <div>
           <h2 id="preview-title">Public sample answers. Full app still private.</h2>

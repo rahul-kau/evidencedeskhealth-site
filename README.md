@@ -1,8 +1,8 @@
 # Evidence Desk website
 
-Public information page for Evidence Desk, an India-first health Q&A product in private preview.
+Public information page for Evidence Desk, an India-first health Q&A product with public saved sample answers and a full app still in private testing.
 
-`index.html` is self-contained: inline CSS, embedded Source Serif 4 headings and system body fonts, no external assets, scripts, build tools, tracking, or forms. Contact links open an email client.
+`index.html` uses inline CSS, embedded Source Serif 4 headings and system body fonts, and local image assets. There are no scripts, build tools, tracking, or forms. Contact links open an email client.
 
 GitHub Pages serves the root of `main`. `CNAME` sets `evidencedeskhealth.com`; `.nojekyll` disables Jekyll processing.
 
@@ -28,10 +28,17 @@ Shares the product’s parchment background (`#F6F1E7`), cream surfaces (`#FFFDF
 
 ## Product visuals
 
-The citation-panel screenshot is embedded as a PNG data URI, unmodified, from the owner-provided `Health SaaS/screens/citation-panel.png`. Its accompanying screen-tour README identifies it as a scripted demo, captured 2026-10-05, with real library passages; that provenance is disclosed on the page. The four-tier graphic uses accessible HTML/CSS and reproduces the prototype’s current classification from `web/tiers.js`; it is labeled as prototype methodology awaiting clinical review. No private question history or logs are published.
+The problem illustration is AI-generated and labeled as such. The how-it-works section uses unmodified captures of the saved creatine answer card and source panel from `evidence-desk/site/demo`, captured 12 October 2026. The screenshots show the evidence label, answer and catch, highlighted library passage, and funding disclosure. They are not clinically reviewed. Both screens display at equal widths of no more than 420 pixels, below or at their natural size; the source frame scrolls to reveal its funding disclosure.
 
-## Illustrative comparison
+Boundary cards illustrate library gaps, clinician routing, and why lab findings alone do not establish benefits in people. The page does not present these diagrams as actual answer screenshots.
 
-The hero compares a claim without context with a sourced explanation format. Neither panel is represented as a real competitor response, live output, or accuracy benchmark. The example references the 2025 magnesium bisglycinate trial (PMID 40918053), with short follow-up and self-reported outcomes made explicit. The lower scenario panels illustrate library gaps and clinician routing without giving personal medical advice.
+## Cloudflare upload
 
-The explanation step has its own HTML visual with a study summary, visible limitation, and citation link. An additional scenario illustrates why a lab finding alone does not establish benefit in people; it makes no claim about a specific intervention. Scenario icons and the lab-to-human diagram are inline SVG.
+Upload these files together, preserving the asset directories:
+
+- `index.html`
+- `assets/illustrations/conflicting-health-advice.webp`
+- `assets/screens/creatine-card-2026-10-12.webp`
+- `assets/screens/creatine-source-2026-10-12.webp`
+
+The HTML embeds the font, so no font upload is needed. `CNAME` and `.nojekyll` are GitHub Pages configuration, not Cloudflare upload files. Remove the obsolete solution illustration files from the deployment bundle when replacing it.
