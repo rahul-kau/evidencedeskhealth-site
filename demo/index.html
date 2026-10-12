@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en"><head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-j4BT25VF+lx6O7wUaC0/VKqdQqtV5Awc9JmdmztvJjM='; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="no-referrer">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Evidence Desk · Sample Answers</title>
+<meta name="description" content="Real answers from the Evidence Desk prototype, with the library passage behind every cited point.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F3EFE6;--card:#FBF8F2;--ink:#29261F;--body:#4F4A40;--mute:#6E675B;--line:#DDD5C5;--rust:#9A3324;--green:#2F6B50;--hl:#F3D9CF}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 'Public Sans',Arial,sans-serif}
+header{max-width:1100px;margin:0 auto;padding:28px 20px 8px}
+.brand{font:600 30px 'Source Serif 4',Georgia,serif;margin:0}.brand a{color:inherit;text-decoration:none}
+.sub{color:var(--mute);margin:4px 0 0}
+.notice{max-width:1060px;margin:14px 20px 0;padding:12px 16px;background:var(--card);border:2px solid var(--line);border-left:6px solid var(--rust);border-radius:12px;font-size:15px;color:var(--body)}
+main{max-width:1100px;margin:18px auto 40px;padding:0 20px;display:grid;grid-template-columns:320px 1fr;gap:24px}
+.list{display:flex;flex-direction:column;gap:8px}
+.q{all:unset;cursor:pointer;background:var(--card);border:2px solid var(--line);border-radius:12px;padding:12px 14px;font-size:15px;line-height:1.4}
+.q small{display:block;color:var(--rust);font-weight:600;margin-bottom:2px}
+.q[aria-current="true"]{border-color:var(--rust);box-shadow:0 4px 14px rgba(41,38,31,.08)}
+.q:focus-visible{outline:3px solid var(--rust)}
+.ans{display:flex;flex-direction:column;gap:16px}
+.asked{font:600 24px/1.3 'Source Serif 4',Georgia,serif;margin:0}
+.card{background:var(--card);border:2px solid var(--line);border-left:8px solid var(--rust);border-radius:16px;padding:18px 22px}
+.chip{display:inline-block;font-weight:600;color:var(--rust);font-size:15px;margin-bottom:4px}
+.strength{all:unset;cursor:pointer;float:right;font-size:13px;color:var(--mute);border:1px solid var(--line);border-radius:99px;padding:2px 10px}.strength:hover,.strength:focus-visible{border-color:var(--rust);color:var(--rust)}.strength::after{content:" ⓘ"}
+.chip{all:unset;cursor:pointer}.chip::after{content:" ⓘ";font-weight:400;color:var(--mute)}
+.why h4{font:600 16px "Public Sans",sans-serif;margin:14px 0 6px}.why ul{padding-left:20px;margin:0}.why li{margin-bottom:6px;font-size:15px}.tier{display:flex;flex-direction:column;align-items:center;gap:4px;margin:10px 0}.tier div{border-radius:6px;padding:6px 10px;font-size:13px;text-align:center}.tier .on{outline:3px solid var(--rust)}
+.headline{font:600 21px/1.35 'Source Serif 4',Georgia,serif;margin:4px 0 0}
+.subject{font-size:13px;color:var(--mute);margin-top:4px}
+.catch{background:var(--bg);border-radius:10px;padding:12px 14px;margin-top:12px;font-size:15.5px;color:var(--body)}
+.catch b{color:var(--ink)}
+.flags{background:#FBEDE8;border:2px solid #E9C2B4;border-radius:12px;padding:12px 14px;font-size:15.5px}
+.body{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:18px 22px;color:var(--body)}
+.body p{margin:0 0 12px}.body ul{margin:0 0 12px;padding-left:22px}
+.cite{all:unset;cursor:pointer;font-weight:700;color:var(--green);padding:0 3px;border-radius:4px}
+.cite:hover,.cite:focus-visible{background:#E7F0EA;outline:none}
+.panel{position:fixed;top:0;right:0;height:100%;width:min(460px,100%);background:#FFFDF8;border-left:3px solid var(--rust);box-shadow:-12px 0 40px rgba(41,38,31,.18);padding:22px;overflow:auto;transform:translateX(105%);transition:transform .25s;z-index:5}
+.panel.open{transform:none}
+.panel h3{font:600 19px/1.35 'Source Serif 4',Georgia,serif;margin:0 30px 6px 0}
+.panel .where{font-size:13px;color:var(--mute);margin-bottom:12px}
+.panel .claim{background:#EEE6D8;border-left:4px solid var(--rust);border-radius:8px;padding:10px 12px;font-size:15px;margin-bottom:12px}
+.panel .ctx{font-size:15px;color:var(--body);white-space:pre-wrap}
+.panel mark{background:var(--hl);color:var(--ink);padding:0 2px}
+.close{all:unset;cursor:pointer;position:absolute;top:16px;right:18px;font-size:22px;color:var(--mute)}
+footer{max-width:1100px;margin:0 auto 40px;padding:0 20px;font-size:13px;color:var(--mute)}
+@media(min-width:1101px){.notice{margin:14px auto 0}}@media(max-width:820px){main{grid-template-columns:1fr}.list{flex-direction:row;overflow-x:auto;padding-bottom:6px}.q{min-width:230px}}
+
+/* evidence colours */
+.card{border-left-color:var(--vb,var(--rust))}
+.strength{color:var(--ev,var(--mute));border-color:var(--ev,var(--line));background:var(--evbg,transparent);font-weight:600}
+.chip{color:var(--vd,var(--rust))}
+.sw{display:inline-block;font-size:12px;font-weight:600;border-radius:99px;padding:1px 9px;margin-left:6px;vertical-align:1px}
+.sw-strong{background:#DCEBE2;color:#1F5A40}.sw-moderate{background:#F4E6C4;color:#6B4C08}.sw-weak{background:#F7DDD2;color:#8A2E1C}.sw-none{background:#E6E2DA;color:#5A554B}
+.panel mark.m-strong{background:#CFE6D8}.panel mark.m-moderate{background:#F4E2B3}.panel mark.m-weak{background:#F6D3C6}.panel mark.m-none{background:#E3DFD6}
+.cite.c-strong{color:#1F5A40}.cite.c-moderate{color:#8A6410}.cite.c-weak{color:#A23A22}.cite.c-none{color:#6E675B}
+.src{all:unset;cursor:pointer;color:var(--ink);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}.src:hover{text-decoration-color:var(--rust)}
+.acts{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}.act{all:unset;cursor:pointer;font-size:14px;font-weight:600;border:2px solid var(--line);border-radius:99px;padding:5px 12px;color:var(--ink);text-decoration:none}.act:hover,.act:focus-visible{border-color:var(--rust)}
+.full{display:none;font-size:14.5px;color:var(--body);white-space:pre-wrap;background:#F6F2EA;border-radius:10px;padding:12px;margin-top:6px}.full.on{display:block}
+.note{font-size:13px;color:var(--mute)}
+.legend{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+
+.prose p{margin:0 0 10px}.prose ul,.prose ol{margin:0 0 10px;padding-left:20px}.prose li{margin-bottom:4px}.prose .h{font-weight:600;color:var(--ink);margin-top:12px}
+.prose .tr{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:8px;border-bottom:1px solid var(--line);padding:4px 0;font-size:13.5px}
+.panel .ctx{white-space:normal;background:#FAF6EE;border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:15px}
+.full{white-space:normal}
+.eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);font-weight:600;margin:0 0 6px}
+.panel h3{font-size:22px}.lead{font-size:16.5px;color:var(--ink);margin:10px 0 14px}
+.pill{display:inline-block;font:600 15px 'Public Sans',sans-serif;border:1.5px solid;border-radius:99px;padding:4px 12px}
+.meter{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-top:4px}.meter i{height:8px;border-radius:4px}.mlab{display:flex;justify-content:space-between;font-size:12px;color:var(--mute);margin-top:4px}
+.panel h4{font:600 13px 'Public Sans',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin:22px 0 8px}
+.tier div{font-size:12.5px;opacity:.85}.tier .on{opacity:1;outline:3px solid var(--ink);outline-offset:1px;font-weight:600}
+.slist{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.srow{all:unset;cursor:pointer;display:flex;align-items:center;gap:10px;padding:11px 12px;background:#FFFDF8;border-bottom:1px solid var(--line);font-size:14.5px}.srow:last-child{border-bottom:0}.srow:hover,.srow:focus-visible{background:#F6F1E7}
+.num{flex:none;width:24px;height:24px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font-weight:700;font-size:12.5px}.stitle{flex:1;line-height:1.35}.arr{color:var(--mute);font-size:18px}
+.srow .sw{margin:0;white-space:nowrap}
+.badges{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0 12px}.badges .sw{margin:0}.meta{font-size:12.5px;color:var(--mute);border:1px solid var(--line);border-radius:99px;padding:1px 9px}
+.panel .claim{background:none;border:0;border-left:3px solid var(--line);border-radius:0;padding:2px 0 2px 12px;color:var(--ink)}.claim span{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--mute);font-weight:600;margin-bottom:2px}
+.callout{background:#FBF1EC;border-radius:10px;padding:10px 12px;font-size:14px;color:var(--body);margin-top:12px}
+.act.pri{background:var(--ink);color:#FBF8F2;border-color:var(--ink)}
+.calc{display:flex;align-items:stretch;gap:8px;margin:6px 0 4px}.calc>div:not(.op){flex:1;background:#FAF6EE;border:1px solid var(--line);border-radius:12px;padding:10px}.calc span{display:block;font-size:11.5px;color:var(--mute);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}.calc b{font-size:14px;line-height:1.3;display:block}.op{align-self:center;color:var(--mute);font-weight:700}
+.rules{border:1px solid var(--line);border-radius:12px;overflow:hidden}.rules div{display:flex;justify-content:space-between;gap:12px;padding:9px 12px;border-bottom:1px solid var(--line);font-size:14px;background:#FFFDF8}.rules div:last-child{border:0}.rules span{color:var(--body)}.rules b{text-align:right}
+.chip::after,.strength::after{content:"Why?";font-size:12px;font-weight:600;margin-left:8px;padding:1px 7px;border-radius:99px;background:rgba(41,38,31,.07);color:var(--mute);vertical-align:1px}
+@media(max-width:520px){.calc{flex-direction:column}.op{display:none}}
+.money{margin-top:10px;font-size:14.5px;color:var(--body);background:#FBF1E0;border-radius:10px;padding:10px 14px}.money b{color:var(--ink)}
+.fund{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:6px}.fund div{padding:10px 12px;border-bottom:1px solid var(--line);background:#FFFDF8;font-size:14px}.fund div:last-child{border:0}.fund .fs{display:block;color:var(--ink);font-weight:600;margin:4px 0 2px;line-height:1.35}.fund .fw{color:var(--body)}.fund a{font-size:13px;color:var(--mute)}
+.fc{display:inline-block;font-size:12px;font-weight:600;border-radius:99px;padding:1px 9px}.fc-independent{background:#E3EFE7;color:#1E5A3C}.fc-industry{background:#FBE3CF;color:#8A3B0F}.fc-mixed{background:#F6ECCB;color:#6E5300}.fc-not_stated{background:#ECE8E0;color:#5A554B}
+</style></head><body>
+<header><p class="brand"><a href="https://evidencedeskhealth.com">Evidence Desk</a></p>
+<p class="sub">Sample answers: real questions people asked, answered by our prototype. Tap a number to see the passage behind it, or tap a label to see why we say it.</p></header>
+<div class="notice"><b>Prototype sample.</b> These answers were produced by the Evidence Desk prototype and saved as-is. They are not clinically reviewed and are not medical advice. For symptoms, medicines or test results, talk to a doctor.</div>
+<main><nav class="list" id="list" aria-label="Sample questions"></nav><section class="ans" id="ans" aria-live="polite"></section></main>
+<aside class="panel" id="panel" role="dialog" aria-label="Source passage"><button class="close" id="close" aria-label="Close">×</button><div id="pbody"></div></aside>
+<footer>Evidence Desk · India-first health answers · <a href="mailto:rahul@evidencedeskhealth.com">rahul@evidencedeskhealth.com</a></footer>
+<script src="data.js"></script>
+<script>
+const OKS=new Set(["strong","moderate","weak","none"]);
+const safeUrl=u=>{try{const x=new URL(String(u||""));return /^https?:$/.test(x.protocol)?x.href:""}catch(e){return ""}};
+const D=(window.DEMO||[]).map(a=>{const cs={};for(const [k,v] of Object.entries(a.citations||{})){if(!/^\d{1,2}$/.test(k))continue;cs[k]=Object.assign({},v,{strength:OKS.has(v.strength)?v.strength:"none",url:safeUrl(v.url)})}return Object.assign({},a,{citations:cs})}),$=id=>document.getElementById(id);
+const esc=s=>String(s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function inline(s,cites){s=esc(s).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>").replace(/\*\*/g,"").replace(/\*([^*\s][^*]*?)\*/g,"<i>$1</i>");return s.replace(/\[(\d+)\]/g,(m,n)=>cites[n]?`<button class="cite c-${cites[n].strength||"none"}" data-n="${n}" aria-label="Source ${n}">[${n}]</button>`:"");}
+function md(t,cites){cites=cites||{};const out=[];let list=null,lt="ul";const flush=()=>{if(list){out.push(`<${lt}>`+list.join("")+`</${lt}>`);list=null}};
+ for(const raw of String(t||"").split("\n")){let l=raw.trim();
+  if(/^\|.*\|$/.test(l)){flush();if(/^\|[\s:|-]+\|$/.test(l))continue;out.push('<div class="tr">'+l.slice(1,-1).split("|").map(x=>"<span>"+inline(x.trim(),cites)+"</span>").join("")+"</div>");continue}
+  let m;if((m=l.match(/^(?:[-*•]|\d+[.)])\s+(.*)/))){const t2=/^\d/.test(l)?"ol":"ul";if(list&&t2!==lt)flush();lt=t2;if(!list)list=[];list.push("<li>"+inline(m[1],cites)+"</li>");continue}
+  flush();if(!l)continue;l=l.replace(/^>\s?/,"");
+  if(/^#+ /.test(l)){out.push('<p class="h">'+inline(l.replace(/^#+ /,""),cites)+"</p>");continue}
+  out.push("<p>"+inline(l,cites)+"</p>")}
+ flush();return out.join("")}
+function show(i){const a=D[i],c=a.card;
+ [...$("list").children].forEach((b,j)=>b.setAttribute("aria-current",j===i));
+ const ev=EVC[c.strength]||["#6E675B","transparent"],vd=VDC[c.verdict]||"#9A3324";
+ let h=`<p class="asked">“${esc(a.question)}”</p><div class="card" style="--ev:${ev[0]};--evbg:${ev[1]};--vd:${vd};--vb:${VDB[c.verdict]||vd}">${c.strength?`<button class="strength" id="why-strength">${esc(c.strength)}</button>`:""}<button class="chip" id="why-verdict">${esc(c.verdict_label||"")}</button><p class="headline">${esc(c.headline)}</p>${c.subject?`<div class="subject">About: ${esc(c.subject)}</div>`:""}${c.catch?`<div class="catch"><b>The catch:</b> ${esc(c.catch)}</div>`:""}${moneyLine(a)}</div>`;
+ if(c.red_flags&&c.red_flags.length)h+=`<div class="flags"><b>Get help fast:</b> ${c.red_flags.map(esc).join(" ")}</div>`;
+ h+=`<div class="body prose">${md(a.markdown,a.citations)}</div>`;
+ $("ans").innerHTML=h;
+ $("ans").querySelectorAll(".cite").forEach(b=>b.onclick=()=>openCite(a.citations[b.dataset.n],b.dataset.n));
+ const ws=$("why-strength"); if(ws) ws.onclick=()=>whyStrength(a);
+ const wv=$("why-verdict"); if(wv) wv.onclick=()=>whyVerdict(a);
+ closeP();}
+const EVC={"Several good trials agree":["#1F5A40","#E4F0E8"],"Decent evidence, with gaps":["#3F7A5E","#EAF2EC"],"Early or limited evidence":["#9A6B0C","#FAF0D8"],"Good studies disagree":["#5B4E8C","#ECE8F5"],"Tested properly, and it didn't work":["#9A3324","#F8E4DD"],"Checked properly, and the claim doesn't hold":["#9A3324","#F8E4DD"],"No good studies in our library":["#6E675B","#ECE8E0"]};
+const VDC={nuanced:"#8F6A00",mixed:"#8F6A00",unproven_harmless:"#8F6A00",do_it:"#1E7A46",reasonable_to_try:"#1E7A46",claim_supported:"#1E7A46",fine:"#1E7A46",worth_trying:"#1E7A46",try:"#1E7A46",doctors_call:"#B3261E",dont_yet:"#B3261E",dont:"#B3261E",dont_bother:"#B3261E",myth:"#B3261E",no_evidence_claim:"#6E675B",not_researched:"#6E675B"};
+const VDB={nuanced:"#F2B705",mixed:"#F2B705",unproven_harmless:"#F2B705",do_it:"#2E9E5B",reasonable_to_try:"#2E9E5B",claim_supported:"#2E9E5B",fine:"#2E9E5B",worth_trying:"#2E9E5B",try:"#2E9E5B",doctors_call:"#D93025",dont_yet:"#D93025",dont:"#D93025",dont_bother:"#D93025",myth:"#D93025",no_evidence_claim:"#A39E92",not_researched:"#A39E92"};
+const KIND={systematic_review:"Systematic review",meta_analysis:"Meta-analysis",rct:"Randomised trial",narrative_review:"Narrative review (an expert summary, not a trial)",uncontrolled_pilot:"Small pilot study with no comparison group",clinical_review:"Clinical review",guideline:"Clinical guideline"};
+const badge=s=>s?`<span class="sw sw-${s}">${SW[s]||esc(s)} support</span>`:"";
+const STRENGTH={
+ "Several good trials agree":["Several good trials, or a combined analysis of them, point the same way.",1],
+ "Decent evidence, with gaps":["At least one good randomised trial supports this, but it was small, short, or hasn't been repeated yet.",2],
+ "Early or limited evidence":["The support comes mostly from everyday patterns (observational studies), lab work or animal studies, or very small trials. Good reason to look further, not proof it works in people.",3],
+ "Good studies disagree":["Studies of similar quality point in different directions, so the honest answer is \u201cit depends\u201d or \u201cnot settled\u201d.",0],
+ "Tested properly, and it didn't work":["Good trials looked for a benefit and didn't find one.",2],
+ "Checked properly, and the claim doesn't hold":["Good-quality evidence was checked and it contradicts the claim.",2],
+ "No good studies in our library":["Our checked library has no good human studies on this exact question yet.",4]};
+const TIERS=[["Tier 1 · Highest: reviews & meta-analyses of trials","#2F6B50","#F7F1E8"],["Tier 2 · High: randomised trials","#6E9C86","#16241D"],["Tier 3 · Medium: observational studies","#D8D3C6","#29261F"],["Tier 4 · Low: lab & animal studies","#E5D3B0","#29261F"]];
+const SW={strong:"Strong",moderate:"Moderate",weak:"Weak",none:"None"};
+const LEVEL={"Several good trials agree":4,"Decent evidence, with gaps":3,"Early or limited evidence":2,"Good studies disagree":2,"Tested properly, and it didn't work":3,"Checked properly, and the claim doesn't hold":3,"No good studies in our library":1};
+function meter(lv,col){return `<div class="meter" aria-label="Evidence strength ${lv} of 4">${[1,2,3,4].map(k=>`<i style="background:${k<=lv?col:"#E6E0D4"}"></i>`).join("")}</div><div class="mlab"><span>Weak</span><span>Strong</span></div>`}
+function whyStrength(a){const c=a.card,info=STRENGTH[c.strength]||["How strong the evidence behind this answer is.",0],ev=EVC[c.strength]||["#6E675B","#EEE"];
+ const pyr=TIERS.map((t,i)=>`<div class="" style="width:${58+i*14}%;background:${t[1]};color:${t[2]}">${t[0]}</div>`).join("");
+ const srcs=Object.entries(a.citations).map(([n,x])=>`<button class="srow" data-n="${n}"><span class="num">${n}</span><span class="stitle">${esc(x.doc)}</span>${badge(x.strength)}<span class="arr">›</span></button>`).join("");
+ $("pbody").innerHTML=`<p class="eyebrow">How strong is the evidence?</p><h3><span class="pill" style="color:${ev[0]};background:${ev[1]};border-color:${ev[0]}">${esc(c.strength)}</span></h3><p class="lead">${esc(info[0])}</p>${meter(LEVEL[c.strength]||1,ev[0])}
+ ${info[1]?`<h4>What kind of research supports this answer?</h4><p class="note">Study type is a starting point. Our confidence also depends on how the research was conducted, whether its findings agree, and how closely it answers your question.</p><div class="tier">${pyr}</div>`:""}
+ ${srcs?`<h4>What this answer rests on</h4><div class="slist">${srcs}</div><p class="note">Open any source, including the weak ones, to read the passage.</p>`:""}`;
+ $("pbody").querySelectorAll(".srow").forEach(b=>b.onclick=()=>openCite(a.citations[b.dataset.n],b.dataset.n));openP();}
+const RULES=[["Strong or decent evidence, low risk","Fine to do / Worth trying"],["Weak or early evidence","Unproven, or Don't, not yet"],["Tested and didn't work","Don't bother"],["Real harm signal","Avoid"],["Your medicine, results or condition","Your doctor's call"]];
+function whyVerdict(a){const c=a.card,vd=VDC[c.verdict]||"#9A3324",ev=EVC[c.strength]||["#6E675B","#EEE"];
+ $("pbody").innerHTML=`<p class="eyebrow">What the verdict means</p><h3 style="color:${vd}">${esc(c.verdict_label)}</h3><p class="lead">${esc(c.verdict_note||"")}</p>
+ <div class="calc"><div><span>Evidence</span><b style="color:${ev[0]}">${esc(c.strength||"—")}</b></div><div class="op">+</div><div><span>Possible harm or cost</span><b>Weighed by the rules</b></div><div class="op">=</div><div><span>Verdict</span><b style="color:${vd}">${esc(c.verdict_label)}</b></div></div>
+ <h4>How verdicts are set</h4><div class="rules">${RULES.map(r=>`<div><span>${r[0]}</span><b>${r[1]}</b></div>`).join("")}</div>
+ <p class="note">Fixed rules decide the verdict from the evidence and the possible harm. The AI grades the studies; it doesn't pick the verdict.</p>
+ ${c.strength?`<button class="act" id="tostr">Why “${esc(c.strength)}”? ›</button>`:""}`;
+ const t=$("tostr");if(t)t.onclick=()=>whyStrength(a);openP();}
+function passage(c,st){let raw=c.context||"";const q=c.quote||"";const k=q?raw.indexOf(q):-1;if(k>=0)raw=raw.slice(0,k)+"\u0001"+q+"\u0002"+raw.slice(k+q.length);
+ return md(raw).replace(/\u0001/g,`<mark class="m-${st}">`).replace(/\u0002/g,"</mark>")}
+const FUND={independent:"Independent funding",industry:"Paid for by industry",mixed:"Independent funding, declared industry ties",not_stated:"Disclosure incomplete"};
+function fundBlock(c){const f=c.funding||[];if(!f.length)return "";return `<h4>Who paid for this research</h4><div class="fund">${f.map(x=>`<div><span class="fc fc-${esc(x.cls)}">${esc(FUND[x.cls]||x.cls)}</span><span class="fs">${esc(x.study)}</span><span class="fw">${esc(x.funder)}${x.cls!=="independent"&&x.coi?" · "+esc(x.coi):""}</span>${safeUrl(x.url)?`<br><a href="${esc(safeUrl(x.url))}" target="_blank" rel="noopener">Where this is stated ↗</a>`:""}</div>`).join("")}</div><p class="note">Who paid doesn't make a study wrong, but it's worth knowing. It doesn't tell you on its own whether independent researchers found the same result.</p>`}
+function moneyLine(a){const ind=[...new Set(Object.values(a.citations||{}).flatMap(c=>(c.funding||[]).filter(x=>x.cls==="industry").map(x=>x.funder.replace(/\.$/,""))))];return ind.length?`<div class="money"><b>Money trail:</b> some of the evidence here was paid for by ${esc((l=>l.length>1?l.slice(0,-1).join(", ")+" and "+l[l.length-1]:l[0])(ind.slice(0,3)))}, which ${ind.length>1?"have":"has"} a stake in the result. Tap a source number to see who paid.</div>`:""}
+function openCite(c,n){const st=c.strength||"none";
+ const kind=c.kind?`<span class="meta">${esc(KIND[c.kind]||c.kind.replace(/_/g," "))}</span>`:"";
+ const orig=c.url?`<a class="act pri" href="${esc(c.url)}" target="_blank" rel="noopener">Open the original study ↗</a>`:"";
+ const why=st==="weak"?`<div class="callout"><b>Why weak?</b> This passage only loosely backs the point. It may be indirect, from a small or uncontrolled study, or about a related question rather than this exact one.</div>`:st==="none"?`<div class="callout"><b>No direct support.</b> This passage is context only; it doesn't directly back the point.</div>`:"";
+ const stale=c.edited_since?`<div class="callout"><b>Passage updated since this answer was checked.</b> The library text below has been revised (for example, a citation was added). The answer was checked against the earlier wording; the new wording hasn't been re-checked yet.</div>`:"";
+ const nolink=!c.url?`<p class="note">From our evidence library's write-up, which summarises the published studies. We link the original paper only when it's named right beside the passage. The full write-up opens to reviewers on request.</p>`:"";
+ $("pbody").innerHTML=`<p class="eyebrow">Source [${n}]</p><h3>${esc(c.doc)}</h3><div class="where">${esc((c.where||"").split(" › ").slice(1).join(" › "))}</div><div class="badges">${badge(st)}${kind}</div>${c.claim?`<div class="claim"><span>Used to support</span>${esc(c.claim)}</div>`:""}<div class="ctx prose">${passage(c,st)}</div>${why}${stale}<div class="acts">${orig}</div>${nolink}${fundBlock(c)}`;
+ openP();}
+function openP(){$("panel").classList.add("open");$("panel").scrollTop=0;$("close").focus()}
+function closeP(){$("panel").classList.remove("open")}
+$("close").onclick=closeP;document.addEventListener("keydown",e=>{if(e.key==="Escape")closeP()});
+D.forEach((a,i)=>{const b=document.createElement("button");b.className="q";b.style.borderLeft=`6px solid ${VDB[a.card.verdict]||"#9A3324"}`;b.innerHTML=`<small style="color:${VDC[a.card.verdict]||"#9A3324"}">${esc(a.card.verdict_label)}</small>${esc(a.question.length>90?a.question.slice(0,88)+"…":a.question)}`;b.onclick=()=>show(i);$("list").appendChild(b)});
+if(D.length)show(0);
+</script></body></html>
