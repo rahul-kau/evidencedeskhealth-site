@@ -268,6 +268,15 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     @media (max-width: 700px) { .explanation-bar { padding: 12px; gap: 7px; flex-wrap: wrap; } .explanation-body { padding: 16px; } .evidence-bridge { gap: 6px; padding: 18px 10px; } }
     @media (max-width: 380px) { header { flex-direction: column; align-items: flex-start; } .brand, .status { white-space: nowrap; } }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    .story { border-top: 1px solid var(--line); padding: 48px 0; display: grid; grid-template-columns: .7fr 1.3fr; gap: 40px; align-items: center; }
+    .story-copy { min-width: 0; }
+    .story-copy p:not(.eyebrow) { color: var(--muted); max-width: 42ch; }
+    .story-figure { margin: 0; min-width: 0; }
+    .story-image-link { display: block; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+    .story-figure img { display: block; width: 100%; height: auto; }
+    .story-figure figcaption a { display: inline-block; margin-left: 4px; }
+    @media (max-width: 900px) { .story { grid-template-columns: 1fr; gap: 22px; } .story-copy p:not(.eyebrow) { max-width: 65ch; } }
+    @media (max-width: 700px) { .story { padding: 32px 0; } }
   </style>
 </head>
 <body>
@@ -309,6 +318,32 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           </div>
           <p class="comparison-caption">Illustrative comparison of answer formats. Not a live product response or a test of Google or another AI service. Research preview; not personal medical advice.</p>
         </aside>
+      </section>
+      <section class="story" aria-labelledby="problem-title">
+        <div class="story-copy">
+          <p class="eyebrow">The problem</p>
+          <h2 id="problem-title">Conflicting Claims. More Questions.</h2>
+          <p>A search result says one thing. An influencer says another. A forwarded message sounds certain. It can be hard to tell what the research actually supports.</p><p>Does it apply to you? How much did it help? What are the limits?</p>
+        </div>
+        <figure class="story-figure">
+          <a class="story-image-link" href="assets/illustrations/conflicting-health-advice.webp" target="_blank" rel="noopener" aria-label="View the problem illustration at full size (opens in a new tab)">
+            <img src="assets/illustrations/conflicting-health-advice.webp" width="1672" height="941" loading="lazy" decoding="async" alt="An illustrated person looking confused at a laptop, surrounded by contradictory online advice: Take it daily, Never take it, Miracle supplement, and No benefit.">
+          </a>
+          <figcaption>AI-generated illustration of conflicting health claims. <a href="assets/illustrations/conflicting-health-advice.webp" target="_blank" rel="noopener" aria-label="View the problem illustration at full size (opens in a new tab)">View full size</a></figcaption>
+        </figure>
+      </section>
+      <section class="story" aria-labelledby="solution-title">
+        <div class="story-copy">
+          <p class="eyebrow">The Evidence Desk approach</p>
+          <h2 id="solution-title">An Answer, Its Sources, and Its Limits.</h2>
+          <p>Understand what the research suggests, follow the supporting passages, and see the catch: what the evidence cannot tell you.</p><p>The actual prototype screenshots below show how this works.</p><a href="#product-preview">See the prototype walkthrough →</a>
+        </div>
+        <figure class="story-figure">
+          <a class="story-image-link" href="assets/illustrations/evidence-desk-explanation.webp" target="_blank" rel="noopener" aria-label="View the solution illustration at full size (opens in a new tab)">
+            <img src="assets/illustrations/evidence-desk-explanation.webp" width="1672" height="941" loading="lazy" decoding="async" alt="Concept illustration of Evidence Desk connecting an answer to a supporting passage and an original study, with the catch, uncertainty, and clinician boundaries shown.">
+          </a>
+          <figcaption>AI-generated concept illustration, not a product screenshot or a checked health answer. Original-study links are available for some citations. <a href="assets/illustrations/evidence-desk-explanation.webp" target="_blank" rel="noopener" aria-label="View the solution illustration at full size (opens in a new tab)">View full size</a></figcaption>
+        </figure>
       </section>
       <section id="product-preview" class="product-tour" aria-labelledby="tour-title">
         <div class="section-intro">
