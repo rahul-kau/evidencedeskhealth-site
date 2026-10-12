@@ -1218,5 +1218,119 @@ window.DEMO = [
     ]
    }
   }
+ },
+ {
+  "id": "X01",
+  "question": "Does magnesium help sleep?",
+  "card": {
+   "verdict": "nuanced",
+   "verdict_label": "Evidence with limits",
+   "verdict_note": "Some related findings are supported, but they do not settle the whole question.",
+   "subject": "magnesium supplements for sleep onset, mainly in older adults with insomnia",
+   "strength": "Early or limited evidence",
+   "headline": "Possibly a modest help: magnesium may help you fall asleep about 17 minutes faster, but it doesn't reliably lengthen sleep, and the evidence is low quality.",
+   "catch": "Newer glycinate and threonate trials are small, and several are industry-funded.",
+   "number": "",
+   "red_flags": [],
+   "doctor_questions": []
+  },
+  "markdown": "Possibly, but only a little, and mostly for falling asleep rather than staying asleep. When trials were pooled, people on magnesium dropped off about 17 minutes faster than those on placebo, but their total sleep time didn't meaningfully improve [1]. Those studies were mainly in older adults with insomnia, so I wouldn't assume the same effect for a younger person with ordinary bad nights.\n\nIt helps to know why we're cautious. Sleep studies are noisy: people's sleep varies night to night, and expectation alone can shift how rested someone feels. That's why the placebo comparison matters. A magnesium bisglycinate (glycinate) trial found only a small improvement in insomnia severity over placebo, and it hasn't been independently replicated [2]. When a result hasn't been reproduced by a different team, treat it like a promising rumour, not a settled fact. The overall quality of the evidence is low.\n\nIf you do want to try it, glycinate is a reasonable pick, but because it's gentle on the stomach, not because it's proven stronger than cheaper forms like oxide [3]. Don't pay extra expecting better sleep.\n\nOne thing that matters more than the supplement: if you're sleeping badly most nights, the usual levers (fixed wake time, cutting caffeine after noon, keeping screens and worries out of bed) deserve attention first, because a 17-minute nudge won't fix a bigger pattern.\n\nCheck with a doctor before starting if you have kidney disease, since the kidneys clear magnesium, or if you take regular medicines, as magnesium can interact with some. Also check first if you're pregnant. And if insomnia is persistent, or comes with loud snoring, gasping at night or heavy daytime sleepiness, get it looked at rather than self-treating.",
+  "citations": {
+   "1": {
+    "doc": "Magnesium Supplementation: Full Efficacy Grading Across Eight Domains",
+    "where": "Magnesium Supplementation: Full Efficacy Grading Across Eight Domains › PART 1 — SLEEP (verifying the existing Tier 2 status, not just accepting it)",
+    "quote": "post-intervention sleep onset latency time was 17.36 min less after magnesium supplementation compared to placebo (95% CI −27.27 to −7.44, p = 0.0006).",
+    "context": "… asleep about 17 minutes faster; it does **not** reliably lengthen total sleep. Evidence quality is low. The classic trials used magnesium **oxide**, not the glycinate sold for sleep today.\n\n**Verified — dual-source gate met.** The anchor meta-analysis is Mah & Pitre 2021 (BMC Complementary Medicine and Therapies; DOI 10.1186/s12906-021-03297-z): *\"post-intervention sleep onset latency time was 17.36 min less after magnesium supplementation compared to placebo (95% CI −27.27 to −7.44, p = 0.0006). Total sleep time improved by 16.06 min in the magnesium supplementation group but was statistically insignificant.\"* Only 3 RCTs, 151 older adults; *\"all trials were at moderate-to-high risk of bias and outcomes were supported by low to very low quality of evidence.\"*\n\nSecond independent source: the most-cited underlying RCT, Abbasi 2012 (J Res Me …",
+    "claim": "A meta-analysis of magnesium trials found people fell asleep about 17 minutes faster than with placebo, but total sleep time did not significantly improve.",
+    "strength": "weak",
+    "url": "https://doi.org/10.1186/s12906-021-03297-z",
+    "kind": "",
+    "verified_source": false,
+    "edited_since": false
+   },
+   "2": {
+    "doc": "Magnesium Glycinate, Specifically — Does the Most-Marketed Form Actually Have the Evidence Behind It?",
+    "where": "Magnesium Glycinate, Specifically — Does the Most-Marketed Form Actually Have the Evidence Behind It? › Domain by domain — what glycinate itself has evidence for",
+    "quote": "insomnia severity dropped 3.9 points versus 2.3 for placebo (p=0.049), Cohen's d=0.2 — a small effect size, and this is currently a single-source finding",
+    "context": "**Sleep — the one domain with real, if modest, glycinate-specific data.** A magnesium bisglycinate trial (250mg elemental, Nat Sci Sleep) found a real but small effect: insomnia severity dropped 3.9 points versus 2.3 for placebo (p=0.049), Cohen's d=0.2 — a small effect size, and this is currently a single-source finding, not yet independently replicated. The larger, more established sleep-onset evidence (17.36 minutes faster sleep onset, the strongest single number in this whole category) comes from Abbasi 2012 and the Mah & Pitre 2021 meta-analysis — both using magnesium **oxide**, not glycinate. **Practical read: glycinate is a reasonable choice for sleep, chosen for tolerability rather than proven superiority over oxide — not because glycinate has stronger evidence, but because it doesn't have the GI side effects oxide can cause.** …",
+    "claim": "A magnesium bisglycinate trial found only a small improvement in insomnia severity versus placebo, and it has not been independently replicated.",
+    "strength": "weak",
+    "url": "",
+    "kind": "",
+    "verified_source": false,
+    "edited_since": false
+   },
+   "3": {
+    "doc": "Magnesium Glycinate: The Most-Marketed Form Isn't Always the Best-Evidenced One",
+    "where": "Magnesium Glycinate: The Most-Marketed Form Isn't Always the Best-Evidenced One › Part 1 — Where glycinate actually does have its own evidence: sleep",
+    "quote": "pick it for its gentleness on your stomach (oxide can cause digestive upset), not because it has stronger sleep evidence than oxide — it doesn't, quite.",
+    "context": "… A study using magnesium bisglycinate (a close relative of glycinate) found it modestly improved insomnia symptoms compared to a placebo — a real but small effect, and this particular finding hasn't yet been independently repeated by other researchers, so treat it as promising rather than settled.\n\nThe bigger, better-established sleep evidence — showing magnesium can help you fall asleep around 17 minutes faster on average — actually comes from studies using magnesium oxide, a cheaper, less-well-absorbed form. So if sleep is your main goal, glycinate is a perfectly reasonable choice, but pick it for its gentleness on your stomach (oxide can cause digestive upset), not because it has stronger sleep evidence than oxide — it doesn't, quite.",
+    "claim": "Glycinate is a reasonable pick for sleep because it is gentle on the stomach, not because it has stronger evidence than oxide.",
+    "strength": "weak",
+    "url": "",
+    "kind": "",
+    "verified_source": false,
+    "edited_since": false
+   }
+  }
+ },
+ {
+  "id": "X02",
+  "question": "Hi .. my mother in law is having kidney disease... Can we give her ensure protein powder... If no.. what will happen if we give",
+  "card": {
+   "verdict": "doctors_call",
+   "verdict_label": "Your doctor's call",
+   "verdict_note": "Either it helps but comes with real trade-offs, or it's about your own medicine or test results. Your doctor knows your history and should decide this with you.",
+   "subject": "protein powder (Ensure) for a person who already has kidney disease",
+   "strength": "No good studies in our library",
+   "headline": "Don't start it on your own: our library has no evidence on protein powder for people who already have kidney disease, so her doctor or a kidney dietitian should decide first.",
+   "catch": "The protein studies in our library were in healthy adults or people with normal kidney function.",
+   "number": "",
+   "red_flags": [],
+   "doctor_questions": [
+    "Given her kidney stage and latest eGFR/creatinine results, how much protein per day is right for her, and does she need more or less?",
+    "Is Ensure or any protein powder suitable for her, or is there a kidney-specific nutrition product you would recommend instead?",
+    "Which tests and warning signs should we watch for if she does take a protein supplement?"
+   ]
+  },
+  "markdown": "It's kind of you to be thinking about her nutrition. Please hold off on Ensure or any protein powder until her kidney doctor or a kidney dietitian has said yes. Our library can't tell you it's safe for someone who already has kidney disease, and that gap matters here.\n\nThe reason is simple. Most of the protein research we have was done in healthy adults, and the guide itself warns that it shouldn't be applied to people with kidney disease [1]. The finding that high protein doesn't harm kidneys holds only for people whose kidneys were healthy to begin with [2]. Think of kidneys as a filter. A healthy filter copes with extra load easily, but nobody has shown the same for a filter that's already working at reduced capacity.\n\nYou also asked what happens if you give it anyway. Our library has no evidence on what happens in her situation, so I can't promise either \"nothing\" or \"something bad\". That is exactly why her doctor should decide. The right amount of protein depends on her kidney stage, and it can be lower or higher than usual, for example if she is on dialysis. Our library doesn't have protein targets for any stage of kidney disease.\n\nOne more practical point: protein powders can be mislabelled, and in lab tests \"medical\" or \"pharmaceutical\" whey powders did worse than regular sports-nutrition brands [3]. That evidence is weak, but it's another reason not to pick a product casually.\n\nI also can't tell you what's in Ensure specifically, which is another thing to ask about.\n\nQuestions to take to her doctor or dietitian:\n- Given her kidney stage and latest eGFR and creatinine results, how much protein per day is right for her, and does she need more or less?\n- Is Ensure or any protein powder suitable for her, or is there a kidney-specific nutrition product you'd recommend instead?\n- Which tests and warning signs should we watch for if she does take a protein supplement?\n\nIf you can note her kidney stage (and whether she's on dialysis) and bring her latest kidney test reports to the appointment, the doctor can answer these quickly. If she's already been taking any supplement, tell the doctor so they know the full picture.",
+  "citations": {
+   "1": {
+    "doc": "Protein Supplements: The Real Numbers, and Why \"50% Higher Absorption\" Claims Don't Hold Up",
+    "where": "Protein Supplements: The Real Numbers, and Why \"50% Higher Absorption\" Claims Don't Hold Up › Part 1 — The core target hasn't moved",
+    "quote": "It studied healthy adults eating enough energy, so this result should not be silently applied to kidney disease, children, or people in a calorie deficit.",
+    "context": "… A separate dose-response analysis estimated a possible plateau at 1.62 g/kg/day, but its 95% confidence interval was wide (1.03–2.20 g/kg/day), and the two-part curve did not fit significantly better than a straight line (p=0.079). The authors suggested about 2.2 g/kg/day as a cautious upper end because of that uncertainty; the study did **not** prove that everyone needs 2.2, or that every point in the range produces identical muscle growth. It studied healthy adults eating enough energy, so this result should not be silently applied to kidney disease, children, or people in a calorie deficit. One author disclosed dairy-industry support. [Read the original systematic review](https://doi.org/10.1136/bjsports-2017-097608). This is a provisional explanation of one important study, pending independent methods and clinical review of the project's public-facing claim.",
+    "claim": "The main protein-dose research in the library was done in healthy adults and the guide warns it should not be applied to people with kidney disease.",
+    "strength": "strong",
+    "url": "https://doi.org/10.1136/bjsports-2017-097608",
+    "kind": "",
+    "verified_source": false,
+    "edited_since": false
+   },
+   "2": {
+    "doc": "Plain-Language Guide: Twenty Fitness and Health Myths Everyone Repeats",
+    "where": "Plain-Language Guide: Twenty Fitness and Health Myths Everyone Repeats › Myth 1 — \"High-protein diets destroy your kidneys\"",
+    "quote": "found no kidney damage in people whose kidneys were healthy to begin with.",
+    "context": "… st for you to unlearn specifically, because it doesn't just fail to hold up — it works backwards from what you'd actually want to worry about. Studies testing very high protein intakes — up to roughly 3.3 grams per kilogram of bodyweight per day, sustained for a full year, well above what almost anyone eats even on a deliberate high-protein plan — found no kidney damage in people whose kidneys were healthy to begin with. What actually happens physiologically is that your kidneys temporarily increase how much blood they filter to process the extra protein load, a phenomenon called hyperfiltration. That sounds alarming by name alone, but it's a normal, benign adaptive response, not an injury — directly comparable to how your heart rate and blood pressure rise during exercise without that meaning your heart is being damaged by working harder. …",
+    "claim": "The library's finding that high protein does not harm kidneys applies only to people whose kidneys were healthy to begin with.",
+    "strength": "moderate",
+    "url": "",
+    "kind": "",
+    "verified_source": false,
+    "edited_since": false
+   },
+   "3": {
+    "doc": "Which Indian Supplement Brands Can You Actually Trust?",
+    "where": "Which Indian Supplement Brands Can You Actually Trust? › Part 2 — Brands and categories with documented problems",
+    "quote": "**\"Pharmaceutical\" or \"medical\" whey powders** as a whole category performed badly — averaging only about 29 grams of protein per 100 grams, versus about 76 for regular sports-nutrition brands.",
+    "context": "**Bigmuscles** is the clearest problem case: a Mumbai consumer court found it guilty of \"spiking\" its protein — adding cheap amino acids that fool a basic protein test into reading higher than the real protein content, like padding a bag of rice with gravel to hit the weight on the label. An independent lab also gave it a low rating.\n\n**\"Pharmaceutical\" or \"medical\" whey powders** as a whole category performed badly — averaging only about 29 grams of protein per 100 grams, versus about 76 for regular sports-nutrition brands. The \"medical\" branding sounds more trustworthy, but the lab results say the opposite.\n\n**Centrum's** problem is about honesty in marketing, not what's in the bottle: a study used to promote its benefits in India was paid for by its parent company and written largely by that company's own employees.\n\n**Specific products**, not whole brands, failed too: Carbamide Forte's vegetarian omega-3 contained almost none of what its label claimed, and its calcium-D3 failed a toxicity check — even though another product from the same brand scored top marks. …",
+    "claim": "Protein powders can be mislabeled, and 'medical' or 'pharmaceutical' whey powders did worse in lab tests than regular sports-nutrition brands.",
+    "strength": "weak",
+    "url": "",
+    "kind": "",
+    "verified_source": false,
+    "edited_since": false
+   }
+  }
  }
 ];
