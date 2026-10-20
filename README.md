@@ -42,3 +42,18 @@ Upload these files together, preserving the asset directories:
 - `assets/screens/creatine-source-2026-10-12.webp`
 
 The HTML embeds the font, so no font upload is needed. `CNAME` and `.nojekyll` are GitHub Pages configuration, not Cloudflare upload files. Remove the obsolete solution illustration files from the deployment bundle when replacing it.
+
+## Saved-demo funding disclosures
+
+Sync the reviewed app demo into `demo/` with:
+
+```sh
+scripts/sync-demo.sh /path/to/evidence-desk/site/demo
+```
+
+The source can also be set with `EVIDENCE_DESK_DEMO_DIR`; the original sibling
+checkout remains the default. The sync copies `index.html`, `data.js`,
+`funding.js` and `funding-data.js`, preserves this site's existing question display
+labels, and embeds the app's current script CSP hash. The two funding files must
+ship with the demo page. Only the public demo changes; landing-page sections and
+saved answers are unaffected.
