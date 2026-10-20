@@ -19,12 +19,12 @@
     checked.forEach(f => { const k = Object.prototype.hasOwnProperty.call(counts, f.cls) ? f.cls : "not_stated"; counts[k]++; });
     const unreviewed = sources.filter(s => s.records.some(f => !f.checked)).length;
     const parts = [];
-    if (counts.independent) parts.push(counts.independent + (counts.independent === 1 ? " reports" : " report") + " non-industry or no external funding");
-    if (counts.industry) parts.push(counts.industry + (counts.industry === 1 ? " reports" : " report") + " industry sponsorship or product supply");
-    if (counts.mixed) parts.push(counts.mixed + (counts.mixed === 1 ? " reports" : " report") + " mixed support or author industry ties");
+    if (checked.length) parts.push("Funding check: " + checked.length + (checked.length === 1 ? " study" : " studies"));
+    const industryTies = counts.industry + counts.mixed;
+    if (industryTies) parts.push(industryTies + " with industry ties");
     if (counts.not_stated) parts.push(counts.not_stated + (counts.not_stated === 1 ? " doesn’t state funding" : " don’t state funding"));
-    let text = checked.length ? "Funding checked: " + checked.length + " " + (checked.length === 1 ? "study" : "studies") + " — " + parts.join("; ") + "." : sources.length ? "Funding not checked for these cited sources yet." : "Funding not checked: this card cites no research studies.";
-    if (checked.length && unreviewed) text += " " + unreviewed + " cited " + (unreviewed === 1 ? "source has" : "sources have") + " unchecked or unidentified studies.";
+    if (unreviewed) parts.push(unreviewed + (unreviewed === 1 ? " source unchecked" : " sources unchecked"));
+    const text = sources.length ? (checked.length ? parts.join(" · ") : "Funding not checked yet · " + parts.join(" · ")) : "No studies cited · Funding not checked";
     return { text, sources, checked: checked.length };
   }
   const note = "Stake means reported industry sponsorship, product supply or author financial ties. No means none declared in the checked disclosure; it is not a guarantee. Funding does not establish bias or independent replication. For reviews, these are the review’s own disclosures, not a funding check of every included trial.";
