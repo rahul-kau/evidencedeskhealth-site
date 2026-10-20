@@ -27,7 +27,8 @@
     if (checked.length && unreviewed) text += " " + unreviewed + " cited " + (unreviewed === 1 ? "source has" : "sources have") + " unchecked or unidentified studies.";
     return { text, sources, checked: checked.length };
   }
-  const api = { safeUrl, entries, summary };
+  const note = "Stake means reported industry sponsorship, product supply or author financial ties. No means none declared in the checked disclosure; it is not a guarantee. Funding does not establish bias or independent replication. For reviews, these are the review’s own disclosures, not a funding check of every included trial.";
+  const api = { safeUrl, entries, summary, note };
   root.EvidenceFunding = api;
   if (typeof module !== "undefined" && module.exports) module.exports = api;
 })(typeof window !== "undefined" ? window : globalThis);

@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head>
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-kPw7M2wPWXIPpX7ZFWjm3/oXkAJ+isOTu+ybRgmlK1c='; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-Jh4B3q/EGEHmCYaDatRWnkc/Lqn/BzyLZ8zlz4B9dwA='; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Evidence Desk · Sample Answers</title>
@@ -158,7 +158,7 @@ function whyVerdict(a){const c=a.card,vd=VDC[c.verdict]||"#9A3324",ev=EVC[c.stre
 function passage(c,st){let raw=c.context||"";const q=c.quote||"";const k=q?raw.indexOf(q):-1;if(k>=0)raw=raw.slice(0,k)+"\u0001"+q+"\u0002"+raw.slice(k+q.length);
  return md(raw).replace(/\u0001/g,`<mark class="m-${st}">`).replace(/\u0002/g,"</mark>")}
 function fundingRows(records){return records.map(f=>`<article class="funding-study"><h4>${esc(f.study)}</h4><p><b>Funder:</b> ${esc(f.funder||"Not stated")}</p><p><b>Financial stake:</b> ${esc(f.stake)}. ${esc(f.stake_detail||"Not established.")}</p>${f.sponsor_role?`<p><b>Sponsor’s role:</b> ${esc(f.sponsor_role)}</p>`:""}${safeUrl(f.url)?`<a href="${esc(safeUrl(f.url))}" target="_blank" rel="noopener noreferrer">${f.checked?"Read the disclosure":"Study link — funding not checked"} ↗</a>`:`<p class="note">No disclosure link recorded.</p>`}</article>`).join("")}
-const fundingNote="Stake means reported industry sponsorship, product supply or author financial ties. No means none declared in the checked disclosure; it is not a guarantee. Funding does not establish bias or independent replication.";
+const fundingNote=EvidenceFunding.note;
 function fundBlock(c){const sources=EvidenceFunding.entries({source:c});return `<h4>Who paid for this research</h4>${fundingRows(sources[0].records)}<p class="note">${esc(fundingNote)}</p>`}
 function moneyLine(a){return `<div class="money"><p>${esc(EvidenceFunding.summary(a.citations).text)}</p><button class="act" id="see-funding">See who paid</button></div>`}
 function openFunding(a){const r=EvidenceFunding.summary(a.citations);$("pbody").innerHTML=`<p class="eyebrow">Funding disclosures</p><h3>Who paid for this research</h3><p>${esc(r.text)}</p><p class="note">${esc(fundingNote)}</p>${r.sources.map(s=>`<section><h4>Source [${esc(s.n)}]: ${esc(s.title)}</h4>${fundingRows(s.records)}</section>`).join("")}${r.sources.length?"":`<p>No research studies are cited on this card. Funding has not been checked.</p>`}`;openP("Who paid for this research")}
