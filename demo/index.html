@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head>
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-j4BT25VF+lx6O7wUaC0/VKqdQqtV5Awc9JmdmztvJjM='; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-OlQq35PNbLjNMbIJP8F0EiWqdpY7oe4Frhv1Zl6q2Ik='; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Evidence Desk · Sample Answers</title>
@@ -86,18 +86,21 @@ footer{max-width:1100px;margin:0 auto 40px;padding:0 20px;font-size:13px;color:v
 .fund{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:6px}.fund div{padding:10px 12px;border-bottom:1px solid var(--line);background:#FFFDF8;font-size:14px}.fund div:last-child{border:0}.fund .fs{display:block;color:var(--ink);font-weight:600;margin:4px 0 2px;line-height:1.35}.fund .fw{color:var(--body)}.fund a{font-size:13px;color:var(--mute)}
 .fc{display:inline-block;font-size:12px;font-weight:600;border-radius:99px;padding:1px 9px}.fc-independent{background:#E3EFE7;color:#1E5A3C}.fc-industry{background:#FBE3CF;color:#8A3B0F}.fc-mixed{background:#F6ECCB;color:#6E5300}.fc-not_stated{background:#ECE8E0;color:#5A554B}
 @media (max-width:640px){/* bottom sheet on phones */.panel{top:auto;bottom:0;height:80%;width:100%;border-left:0;border-top:3px solid var(--rust);border-radius:20px 20px 0 0;box-shadow:0 0 0 100vmax rgba(41,38,31,.38),0 -8px 30px rgba(41,38,31,.2);transform:translateY(105%)}.panel.open{transform:none}.panel::before{content:"";display:block;width:44px;height:5px;border-radius:3px;background:#D8CFBE;margin:-8px auto 14px}}
+.funding-heading{display:block;margin-bottom:4px;font-weight:600;color:var(--ink)}.money p{margin:0 0 8px}.money{overflow-wrap:anywhere}.funding-study{border-top:1px solid var(--line);padding:14px 0;overflow-wrap:anywhere}.funding-study h4{margin:0 0 8px;font-size:16px;font-weight:600;text-transform:none;letter-spacing:normal}.funding-study a{color:var(--rust)}.funding-study p{margin:6px 0}.money button:focus-visible{outline:2px solid var(--rust);outline-offset:3px}
 </style></head><body>
 <header><p class="brand"><a href="https://evidencedeskhealth.com">Evidence Desk</a></p>
 <p class="sub">Sample answers: real questions people asked, answered by our prototype. Tap a number to see the passage behind it, or tap a label to see why we say it.</p></header>
 <div class="notice"><b>Prototype sample.</b> These answers were produced by the Evidence Desk prototype and saved as-is. They are not clinically reviewed and are not medical advice. For symptoms, medicines or test results, talk to a doctor.</div>
 <main><nav class="list" id="list" aria-label="Sample questions"></nav><section class="ans" id="ans" aria-live="polite"></section></main>
-<aside class="panel" id="panel" role="dialog" aria-label="Source passage"><button class="close" id="close" aria-label="Close">×</button><div id="pbody"></div></aside>
+<aside class="panel" id="panel" role="dialog" aria-label="Source passage" aria-hidden="true"><button class="close" id="close" aria-label="Close">×</button><div id="pbody"></div></aside>
 <footer>Evidence Desk · India-first health answers · <a href="mailto:rahul@evidencedeskhealth.com">rahul@evidencedeskhealth.com</a></footer>
 <script src="data.js"></script>
+<script src="funding.js"></script>
+<script src="funding-data.js"></script>
 <script>
 const OKS=new Set(["strong","moderate","weak","none"]);
 const safeUrl=u=>{try{const x=new URL(String(u||""));return /^https?:$/.test(x.protocol)?x.href:""}catch(e){return ""}};
-const D=(window.DEMO||[]).map(a=>{const cs={};for(const [k,v] of Object.entries(a.citations||{})){if(!/^\d{1,2}$/.test(k))continue;cs[k]=Object.assign({},v,{strength:OKS.has(v.strength)?v.strength:"none",url:safeUrl(v.url)})}return Object.assign({},a,{citations:cs})}),$=id=>document.getElementById(id);
+const D=(window.DEMO||[]).map(a=>{const cs={};for(const [k,v] of Object.entries(a.citations||{})){if(!/^\d{1,2}$/.test(k))continue;const f=((window.FUNDING_DEMO||{})[a.id]||{})[k];cs[k]=Object.assign({},v,{funding:f&&f.doc===v.doc&&f.quote===v.quote?f.funding:[],strength:OKS.has(v.strength)?v.strength:"none",url:safeUrl(v.url)})}return Object.assign({},a,{citations:cs})}),$=id=>document.getElementById(id);
 const esc=s=>String(s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 function inline(s,cites){s=esc(s).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>").replace(/\*\*/g,"").replace(/\*([^*\s][^*]*?)\*/g,"<i>$1</i>");return s.replace(/\[(\d+)\]/g,(m,n)=>cites[n]?`<button class="cite c-${cites[n].strength||"none"}" data-n="${n}" aria-label="Source ${n}">[${n}]</button>`:"");}
 function md(t,cites){cites=cites||{};const out=[];let list=null,lt="ul";const flush=()=>{if(list){out.push(`<${lt}>`+list.join("")+`</${lt}>`);list=null}};
@@ -116,6 +119,7 @@ function show(i){const a=D[i],c=a.card;
  h+=`<div class="body prose">${md(a.markdown,a.citations)}</div>`;
  $("ans").innerHTML=h;
  $("ans").querySelectorAll(".cite").forEach(b=>b.onclick=()=>openCite(a.citations[b.dataset.n],b.dataset.n));
+ $("see-funding").onclick=()=>openFunding(a);
  const ws=$("why-strength"); if(ws) ws.onclick=()=>whyStrength(a);
  const wv=$("why-verdict"); if(wv) wv.onclick=()=>whyVerdict(a);
  closeP();}
@@ -153,9 +157,11 @@ function whyVerdict(a){const c=a.card,vd=VDC[c.verdict]||"#9A3324",ev=EVC[c.stre
  const t=$("tostr");if(t)t.onclick=()=>whyStrength(a);openP();}
 function passage(c,st){let raw=c.context||"";const q=c.quote||"";const k=q?raw.indexOf(q):-1;if(k>=0)raw=raw.slice(0,k)+"\u0001"+q+"\u0002"+raw.slice(k+q.length);
  return md(raw).replace(/\u0001/g,`<mark class="m-${st}">`).replace(/\u0002/g,"</mark>")}
-const FUND={independent:"Independent funding",industry:"Paid for by industry",mixed:"Independent funding, declared industry ties",not_stated:"Disclosure incomplete"};
-function fundBlock(c){const f=c.funding||[];if(!f.length)return "";return `<h4>Who paid for this research</h4><div class="fund">${f.map(x=>`<div><span class="fc fc-${esc(x.cls)}">${esc(FUND[x.cls]||x.cls)}</span><span class="fs">${esc(x.study)}</span><span class="fw">${esc(x.funder)}${x.cls!=="independent"&&x.coi?" · "+esc(x.coi):""}</span>${safeUrl(x.url)?`<br><a href="${esc(safeUrl(x.url))}" target="_blank" rel="noopener">Where this is stated ↗</a>`:""}</div>`).join("")}</div><p class="note">Who paid doesn't make a study wrong, but it's worth knowing. It doesn't tell you on its own whether independent researchers found the same result.</p>`}
-function moneyLine(a){const ind=[...new Set(Object.values(a.citations||{}).flatMap(c=>(c.funding||[]).filter(x=>x.cls==="industry").map(x=>x.funder.replace(/\.$/,""))))];return ind.length?`<div class="money"><b>Money trail:</b> some of the evidence here was paid for by ${esc((l=>l.length>1?l.slice(0,-1).join(", ")+" and "+l[l.length-1]:l[0])(ind.slice(0,3)))}, which ${ind.length>1?"have":"has"} a stake in the result. Tap a source number to see who paid.</div>`:""}
+function fundingRows(records){return records.map(f=>`<article class="funding-study"><h4>${esc(f.study)}</h4><p><b>Funder:</b> ${esc(f.funder||"Not stated")}</p><p><b>Financial stake:</b> ${esc(f.stake)}. ${esc(f.stake_detail||"Not established.")}</p>${f.sponsor_role?`<p><b>Sponsor’s role:</b> ${esc(f.sponsor_role)}</p>`:""}${safeUrl(f.url)?`<a href="${esc(safeUrl(f.url))}" target="_blank" rel="noopener noreferrer">${f.checked?"Read the disclosure":"Study link — funding not checked"} ↗</a>`:`<p class="note">No disclosure link recorded.</p>`}</article>`).join("")}
+const fundingNote=EvidenceFunding.note;
+function fundBlock(c){const sources=EvidenceFunding.entries({source:c});return `<h4>Who paid for this research</h4>${fundingRows(sources[0].records)}<p class="note">${esc(fundingNote)}</p>`}
+function moneyLine(a){return `<div class="money"><b class="funding-heading">Money Trail</b><p>${esc(EvidenceFunding.summary(a.citations).text)}</p><button class="act" id="see-funding">See who paid</button></div>`}
+function openFunding(a){const r=EvidenceFunding.summary(a.citations);$("pbody").innerHTML=`<p class="eyebrow">Funding disclosures</p><h3>Who paid for this research</h3><p>${esc(r.text)}</p><p class="note">${esc(fundingNote)}</p>${r.sources.map(s=>`<section><h4>Source [${esc(s.n)}]: ${esc(s.title)}</h4>${fundingRows(s.records)}</section>`).join("")}${r.sources.length?"":`<p>No research studies are cited on this card. Funding has not been checked.</p>`}`;openP("Who paid for this research")}
 function openCite(c,n){const st=c.strength||"none";
  const kind=c.kind?`<span class="meta">${esc(KIND[c.kind]||c.kind.replace(/_/g," "))}</span>`:"";
  const orig=c.url?`<a class="act pri" href="${esc(c.url)}" target="_blank" rel="noopener">Open the original study ↗</a>`:"";
@@ -164,8 +170,9 @@ function openCite(c,n){const st=c.strength||"none";
  const nolink=!c.url?`<p class="note">From our evidence library's write-up, which summarises the published studies. We link the original paper only when it's named right beside the passage. The full write-up opens to reviewers on request.</p>`:"";
  $("pbody").innerHTML=`<p class="eyebrow">Source [${n}]</p><h3>${esc(c.doc)}</h3><div class="where">${esc((c.where||"").split(" › ").slice(1).join(" › "))}</div><div class="badges">${badge(st)}${kind}</div>${c.claim?`<div class="claim"><span>Used to support</span>${esc(c.claim)}</div>`:""}<div class="ctx prose">${passage(c,st)}</div>${why}${stale}<div class="acts">${orig}</div>${nolink}${fundBlock(c)}`;
  openP();}
-function openP(){$("panel").classList.add("open");$("panel").scrollTop=0;$("close").focus()}
-function closeP(){$("panel").classList.remove("open")}
+let panelFocus=null;
+function openP(label="Source passage"){panelFocus=document.activeElement;$("panel").setAttribute("aria-label",label);$("panel").setAttribute("aria-hidden","false");$("panel").classList.add("open");$("panel").scrollTop=0;$("close").focus()}
+function closeP(){const wasOpen=$("panel").classList.contains("open");$("panel").classList.remove("open");$("panel").setAttribute("aria-hidden","true");if(wasOpen&&panelFocus&&panelFocus.isConnected)panelFocus.focus()}
 $("close").onclick=closeP;document.addEventListener("keydown",e=>{if(e.key==="Escape")closeP()});
 D.forEach((a,i)=>{const b=document.createElement("button");b.className="q";b.style.borderLeft=`6px solid ${VDB[a.card.verdict]||"#9A3324"}`;b.innerHTML=`<small style="color:${VDC[a.card.verdict]||"#9A3324"}">${esc(a.card.verdict_label)}</small>${esc(a.question.length>90?a.question.slice(0,88)+"…":a.question)}`;b.onclick=()=>show(i);$("list").appendChild(b)});
 if(D.length)show(0);
