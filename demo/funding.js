@@ -27,8 +27,17 @@
     const text = sources.length ? (checked.length ? parts.join(" · ") : "Funding not checked yet · " + parts.join(" · ")) : "No studies cited · Funding not checked";
     return { text, sources, checked: checked.length };
   }
+  // Counts for the stacked bar: unique checked studies by class, plus unchecked records.
+  function breakdown(citations) {
+    const sources = entries(citations), unique = new Map(); let unchecked = 0;
+    sources.forEach(s => s.records.forEach(f => { if (f.checked) unique.set(f.id || f.url + f.study, f); else unchecked++; }));
+    const out = { independent: 0, industry: 0, not_stated: 0, unchecked };
+    unique.forEach(f => { const k = f.cls === "independent" ? "independent" : (f.cls === "industry" || f.cls === "mixed") ? "industry" : "not_stated"; out[k]++; });
+    out.total = out.independent + out.industry + out.not_stated + out.unchecked;
+    return out;
+  }
   const note = "Stake means reported industry sponsorship, product supply or author financial ties. No means none declared in the checked disclosure; it is not a guarantee. Funding does not establish bias or independent replication. For reviews, these are the review’s own disclosures, not a funding check of every included trial.";
-  const api = { safeUrl, entries, summary, note };
+  const api = { safeUrl, entries, summary, breakdown, note };
   root.EvidenceFunding = api;
   if (typeof module !== "undefined" && module.exports) module.exports = api;
 })(typeof window !== "undefined" ? window : globalThis);

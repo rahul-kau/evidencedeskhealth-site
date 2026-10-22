@@ -1,16 +1,16 @@
 <!doctype html>
 <html lang="en"><head>
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-OlQq35PNbLjNMbIJP8F0EiWqdpY7oe4Frhv1Zl6q2Ik='; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-mM3x3XM9tRQ/lYzlB/ecmTOB968uSau7rWbcg7/j/Jo='; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Evidence Desk · Sample Answers</title>
 <meta name="description" content="Real answers from the Evidence Desk prototype, with the library passage behind every cited point.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,650&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#F3EFE6;--card:#FBF8F2;--ink:#29261F;--body:#4F4A40;--mute:#6E675B;--line:#DDD5C5;--rust:#9A3324;--green:#2F6B50;--hl:#F3D9CF}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 'Public Sans',Arial,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 'Instrument Sans',Arial,sans-serif}
 header{max-width:1100px;margin:0 auto;padding:28px 20px 8px}
-.brand{font:600 30px 'Source Serif 4',Georgia,serif;margin:0}.brand a{color:inherit;text-decoration:none}
+.brand{font:600 30px 'Newsreader',Georgia,serif;margin:0}.brand a{color:inherit;text-decoration:none}
 .sub{color:var(--mute);margin:4px 0 0}
 .notice{max-width:1060px;margin:14px 20px 0;padding:12px 16px;background:var(--card);border:2px solid var(--line);border-left:6px solid var(--rust);border-radius:12px;font-size:15px;color:var(--body)}
 main{max-width:1100px;margin:18px auto 40px;padding:0 20px;display:grid;grid-template-columns:320px 1fr;gap:24px}
@@ -20,13 +20,13 @@ main{max-width:1100px;margin:18px auto 40px;padding:0 20px;display:grid;grid-tem
 .q[aria-current="true"]{border-color:var(--rust)!important;border-width:2px!important;box-shadow:0 4px 14px rgba(41,38,31,.08)}
 .q:focus-visible{outline:3px solid var(--rust)}
 .ans{display:flex;flex-direction:column;gap:16px}
-.asked{font:600 24px/1.3 'Source Serif 4',Georgia,serif;margin:0}
+.asked{font:600 24px/1.3 'Newsreader',Georgia,serif;margin:0}
 .card{background:var(--card);border:2px solid var(--line);border-left:8px solid var(--rust);border-radius:16px;padding:18px 22px}
 .chip{display:inline-block;font-weight:600;color:var(--rust);font-size:15px;margin-bottom:4px}
-.strength{all:unset;cursor:pointer;float:right;font-size:13px;color:var(--mute);border:1px solid var(--line);border-radius:99px;padding:2px 10px}.strength:hover,.strength:focus-visible{border-color:var(--rust);color:var(--rust)}.strength::after{content:" ⓘ"}
+.strength{all:unset;cursor:pointer;float:right;font-size:13px;color:var(--mute);border:1px solid var(--line);border-radius:99px;padding:2px 10px}.strength:hover,.strength:focus-visible{border-color:var(--ink);color:var(--ink);outline:2px solid var(--ink);outline-offset:2px}.strength::after{content:" ⓘ"}
 .chip{all:unset;cursor:pointer}.chip::after{content:" ⓘ";font-weight:400;color:var(--mute)}
 .why h4{font:600 16px "Public Sans",sans-serif;margin:14px 0 6px}.why ul{padding-left:20px;margin:0}.why li{margin-bottom:6px;font-size:15px}.tier{display:flex;flex-direction:column;align-items:center;gap:4px;margin:10px 0}.tier div{border-radius:6px;padding:6px 10px;font-size:13px;text-align:center}.tier .on{outline:3px solid var(--rust)}
-.headline{font:600 21px/1.35 'Source Serif 4',Georgia,serif;margin:4px 0 0}
+.headline{font:600 21px/1.35 'Newsreader',Georgia,serif;margin:4px 0 0}
 .subject{font-size:13px;color:var(--mute);margin-top:4px}
 .catch{background:var(--bg);border-radius:10px;padding:12px 14px;margin-top:12px;font-size:15.5px;color:var(--body)}
 .catch b{color:var(--ink)}
@@ -37,7 +37,7 @@ main{max-width:1100px;margin:18px auto 40px;padding:0 20px;display:grid;grid-tem
 .cite:hover,.cite:focus-visible{background:#E7F0EA;outline:none}
 .panel{position:fixed;top:0;right:0;height:100%;width:min(460px,100%);background:#FFFDF8;border-left:3px solid var(--rust);box-shadow:-12px 0 40px rgba(41,38,31,.18);padding:22px;overflow:auto;transform:translateX(105%);transition:transform .25s;z-index:5}
 .panel.open{transform:none}
-.panel h3{font:600 19px/1.35 'Source Serif 4',Georgia,serif;margin:0 30px 6px 0}
+.panel h3{font:600 19px/1.35 'Newsreader',Georgia,serif;margin:0 30px 6px 0}
 .panel .where{font-size:13px;color:var(--mute);margin-bottom:12px}
 .panel .claim{background:#EEE6D8;border-left:4px solid var(--rust);border-radius:8px;padding:10px 12px;font-size:15px;margin-bottom:12px}
 .panel .ctx{font-size:15px;color:var(--body);white-space:pre-wrap}
@@ -66,9 +66,9 @@ footer{max-width:1100px;margin:0 auto 40px;padding:0 20px;font-size:13px;color:v
 .full{white-space:normal}
 .eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);font-weight:600;margin:0 0 6px}
 .panel h3{font-size:22px}.lead{font-size:16.5px;color:var(--ink);margin:10px 0 14px}
-.pill{display:inline-block;font:600 15px 'Public Sans',sans-serif;border:1.5px solid;border-radius:99px;padding:4px 12px}
+.pill{display:inline-block;font:600 15px 'Instrument Sans',sans-serif;border:1.5px solid;border-radius:99px;padding:4px 12px}
 .meter{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-top:4px}.meter i{height:8px;border-radius:4px}.mlab{display:flex;justify-content:space-between;font-size:12px;color:var(--mute);margin-top:4px}
-.panel h4{font:600 13px 'Public Sans',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin:22px 0 8px}
+.panel h4{font:600 13px 'Instrument Sans',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin:22px 0 8px}
 .tier div{font-size:12.5px;opacity:.85}.tier .on{opacity:1;outline:3px solid var(--ink);outline-offset:1px;font-weight:600}
 .slist{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:12px;overflow:hidden}
 .srow{all:unset;cursor:pointer;display:flex;align-items:center;gap:10px;padding:11px 12px;background:#FFFDF8;border-bottom:1px solid var(--line);font-size:14.5px}.srow:last-child{border-bottom:0}.srow:hover,.srow:focus-visible{background:#F6F1E7}
@@ -82,11 +82,87 @@ footer{max-width:1100px;margin:0 auto 40px;padding:0 20px;font-size:13px;color:v
 .rules{border:1px solid var(--line);border-radius:12px;overflow:hidden}.rules div{display:flex;justify-content:space-between;gap:12px;padding:9px 12px;border-bottom:1px solid var(--line);font-size:14px;background:#FFFDF8}.rules div:last-child{border:0}.rules span{color:var(--body)}.rules b{text-align:right}
 .chip::after,.strength::after{content:"Why?";font-size:12px;font-weight:600;margin-left:8px;padding:1px 7px;border-radius:99px;background:rgba(41,38,31,.07);color:var(--mute);vertical-align:1px}
 @media(max-width:520px){.calc{flex-direction:column}.op{display:none}}
+.smstrip{all:unset;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;width:100%;margin:10px 0 2px;padding:8px 0;cursor:pointer;clear:both}.smstrip i{height:8px;border-radius:3px;background:#E4E1D8}.smstrip i.on{background:#3D3830}.smstrip:focus-visible{outline:2px solid var(--rust,#9A3324);outline-offset:2px;border-radius:4px}
+.fbar{display:flex;gap:2px;height:20px;border-radius:5px;overflow:hidden;margin:6px 0 0}.fbar i{min-width:8px}.flegend{display:flex;flex-wrap:wrap;gap:4px 14px;margin:8px 0 10px;font-size:13px;color:var(--ink)}.flegend span{display:inline-flex;align-items:center;gap:6px}.flegend i{width:10px;height:10px;border-radius:2px;display:inline-block;flex:none}.fb-independent{background:#1F3F73}.fb-industry{background:#9B7BD0}.fb-not_stated{background:#C9CFD9}.fb-unchecked{background:repeating-linear-gradient(45deg,#D8D5CC 0 5px,#ECEAE3 5px 10px)}.flegend i.fb-unchecked,.fs-dot.fb-unchecked{box-shadow:inset 0 0 0 1px #8C8676}
+.fsheet-sum{background:#FBF1E0;border-radius:12px;padding:12px 14px;margin:10px 0 8px}.fsheet-sum p{margin:0;font-size:14.5px}.fsrc{margin-top:18px}.fsrc h4{margin:0 0 8px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);font-weight:600}.fs-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:0 0 10px;overflow-wrap:anywhere}.fs-top{display:flex;align-items:center;gap:8px;margin-bottom:6px}.fs-dot{width:10px;height:10px;border-radius:2px;flex:none}.fs-tag{font-size:12.5px;font-weight:600;color:var(--ink)}.fs-card h5{margin:0 0 8px;font-size:15px;line-height:1.35;font-weight:600}.fs-row{display:grid;grid-template-columns:96px 1fr;gap:8px;font-size:13.5px;line-height:1.45;padding:5px 0;border-top:1px solid #F0EBE1}.fs-row span:first-child{color:var(--mute)}.fs-card a{display:inline-block;margin-top:8px;font-size:13.5px;color:var(--rust)}
+.rr{margin-top:10px;padding-top:10px;border-top:1px dashed rgba(41,38,31,.25)}.rr-why{margin:0 0 8px;font-size:13.5px;color:var(--mute)}.rr-btn{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--ink);background:#fff;color:var(--ink);font-weight:600;font-size:14px;cursor:pointer}.rr-btn:focus-visible{outline:2px solid var(--rust,#9A3324);outline-offset:2px}.rr-row{display:flex;flex-wrap:wrap;gap:8px}.rr-paid{background:var(--ink)!important;color:var(--card)!important}.rr-done{margin:0;font-size:14px;font-weight:600;color:var(--ink)}
 .money{margin-top:10px;font-size:14.5px;color:var(--body);background:#FBF1E0;border-radius:10px;padding:10px 14px}.money b{color:var(--ink)}
 .fund{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:6px}.fund div{padding:10px 12px;border-bottom:1px solid var(--line);background:#FFFDF8;font-size:14px}.fund div:last-child{border:0}.fund .fs{display:block;color:var(--ink);font-weight:600;margin:4px 0 2px;line-height:1.35}.fund .fw{color:var(--body)}.fund a{font-size:13px;color:var(--mute)}
 .fc{display:inline-block;font-size:12px;font-weight:600;border-radius:99px;padding:1px 9px}.fc-independent{background:#E3EFE7;color:#1E5A3C}.fc-industry{background:#FBE3CF;color:#8A3B0F}.fc-mixed{background:#F6ECCB;color:#6E5300}.fc-not_stated{background:#ECE8E0;color:#5A554B}
 @media (max-width:640px){/* bottom sheet on phones */.panel{top:auto;bottom:0;height:80%;width:100%;border-left:0;border-top:3px solid var(--rust);border-radius:20px 20px 0 0;box-shadow:0 0 0 100vmax rgba(41,38,31,.38),0 -8px 30px rgba(41,38,31,.2);transform:translateY(105%)}.panel.open{transform:none}.panel::before{content:"";display:block;width:44px;height:5px;border-radius:3px;background:#D8CFBE;margin:-8px auto 14px}}
 .funding-heading{display:block;margin-bottom:4px;font-weight:600;color:var(--ink)}.money p{margin:0 0 8px}.money{overflow-wrap:anywhere}.funding-study{border-top:1px solid var(--line);padding:14px 0;overflow-wrap:anywhere}.funding-study h4{margin:0 0 8px;font-size:16px;font-weight:600;text-transform:none;letter-spacing:normal}.funding-study a{color:var(--rust)}.funding-study p{margin:6px 0}.money button:focus-visible{outline:2px solid var(--rust);outline-offset:3px}
+
+
+/* Look A "Confident" (2026-10-22) */
+:root{--bg:#F4F1EB;--card:#FBF9F5;--ink:#191714;--body:#3F3B35;--mute:#6F695F;--line:#E6E0D6}
+.card{border:1px solid var(--line)!important;border-left:1px solid var(--line)!important;border-radius:22px!important;padding:10px 10px 18px!important;background:var(--card);box-shadow:0 1px 0 rgba(0,0,0,.03),0 16px 36px -26px rgba(0,0,0,.4)}
+.card>:not(.band){margin-left:10px;margin-right:10px}
+.band{background:var(--band);color:#fff;border-radius:16px;padding:14px 16px 10px}
+.bandtop{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.band .chip{all:unset;cursor:pointer;font:700 13px 'Instrument Sans',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#fff}
+.band .chip::after{background:rgba(255,255,255,.18)!important;color:#fff!important;letter-spacing:0;text-transform:none}
+.band .strength{float:none!important;color:#fff!important;border:0!important;background:rgba(255,255,255,.18)!important;font-size:12.5px!important;padding:3px 10px!important}
+.band .strength::after{background:rgba(255,255,255,.22)!important;color:#fff!important}
+.band .strength:hover,.band .strength:focus-visible{background:rgba(255,255,255,.28)!important;outline:2px solid #fff!important}
+.band .chip:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.band .headline{color:#fff;font:650 22px/1.25 'Newsreader',Georgia,serif;margin:10px 0 0}
+.band .headline.long{font-size:19px;line-height:1.3}
+.band .smstrip{margin:12px 0 0;padding:6px 0}
+.band .smstrip i{background:rgba(255,255,255,.28)!important;height:6px}.band .smstrip i.on{background:#fff!important}
+.card .subject{margin-top:12px}
+.catch{border-radius:14px}
+.money{border-radius:14px}
+/* Readability (2026-10-22) */
+.headline{text-wrap:pretty}.headline.long{font-size:18.5px;line-height:1.4}h1,h2,h3,.asked{text-wrap:balance}.catch,.money p{line-height:1.55}
+:root[data-theme="dark"] .meter i{filter:invert(1)}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .meter i{filter:invert(1)}}
+/* Dark mode (2026-10-22): tokens + the few literal surfaces. Verdict colours lightened for contrast. */
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1B1916;--card:#24211D;--ink:#EDE6D8;--body:#D5CDBE;--mute:#A89F8C;--line:#3A352E;--rust:#E0705F;--green:#6FB38F;--hl:#5A3A2E;color-scheme:dark}
+:root:not([data-theme="light"]) .flags{background:#3A2622;border-color:#6A3A30}
+:root:not([data-theme="light"]) .cite:hover,:root:not([data-theme="light"]) .cite:focus-visible{background:#22332A}
+:root:not([data-theme="light"]) .panel{background:#24211D}
+:root:not([data-theme="light"]) .panel .claim{background:#2F2B25}
+:root:not([data-theme="light"]) .sw-strong{background:#22332A;color:#9FD3B4}:root:not([data-theme="light"]) .sw-moderate{background:#3A3220;color:#E3C27A}:root:not([data-theme="light"]) .sw-weak{background:#3A2622;color:#F0A493}:root:not([data-theme="light"]) .sw-none{background:#2F2B25;color:#BDB4A3}
+:root:not([data-theme="light"]) .panel mark.m-strong{background:#2A4334}:root:not([data-theme="light"]) .panel mark.m-moderate{background:#4A3E1F}:root:not([data-theme="light"]) .panel mark.m-weak{background:#4A2C25}:root:not([data-theme="light"]) .panel mark.m-none{background:#3A352E}
+:root:not([data-theme="light"]) .cite.c-strong{color:#9FD3B4}:root:not([data-theme="light"]) .cite.c-moderate{color:#E3C27A}:root:not([data-theme="light"]) .cite.c-weak{color:#F0A493}:root:not([data-theme="light"]) .cite.c-none{color:#BDB4A3}
+:root:not([data-theme="light"]) .full,:root:not([data-theme="light"]) .panel .ctx,:root:not([data-theme="light"]) .calc>div:not(.op){background:#2C2823}
+:root:not([data-theme="light"]) .srow,:root:not([data-theme="light"]) .rules div,:root:not([data-theme="light"]) .fund div{background:#24211D}:root:not([data-theme="light"]) .srow:hover,:root:not([data-theme="light"]) .srow:focus-visible{background:#2F2B25}
+:root:not([data-theme="light"]) .callout{background:#3A2622}
+:root:not([data-theme="light"]) .act.pri{color:#1B1916}
+:root:not([data-theme="light"]) .chip::after,:root:not([data-theme="light"]) .strength::after{background:rgba(237,230,216,.12)}
+:root:not([data-theme="light"]) .smstrip i{background:#3A352E}:root:not([data-theme="light"]) .smstrip i.on{background:#EDE6D8}
+:root:not([data-theme="light"]) .fb-independent{background:#8FB3EA}:root:not([data-theme="light"]) .fb-industry{background:#B9A0E6}:root:not([data-theme="light"]) .fb-not_stated{background:#5E6573}:root:not([data-theme="light"]) .fb-unchecked{background:repeating-linear-gradient(45deg,#3A352E 0 5px,#2C2823 5px 10px)}
+:root:not([data-theme="light"]) .fsheet-sum,:root:not([data-theme="light"]) .money{background:#2E2A22}
+:root:not([data-theme="light"]) .fs-card{background:#2C2823}
+:root:not([data-theme="light"]) .rr-btn{background:#2C2823}
+:root:not([data-theme="light"]) .fc-independent{background:#22332A;color:#9FD3B4}:root:not([data-theme="light"]) .fc-industry{background:#3A2A1E;color:#F0B88A}:root:not([data-theme="light"]) .fc-mixed{background:#3A3220;color:#E3C27A}:root:not([data-theme="light"]) .fc-not_stated{background:#2F2B25;color:#BDB4A3}
+:root:not([data-theme="light"]) .panel::before{background:#4A4438}
+:root:not([data-theme="light"]) .card{--vd:color-mix(in srgb,var(--vb) 70%,#fff)!important}:root:not([data-theme="light"]) .band{filter:brightness(.9)}
+:root:not([data-theme="light"]) .strength{color:var(--ink)!important;border-color:var(--line)!important;background:transparent!important}
+:root:not([data-theme="light"]) .pill{color:var(--ink)!important;border-color:var(--line)!important;background:transparent!important}
+}
+:root[data-theme="dark"]{--bg:#1B1916;--card:#24211D;--ink:#EDE6D8;--body:#D5CDBE;--mute:#A89F8C;--line:#3A352E;--rust:#E0705F;--green:#6FB38F;--hl:#5A3A2E;color-scheme:dark}
+:root[data-theme="dark"] .flags{background:#3A2622;border-color:#6A3A30}
+:root[data-theme="dark"] .cite:hover,:root[data-theme="dark"] .cite:focus-visible{background:#22332A}
+:root[data-theme="dark"] .panel{background:#24211D}
+:root[data-theme="dark"] .panel .claim{background:#2F2B25}
+:root[data-theme="dark"] .sw-strong{background:#22332A;color:#9FD3B4}:root[data-theme="dark"] .sw-moderate{background:#3A3220;color:#E3C27A}:root[data-theme="dark"] .sw-weak{background:#3A2622;color:#F0A493}:root[data-theme="dark"] .sw-none{background:#2F2B25;color:#BDB4A3}
+:root[data-theme="dark"] .panel mark.m-strong{background:#2A4334}:root[data-theme="dark"] .panel mark.m-moderate{background:#4A3E1F}:root[data-theme="dark"] .panel mark.m-weak{background:#4A2C25}:root[data-theme="dark"] .panel mark.m-none{background:#3A352E}
+:root[data-theme="dark"] .cite.c-strong{color:#9FD3B4}:root[data-theme="dark"] .cite.c-moderate{color:#E3C27A}:root[data-theme="dark"] .cite.c-weak{color:#F0A493}:root[data-theme="dark"] .cite.c-none{color:#BDB4A3}
+:root[data-theme="dark"] .full,:root[data-theme="dark"] .panel .ctx,:root[data-theme="dark"] .calc>div:not(.op){background:#2C2823}
+:root[data-theme="dark"] .srow,:root[data-theme="dark"] .rules div,:root[data-theme="dark"] .fund div{background:#24211D}:root[data-theme="dark"] .srow:hover,:root[data-theme="dark"] .srow:focus-visible{background:#2F2B25}
+:root[data-theme="dark"] .callout{background:#3A2622}
+:root[data-theme="dark"] .act.pri{color:#1B1916}
+:root[data-theme="dark"] .chip::after,:root[data-theme="dark"] .strength::after{background:rgba(237,230,216,.12)}
+:root[data-theme="dark"] .smstrip i{background:#3A352E}:root[data-theme="dark"] .smstrip i.on{background:#EDE6D8}
+:root[data-theme="dark"] .fb-independent{background:#8FB3EA}:root[data-theme="dark"] .fb-industry{background:#B9A0E6}:root[data-theme="dark"] .fb-not_stated{background:#5E6573}:root[data-theme="dark"] .fb-unchecked{background:repeating-linear-gradient(45deg,#3A352E 0 5px,#2C2823 5px 10px)}
+:root[data-theme="dark"] .fsheet-sum,:root[data-theme="dark"] .money{background:#2E2A22}
+:root[data-theme="dark"] .fs-card{background:#2C2823}
+:root[data-theme="dark"] .rr-btn{background:#2C2823}
+:root[data-theme="dark"] .fc-independent{background:#22332A;color:#9FD3B4}:root[data-theme="dark"] .fc-industry{background:#3A2A1E;color:#F0B88A}:root[data-theme="dark"] .fc-mixed{background:#3A3220;color:#E3C27A}:root[data-theme="dark"] .fc-not_stated{background:#2F2B25;color:#BDB4A3}
+:root[data-theme="dark"] .panel::before{background:#4A4438}
+:root[data-theme="dark"] .card{--vd:color-mix(in srgb,var(--vb) 70%,#fff)!important}:root[data-theme="dark"] .band{filter:brightness(.9)}
+:root[data-theme="dark"] .strength{color:var(--ink)!important;border-color:var(--line)!important;background:transparent!important}
+:root[data-theme="dark"] .pill{color:var(--ink)!important;border-color:var(--line)!important;background:transparent!important}
 </style></head><body>
 <header><p class="brand"><a href="https://evidencedeskhealth.com">Evidence Desk</a></p>
 <p class="sub">Sample answers: real questions people asked, answered by our prototype. Tap a number to see the passage behind it, or tap a label to see why we say it.</p></header>
@@ -114,16 +190,17 @@ function md(t,cites){cites=cites||{};const out=[];let list=null,lt="ul";const fl
 function show(i){const a=D[i],c=a.card;
  [...$("list").children].forEach((b,j)=>b.setAttribute("aria-current",j===i));
  const ev=EVC[c.strength]||["#6E675B","transparent"],vd=VDC[c.verdict]||"#9A3324";
- let h=`<p class="asked">“${esc(a.question)}”</p><div class="card" style="--ev:${ev[0]};--evbg:${ev[1]};--vd:${vd};--vb:${VDB[c.verdict]||vd}">${c.strength?`<button class="strength" id="why-strength">${esc(c.strength)}</button>`:""}<button class="chip" id="why-verdict">${esc(c.verdict_label||"")}</button><p class="headline">${esc(c.headline)}</p>${c.subject?`<div class="subject">About: ${esc(c.subject)}</div>`:""}${c.catch?`<div class="catch"><b>The catch:</b> ${esc(c.catch)}</div>`:""}${moneyLine(a)}</div>`;
+ let h=`<p class="asked">“${esc(a.question)}”</p><div class="card" style="--ev:${ev[0]};--evbg:${ev[1]};--vd:${vd};--vb:${VDB[c.verdict]||vd};--band:${BAND[c.verdict]||"#5F5A50"}"><div class="band"><div class="bandtop"><button class="chip" id="why-verdict">${esc(c.verdict_label||"")}</button>${c.strength?`<button class="strength" id="why-strength">${esc(c.strength)}</button>`:""}</div><p class="headline${(c.headline||"").split(/\s+/).length>25?" long":""}">${esc(c.headline)}</p>${strengthMeter(c.strength)}</div>${c.subject?`<div class="subject">About: ${esc(c.subject)}</div>`:""}${(c.catch||researchGap(c))?`<div class="catch">${c.catch?`<b>The catch:</b> ${esc(c.catch)}`:""}${researchGap(c)?`<div class="rr" id="rr"><p class="rr-why">Part of this isn\u2019t in our library yet. Want us to look into it?</p><div class="rr-row"><button class="rr-btn" id="rr-btn">Ask us to research this</button><button class="rr-btn rr-paid" id="rr-paid">Get it researched in 48 hours · ₹49</button></div></div>`:""}</div>`:""}${moneyLine(a)}</div>`;
  if(c.red_flags&&c.red_flags.length)h+=`<div class="flags"><b>Get help fast:</b> ${c.red_flags.map(esc).join(" ")}</div>`;
  h+=`<div class="body prose">${md(a.markdown,a.citations)}</div>`;
  $("ans").innerHTML=h;
  $("ans").querySelectorAll(".cite").forEach(b=>b.onclick=()=>openCite(a.citations[b.dataset.n],b.dataset.n));
  $("see-funding").onclick=()=>openFunding(a);
- const ws=$("why-strength"); if(ws) ws.onclick=()=>whyStrength(a);
+ const ws=$("why-strength"); if(ws) ws.onclick=()=>whyStrength(a); const rp=$("rr-paid"); if(rp) rp.onclick=()=>{$("rr").innerHTML=`<p class="rr-done" role="status">In the pilot app this would be a paid priority request (₹49). Paid research isn’t open yet.</p>`}; const rb=$("rr-btn"); if(rb) rb.onclick=()=>{$("rr").innerHTML=`<p class="rr-done" role="status">In the pilot app, this sends us a research request. The most-requested topics get researched first.</p>`}; const ss=$("strength-strip"); if(ss) ss.onclick=()=>whyStrength(a);
  const wv=$("why-verdict"); if(wv) wv.onclick=()=>whyVerdict(a);
  closeP();}
-const EVC={"Several good trials agree":["#1F5A40","#E4F0E8"],"Decent evidence, with gaps":["#3F7A5E","#EAF2EC"],"Early or limited evidence":["#9A6B0C","#FAF0D8"],"Good studies disagree":["#5B4E8C","#ECE8F5"],"Tested properly, and it didn't work":["#9A3324","#F8E4DD"],"Checked properly, and the claim doesn't hold":["#9A3324","#F8E4DD"],"No good studies in our library":["#6E675B","#ECE8E0"]};
+// Evidence strength is shown in neutral ink: colour on the card belongs to the verdict only.
+const EVC={"Several good trials agree":["#3D3830","#F1EDE4"],"Decent evidence, with gaps":["#3D3830","#F1EDE4"],"Early or limited evidence":["#3D3830","#F1EDE4"],"Good studies disagree":["#3D3830","#F1EDE4"],"Tested properly, and it didn't work":["#3D3830","#F1EDE4"],"Checked properly, and the claim doesn't hold":["#3D3830","#F1EDE4"],"No good studies in our library":["#3D3830","#F1EDE4"]};
 const VDC={nuanced:"#8F6A00",mixed:"#8F6A00",unproven_harmless:"#8F6A00",do_it:"#1E7A46",reasonable_to_try:"#1E7A46",claim_supported:"#1E7A46",fine:"#1E7A46",worth_trying:"#1E7A46",try:"#1E7A46",doctors_call:"#B3261E",dont_yet:"#B3261E",dont:"#B3261E",dont_bother:"#B3261E",myth:"#B3261E",no_evidence_claim:"#6E675B",not_researched:"#6E675B"};
 const VDB={nuanced:"#F2B705",mixed:"#F2B705",unproven_harmless:"#F2B705",do_it:"#2E9E5B",reasonable_to_try:"#2E9E5B",claim_supported:"#2E9E5B",fine:"#2E9E5B",worth_trying:"#2E9E5B",try:"#2E9E5B",doctors_call:"#D93025",dont_yet:"#D93025",dont:"#D93025",dont_bother:"#D93025",myth:"#D93025",no_evidence_claim:"#A39E92",not_researched:"#A39E92"};
 const KIND={systematic_review:"Systematic review",meta_analysis:"Meta-analysis",rct:"Randomised trial",narrative_review:"Narrative review (an expert summary, not a trial)",uncontrolled_pilot:"Small pilot study with no comparison group",clinical_review:"Clinical review",guideline:"Clinical guideline"};
@@ -157,11 +234,22 @@ function whyVerdict(a){const c=a.card,vd=VDC[c.verdict]||"#9A3324",ev=EVC[c.stre
  const t=$("tostr");if(t)t.onclick=()=>whyStrength(a);openP();}
 function passage(c,st){let raw=c.context||"";const q=c.quote||"";const k=q?raw.indexOf(q):-1;if(k>=0)raw=raw.slice(0,k)+"\u0001"+q+"\u0002"+raw.slice(k+q.length);
  return md(raw).replace(/\u0001/g,`<mark class="m-${st}">`).replace(/\u0002/g,"</mark>")}
-function fundingRows(records){return records.map(f=>`<article class="funding-study"><h4>${esc(f.study)}</h4><p><b>Funder:</b> ${esc(f.funder||"Not stated")}</p><p><b>Financial stake:</b> ${esc(f.stake)}. ${esc(f.stake_detail||"Not established.")}</p>${f.sponsor_role?`<p><b>Sponsor’s role:</b> ${esc(f.sponsor_role)}</p>`:""}${safeUrl(f.url)?`<a href="${esc(safeUrl(f.url))}" target="_blank" rel="noopener noreferrer">${f.checked?"Read the disclosure":"Study link — funding not checked"} ↗</a>`:`<p class="note">No disclosure link recorded.</p>`}</article>`).join("")}
+function fundingRows(records){return records.map(f=>{const k=fkind(f),ties=f.checked?({yes:"Declared",no:"None declared",unknown:"Not established"}[f.stake]||"Not established"):"Not checked";
+ return `<article class="fs-card"><div class="fs-top"><i class="fs-dot fb-${k}" aria-hidden="true"></i><span class="fs-tag">${FK[k]}</span></div><h5>${esc(f.study)}</h5><div class="fs-row"><span>Funder</span><span>${esc(f.checked?(f.funder||"Not stated"):"Not checked yet")}</span></div><div class="fs-row"><span>Financial ties</span><span>${(f.stake_detail||"").toLowerCase().startsWith(ties.toLowerCase())?"":`<b>${ties}.</b> `}${esc(f.stake_detail||"")}</span></div>${f.sponsor_role?`<div class="fs-row"><span>Sponsor\u2019s role</span><span>${esc(f.sponsor_role)}</span></div>`:""}${safeUrl(f.url)?`<a href="${esc(safeUrl(f.url))}" target="_blank" rel="noopener noreferrer">${f.checked?"Read the disclosure":"Open the study"} \u2197</a>`:""}</article>`}).join("")}
+function fkind(f){if(!f.checked)return "unchecked";return f.cls==="independent"?"independent":(f.cls==="industry"||f.cls==="mixed")?"industry":"not_stated"}
 const fundingNote=EvidenceFunding.note;
 function fundBlock(c){const sources=EvidenceFunding.entries({source:c});return `<h4>Who paid for this research</h4>${fundingRows(sources[0].records)}<p class="note">${esc(fundingNote)}</p>`}
-function moneyLine(a){return `<div class="money"><b class="funding-heading">Money Trail</b><p>${esc(EvidenceFunding.summary(a.citations).text)}</p><button class="act" id="see-funding">See who paid</button></div>`}
-function openFunding(a){const r=EvidenceFunding.summary(a.citations);$("pbody").innerHTML=`<p class="eyebrow">Funding disclosures</p><h3>Who paid for this research</h3><p>${esc(r.text)}</p><p class="note">${esc(fundingNote)}</p>${r.sources.map(s=>`<section><h4>Source [${esc(s.n)}]: ${esc(s.title)}</h4>${fundingRows(s.records)}</section>`).join("")}${r.sources.length?"":`<p>No research studies are cited on this card. Funding has not been checked.</p>`}`;openP("Who paid for this research")}
+const GAP_RE=/(?:does(?:n['’]t| not)|do(?:n['’]t| not)) cover|not cover|no (?:direct )?(?:study|studies|trial|trials|research|evidence|data) (?:of|on|about|measuring|that)|nothing (?:in (?:our |the )?library )?(?:tests|covers|shows)|(?:library|research|sources checked here) (?:has|have) (?:nothing|no)|not \w+[- ]specific/i;
+function researchGap(c){return c.verdict==="not_researched"||c.verdict==="no_evidence_claim"||c.strength==="No good studies in our library"||GAP_RE.test(c.headline||"")||GAP_RE.test(c.catch||"")}
+// Look A (2026-10-22): verdict colour fills the band. Dark enough for white text (WCAG AA).
+const BAND={do_it:"#1C7A47",claim_supported:"#1C7A47",reasonable_to_try:"#2B7A52",fine:"#2B7A52",worth_trying:"#2B7A52",try:"#2B7A52",nuanced:"#8F6200",mixed:"#8F6200",unproven_harmless:"#8F6200",dont_yet:"#B3261E",doctors_call:"#B3261E",dont:"#B3261E",dont_bother:"#B3261E",myth:"#B3261E",avoid:"#B3261E",no_evidence_claim:"#5F5A50",not_researched:"#5F5A50"};
+const INLINE_LEVEL={"No good studies in our library":1,"Nobody has really studied this":1,"Early or limited evidence":2,"Decent evidence, with gaps":3,"Several good trials agree":4};
+function strengthMeter(label){const lv=INLINE_LEVEL[label];if(!lv)return "";return `<button class="smstrip lv-${lv}" id="strength-strip" aria-label="Evidence strength: ${esc(label)}, level ${lv} of 4. What does this mean?">${[1,2,3,4].map(k=>`<i class="${k<=lv?"on":""}" aria-hidden="true"></i>`).join("")}</button>`}
+const FK={independent:"Independent",industry:"Industry funded or supplied",not_stated:"Doesn't say",unchecked:"Not checked yet"};
+function fundBar(a){const b=EvidenceFunding.breakdown(a.citations);if(!b.total)return "";const parts=Object.keys(FK).map(k=>[k,FK[k],b[k]]).filter(p=>p[2]);
+ return `<div class="fbar" role="img" aria-label="Who paid for the cited studies: ${esc(parts.map(p=>p[2]+" "+p[1].toLowerCase()).join(", "))}">${parts.map(p=>`<i class="fb-${p[0]}" style="flex:${p[2]}"></i>`).join("")}</div><div class="flegend">${parts.map(p=>`<span><i class="fb-${p[0]}" aria-hidden="true"></i>${esc(p[1])} · ${p[2]}</span>`).join("")}</div>`}
+function moneyLine(a){return `<div class="money"><b class="funding-heading">Money Trail</b>${fundBar(a)}<p>${esc(EvidenceFunding.summary(a.citations).text)}</p><button class="act" id="see-funding">See who paid</button></div>`}
+function openFunding(a){const r=EvidenceFunding.summary(a.citations);$("pbody").innerHTML=`<p class="eyebrow">Money Trail</p><h3>Who paid for this research</h3><div class="fsheet-sum">${fundBar(a)}<p>${esc(r.text)}</p></div><p class="note">${esc(fundingNote)}</p>${r.sources.map(s=>`<section class="fsrc"><h4>Source [${esc(s.n)}] \u00b7 ${esc(s.title)}</h4>${fundingRows(s.records)}</section>`).join("")}${r.sources.length?"":`<p>No research studies are cited on this card. Funding has not been checked.</p>`}`;openP("Who paid for this research")}
 function openCite(c,n){const st=c.strength||"none";
  const kind=c.kind?`<span class="meta">${esc(KIND[c.kind]||c.kind.replace(/_/g," "))}</span>`:"";
  const orig=c.url?`<a class="act pri" href="${esc(c.url)}" target="_blank" rel="noopener">Open the original study ↗</a>`:"";
