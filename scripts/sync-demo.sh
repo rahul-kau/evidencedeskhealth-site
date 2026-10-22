@@ -29,6 +29,10 @@ src,dst,csp=sys.argv[1:]
 h=open(src).read()
 meta='<meta http-equiv="Content-Security-Policy" content="%s">\n<meta name="referrer" content="no-referrer">\n'%csp
 h=h.replace('<head>','<head>\n'+meta,1)
+# Version each script link by its content so browsers never pair a new page with an old cached script.
+import hashlib, os, re
+d=os.path.dirname(dst)
+h=re.sub(r'src="([\w.-]+\.js)"', lambda m: 'src="%s?v=%s"'%(m.group(1), hashlib.sha256(open(os.path.join(d,m.group(1)),'rb').read()).hexdigest()[:10]), h)
 open(dst,'w').write(h)
 P
 echo "demo synced into $SITE/demo"
