@@ -28,6 +28,11 @@ import sys
 src,dst,csp=sys.argv[1:]
 h=open(src).read()
 meta='<meta http-equiv="Content-Security-Policy" content="%s">\n<meta name="referrer" content="no-referrer">\n'%csp
+meta+=('<meta property="og:title" content="Evidence Desk sample answers">\n<meta property="og:description" content="Real health questions, answered from checked research: verdict, the catch, sources and who paid for the studies.">\n'
+       '<meta property="og:type" content="website">\n<meta property="og:url" content="https://evidencedeskhealth.com/demo/">\n<meta property="og:site_name" content="Evidence Desk">\n'
+       '<meta property="og:image" content="https://evidencedeskhealth.com/assets/og-image.png">\n<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n'
+       '<meta name="twitter:card" content="summary_large_image">\n<meta name="twitter:image" content="https://evidencedeskhealth.com/assets/og-image.png">\n'
+       '<link rel="apple-touch-icon" href="/apple-touch-icon.png">\n')
 h=h.replace('<head>','<head>\n'+meta,1)
 # Version each script link by its content so browsers never pair a new page with an old cached script.
 import hashlib, os, re
