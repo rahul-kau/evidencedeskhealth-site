@@ -138,6 +138,10 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     .dot { width: 7px; height: 7px; background: currentColor; border-radius: 50%; flex-shrink: 0; }
     .hero { padding: 52px 0 48px; display: grid; grid-template-columns: 1fr; align-items: center; gap: 36px; }
     .hero > div { min-width: 0; max-width: 760px; }
+    .hero-art { margin: 0; min-width: 0; }
+    .hero-art img { display: block; width: 100%; height: auto; -webkit-mask-image: radial-gradient(ellipse 58% 60% at 50% 52%, #000 72%, transparent 100%); mask-image: radial-gradient(ellipse 58% 60% at 50% 52%, #000 72%, transparent 100%); }
+    @media (min-width: 1001px) { .hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 12px; } .hero-art img { width: 108%; margin-left: -4%; } }
+    @media (max-width: 700px) { .hero-art { overflow: hidden; margin: -8px -20px 0; } .hero-art img { width: 135%; margin-left: -17.5%; } }
     .walkthrough-comparison { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--line); }
     .hero h1 { font-size: clamp(42px, 5vw, 62px); }
     .hero .intro { font-size: 18px; }
@@ -407,6 +411,9 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         </div>
         <p class="note">Explore saved prototype answers, their supporting passages and their limitations. The full app is still private.</p>
         </div>
+        <figure class="hero-art">
+          <img src="assets/illustrations/clay-hero-1500.webp" srcset="assets/illustrations/clay-hero-900.webp 900w, assets/illustrations/clay-hero-1500.webp 1500w" sizes="(min-width: 1001px) 640px, 100vw" width="1500" height="916" alt="3D illustration: a phone showing a forwarded Hindi message about stopping sugar tablets for karela juice, with a reply saying not to stop medicine on your own; around it a supplement bottle, a steel tumbler of haldi doodh, a karela and a magnifying glass over a highlighted source passage." fetchpriority="high">
+        </figure>
 
       </section>
       <section class="story" aria-labelledby="problem-title">
