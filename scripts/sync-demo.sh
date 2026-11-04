@@ -34,6 +34,18 @@ meta+=('<meta property="og:title" content="Evidence Desk sample answers">\n<meta
        '<meta name="twitter:card" content="summary_large_image">\n<meta name="twitter:image" content="https://evidencedeskhealth.com/assets/og-image.png">\n'
        '<link rel="apple-touch-icon" href="/apple-touch-icon.png">\n')
 h=h.replace('<head>','<head>\n'+meta,1)
+# Cloudflare Web Analytics (cookieless visitor counts). Allow only its beacon script and its report endpoint.
+import re as _re
+csp_old=_re.search(r'Content-Security-Policy" content="([^"]*)"', h).group(1)
+csp_new=_re.sub(r"script-src 'self'", "script-src 'self' https://static.cloudflareinsights.com", csp_old, count=1)
+csp_new=_re.sub(r"connect-src [^;]*", lambda m: "connect-src https://cloudflareinsights.com" if "'none'" in m.group(0)
+                else m.group(0) + " https://cloudflareinsights.com", csp_new, count=1)
+assert "static.cloudflareinsights.com" in csp_new and "connect-src" in csp_new, "demo CSP shape changed; update the analytics allowance"
+h=h.replace(csp_old, csp_new, 1)
+BEACON=("<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' "
+        "data-cf-beacon='{\"token\": \"6d0f87f7403c4af2a9a5e2df017f3d6c\"}'></script><!-- End Cloudflare Web Analytics -->")
+assert h.count('</head>')==1
+h=h.replace('</head>', BEACON+'</head>', 1)
 # Version each script link by its content so browsers never pair a new page with an old cached script.
 import hashlib, os, re
 d=os.path.dirname(dst)
