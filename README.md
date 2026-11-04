@@ -2,7 +2,7 @@
 
 Public information page for Evidence Desk, an India-first health Q&A product with public saved sample answers and a full app still in private testing.
 
-`index.html` uses inline CSS, embedded Source Serif 4 headings and system body fonts, and local image assets. There are no scripts, build tools, tracking, or forms. Contact links open an email client.
+`index.html` uses inline CSS, embedded Source Serif 4 headings and system body fonts, and local image assets. There are no build tools or forms. Contact links open an email client. The only script is Cloudflare Web Analytics, which counts visits without cookies or personal identifiers; the same beacon is on `demo/` and is added by `scripts/sync-demo.sh`, so re-syncing the demo keeps it.
 
 GitHub Pages serves the root of `main`. `CNAME` sets `evidencedeskhealth.com`; `.nojekyll` disables Jekyll processing.
 
